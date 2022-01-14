@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="SpringSecurity">
+  <meta name="author" content="Lapuda">
+  <meta name="keywords" content="java">
+  <meta name="description" content="SpringSecurity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringSecurity">
+<meta property="og:url" content="http://example.com/2021/12/21/springsecurity/index.html">
+<meta property="og:site_name" content="Lapuda&#39;s Space">
+<meta property="og:description" content="SpringSecurity">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/12/21/springsecurity/image-20211227220104802.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020051516581693.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqOTAzMTQ=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-12-21T01:54:05.488Z">
+<meta property="article:modified_time" content="2022-01-14T04:22:56.154Z">
+<meta property="article:author" content="Lapuda">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2021/12/21/springsecurity/image-20211227220104802.png">
+  
+  <title>SpringSecurity - Lapuda&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lapuda&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/cover/cyber.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="SpringSecurity">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-21 09:54" pubdate>
+        2021年12月21日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SpringSecurity</h1>
+            
+            <div class="markdown-body">
+              <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="写过滤器"><a href="#写过滤器" class="headerlink" title="写过滤器"></a>写过滤器</h3><h3 id="写核心配置类"><a href="#写核心配置类" class="headerlink" title="写核心配置类"></a>写核心配置类</h3><h3 id="HttpSecurity的常用方法"><a href="#HttpSecurity的常用方法" class="headerlink" title="HttpSecurity的常用方法"></a>HttpSecurity的常用方法</h3><h4 id="一、匹配路径的方法"><a href="#一、匹配路径的方法" class="headerlink" title="一、匹配路径的方法"></a>一、匹配路径的方法</h4><p>.antMatchers()：表达支持ant风格的路径通配符</p>
+<p>.regexMatchers()：接受正则表达式来定义请求的路径</p>
+<h4 id="二、保护路径的配置方法"><a href="#二、保护路径的配置方法" class="headerlink" title="二、保护路径的配置方法"></a>二、保护路径的配置方法</h4><p>.authenticated()：表示需要认证,在执行请求时，必须要登录</p>
+<p>.permitAll()：允许没有任何限制</p>
+<p>.access(String springEl)：给定的spEl计算为true的话，就允许访问</p>
+<p>.anonymous()：允许匿名用户访问</p>
+<p>.denyAll()：无条件拒绝所有访问</p>
+<p>.fullyAuthenticated()：如果用户是完整认证的话(不是通过remember-me功能认证的)，就允许访问</p>
+<p>.hasAnyAuthority(String …)：如果用户具备给定权限中一个的话，就允许访问</p>
+<p>.hasAnyRole(String… roles)：如果用户具备给定角色中一个的话，就允许访问</p>
+<p>.hasAuthority(String)：拥有给定权限就允许访问</p>
+<p>.hasIpAddress(String ip)：如果请求来自给定ip地址的话，就允许访问</p>
+<p>.hasRole(String role)：拥有指定角色的话，就允许访问</p>
+<p>.not()：对其他访问的结果取反</p>
+<p>permitAll()：无条件允许访问</p>
+<p>rememberMe()：通过remember-me功能认证的，就允许访问</p>
+<p>备注：可以使用.access(String springEl)结合其他配置方法使用，从而达到二维限定的作用</p>
+<h4 id="三、其他安全方法-需要加-and"><a href="#三、其他安全方法-需要加-and" class="headerlink" title="三、其他安全方法(需要加.and())"></a>三、其他安全方法(需要加.and())</h4><p>.requiresChannel()：强制使用https的请求</p>
+<p>.csrf().disable()：禁用crsf防护</p>
+<p>.formLogin()：启用基本登录功能</p>
+<p>.httpBasic()：启用HTTP Basic认证功能(浏览器会弹出一个简单模态框，可以输入账号和密码进行认证)</p>
+<p>.rememberMe()：启用记住me的功能</p>
+<p>.logout()</p>
+<p>.logoutUrl(“/logout”)</p>
+<p>配置登出的相关路径</p>
+<p>.logoutSuccessUrl(“/“)</p>
+<p>登出成功的路径</p>
+<h3 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/615dcdd3ea37">jwt的三个部分</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d5ce890c67f7">security整合jwt</a></p>
+<h2 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h2><h3 id="步骤一：实现UserDetailsService接口"><a href="#步骤一：实现UserDetailsService接口" class="headerlink" title="步骤一：实现UserDetailsService接口"></a>步骤一：实现UserDetailsService接口</h3><p>​    实现UserDetailsService接口，并重写loadUserByUsername，返回的对象时UserDetails 的实现类。</p>
+<p>​    这个方法如名字一样，就是将传来的userName查询数据库，看是否存在这个数据，如果没有就抛出异常UsernameNotFoundException（Security自带）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span>   <span class="hljs-comment">//需要放入容器中</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDetailsServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserDetailsService</span></span>&#123;<br><br><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> DbUserService userService;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> UserDetails <span class="hljs-title">loadUserByUsername</span><span class="hljs-params">(String username)</span> <span class="hljs-keyword">throws</span> UsernameNotFoundException </span>&#123;<br>        DbUser user = userService.selectUserByUsername(username);<br>        <span class="hljs-keyword">if</span>(Objects.isNull(user))&#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UsernameNotFoundException(ExceptionMessageEnum.USER_PASS_ERROR.getMessage());<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> SecurityUser(user);   <span class="hljs-comment">//Sercurity是自己定义的实体类，实现了UserDetails</span><br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>SecurityUser是需要返回的，因为实现了UserDetails。而DbUser是自己定义的实现类。</p>
+<h3 id="步骤二：配置类"><a href="#步骤二：配置类" class="headerlink" title="步骤二：配置类"></a>步骤二：配置类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>   <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">(HttpSecurity httpSecurity)</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br><br>       httpSecurity.cors(Customizer.withDefaults())<br>               <span class="hljs-comment">// 配置跨域资源共享（ CORS ）</span><br>               .authorizeRequests()<br>           	<span class="hljs-comment">//</span><br>               .antMatchers(<span class="hljs-string">&quot;/**&quot;</span>).permitAll()<br>               <span class="hljs-comment">// 对于登录login 验证码captchaImage 允许匿名访问</span><br>               .antMatchers(<span class="hljs-string">&quot;/user/login&quot;</span>,<span class="hljs-string">&quot;/error&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/user/login&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/organization/**&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/company/getCompanyByTenantId&quot;</span>,<span class="hljs-string">&quot;/getDeptAndRoleInfo&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/department/getDepartmentByTypeAndCompanyOrProjectId/**&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/role/selectByDept/**&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/user/**&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/user/authorize/**&quot;</span>).permitAll()<br>               .antMatchers(<br>                       HttpMethod.GET,<br>                       <span class="hljs-string">&quot;/*.html&quot;</span>,<br>                       <span class="hljs-string">&quot;/**/*.html&quot;</span>,<br>                       <span class="hljs-string">&quot;/**/*.css&quot;</span>,<br>                       <span class="hljs-string">&quot;/**/*.js&quot;</span><br>               ).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/profile/**&quot;</span>).anonymous()<br>               .antMatchers(<span class="hljs-string">&quot;/swagger-ui.html&quot;</span>).anonymous()<br>               .antMatchers(<span class="hljs-string">&quot;/swagger-resources/**&quot;</span>).anonymous()<br>               .antMatchers(<span class="hljs-string">&quot;/webjars/**&quot;</span>).anonymous()<br>               .antMatchers(<span class="hljs-string">&quot;/*/api-docs&quot;</span>).anonymous()<br>               .antMatchers(<span class="hljs-string">&quot;/druid/**&quot;</span>).anonymous()<br>               <span class="hljs-comment">// 除上面外的所有请求全部需要鉴权认证</span><br>               .anyRequest().authenticated()<br>               .and()<br>               <span class="hljs-comment">//登录过滤器</span><br>               .addFilterAt(userTokenLoginFilter, UsernamePasswordAuthenticationFilter.class);<br><br>       httpSecurity.addFilter(<span class="hljs-keyword">new</span> MyAuthenticationTokenFilter(authenticationManager(),jwtService,jedisService));<br><br>       <span class="hljs-comment">// 添加JWT filter</span><br>       <span class="hljs-comment">//httpSecurity.addFilterAfter(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);</span><br>       <span class="hljs-comment">// 认证失败处理类</span><br>       httpSecurity.exceptionHandling()<br>               .authenticationEntryPoint(<span class="hljs-keyword">new</span> AuthenticationEntryPointImplFilter())<br>               <span class="hljs-comment">//自定义授权失败处理器</span><br>               .accessDeniedHandler(<span class="hljs-keyword">new</span> AuthAccessDeniedHandler());<br>       <span class="hljs-comment">// 基于token，所以不需要session</span><br>       httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);<br>       <span class="hljs-comment">//先禁用 csrf</span><br>       httpSecurity.csrf().disable();<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="自己继承过滤器"><a href="#自己继承过滤器" class="headerlink" title="自己继承过滤器"></a>自己继承过滤器</h3><p>Security自己实现了过滤器，我们如果想要改进可以继承其。</p>
+<p><img src="/2021/12/21/springsecurity/image-20211227220104802.png" srcset="/img/loading.gif" lazyload alt="image-20211227220104802"></p>
+<h4 id="继承UsernamePasswordAuthenticationFilter"><a href="#继承UsernamePasswordAuthenticationFilter" class="headerlink" title="继承UsernamePasswordAuthenticationFilter"></a>继承UsernamePasswordAuthenticationFilter</h4><h3 id="Oauth2-授权码模式"><a href="#Oauth2-授权码模式" class="headerlink" title="Oauth2 授权码模式"></a>Oauth2 授权码模式</h3><p><img src="https://img-blog.csdnimg.cn/2020051516581693.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqOTAzMTQ=,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="Oauth2.0"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/">常用框架</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/25/Febs%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Febs管理系统项目总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/12/java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/">
+                        <span class="hidden-mobile">java核心技术卷笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"> <span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

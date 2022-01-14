@@ -1,0 +1,624 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Shiro相关笔记">
+  <meta name="author" content="Lapuda">
+  <meta name="keywords" content="java">
+  <meta name="description" content="Shiro相关笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shiro相关笔记">
+<meta property="og:url" content="http://example.com/2021/12/26/Shiro/index.html">
+<meta property="og:site_name" content="Lapuda&#39;s Space">
+<meta property="og:description" content="Shiro相关笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/12/26/Shiro/image-20211226212131239.png">
+<meta property="article:published_time" content="2021-12-26T07:39:32.559Z">
+<meta property="article:modified_time" content="2022-01-14T04:26:25.439Z">
+<meta property="article:author" content="Lapuda">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2021/12/26/Shiro/image-20211226212131239.png">
+  
+  <title>Shiro相关笔记 - Lapuda&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lapuda&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/cover/cyber.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Shiro相关笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-26 15:39" pubdate>
+        2021年12月26日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      13k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      42 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Shiro相关笔记</h1>
+            
+            <div class="markdown-body">
+              <h2 id="Shiro使用"><a href="#Shiro使用" class="headerlink" title="Shiro使用"></a>Shiro使用</h2><p><a target="_blank" rel="noopener" href="https://shiro.apache.org/reference.html">官方文档</a></p>
+<h3 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h3><h4 id="配置类"><a href="#配置类" class="headerlink" title="配置类"></a>配置类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShiroConfig</span> </span>&#123;<br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ShiroFilterFactoryBean <span class="hljs-title">shiroFilterFactoryBean</span><span class="hljs-params">(SecurityManager securityManager)</span> </span>&#123;<br>        ShiroFilterFactoryBean shiroFilterFactoryBean = <span class="hljs-keyword">new</span> ShiroFilterFactoryBean();<br>        <span class="hljs-comment">// 设置securityManager</span><br>        shiroFilterFactoryBean.setSecurityManager(securityManager);<br>        <span class="hljs-comment">// 登录的url</span><br>        shiroFilterFactoryBean.setLoginUrl(<span class="hljs-string">&quot;/login&quot;</span>);<br>        <span class="hljs-comment">// 登录成功后跳转的url</span><br>        shiroFilterFactoryBean.setSuccessUrl(<span class="hljs-string">&quot;/index&quot;</span>);<br>        <span class="hljs-comment">// 未授权url</span><br>        shiroFilterFactoryBean.setUnauthorizedUrl(<span class="hljs-string">&quot;/403&quot;</span>);<br>        <br>        LinkedHashMap&lt;String, String&gt; filterChainDefinitionMap = <span class="hljs-keyword">new</span> LinkedHashMap&lt;&gt;();<br>        <br>        <span class="hljs-comment">// 定义filterChain，静态资源不拦截</span><br>        filterChainDefinitionMap.put(<span class="hljs-string">&quot;/css/**&quot;</span>, <span class="hljs-string">&quot;anon&quot;</span>);<br>        filterChainDefinitionMap.put(<span class="hljs-string">&quot;/js/**&quot;</span>, <span class="hljs-string">&quot;anon&quot;</span>);<br>        filterChainDefinitionMap.put(<span class="hljs-string">&quot;/fonts/**&quot;</span>, <span class="hljs-string">&quot;anon&quot;</span>);<br>        filterChainDefinitionMap.put(<span class="hljs-string">&quot;/img/**&quot;</span>, <span class="hljs-string">&quot;anon&quot;</span>);<br>        <span class="hljs-comment">// druid数据源监控页面不拦截</span><br>        filterChainDefinitionMap.put(<span class="hljs-string">&quot;/druid/**&quot;</span>, <span class="hljs-string">&quot;anon&quot;</span>);<br>        <span class="hljs-comment">// 配置退出过滤器，其中具体的退出代码Shiro已经替我们实现了 </span><br>        filterChainDefinitionMap.put(<span class="hljs-string">&quot;/logout&quot;</span>, <span class="hljs-string">&quot;logout&quot;</span>);<br>        filterChainDefinitionMap.put(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-string">&quot;anon&quot;</span>);<br>        <span class="hljs-comment">// 除上以外所有url都必须认证通过才可以访问，未通过认证自动访问LoginUrl</span><br>        filterChainDefinitionMap.put(<span class="hljs-string">&quot;/**&quot;</span>, <span class="hljs-string">&quot;authc&quot;</span>);<br>        <br>        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);<br>        <span class="hljs-keyword">return</span> shiroFilterFactoryBean;<br>    &#125;<br>	<br>    <span class="hljs-meta">@Bean</span>  <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> SecurityManager <span class="hljs-title">securityManager</span><span class="hljs-params">()</span></span>&#123;  <br>        <span class="hljs-comment">// 配置SecurityManager，并注入shiroRealm</span><br>        DefaultWebSecurityManager securityManager =  <span class="hljs-keyword">new</span> DefaultWebSecurityManager();<br>        securityManager.setRealm(shiroRealm());<br>        <span class="hljs-keyword">return</span> securityManager;  <br>    &#125; <br>	<br>    <span class="hljs-meta">@Bean</span>  <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ShiroRealm <span class="hljs-title">shiroRealm</span><span class="hljs-params">()</span></span>&#123;  <br>        <span class="hljs-comment">// 配置Realm，需自己实现</span><br>        ShiroRealm shiroRealm = <span class="hljs-keyword">new</span> ShiroRealm();  <br>        <span class="hljs-keyword">return</span> shiroRealm;  <br>    &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其中<code>anon</code>、<code>authc</code>等为Shiro为我们实现的过滤器，具体如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Filter Name</th>
+<th align="left">Class</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">anon</td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/AnonymousFilter.html">org.apache.shiro.web.filter.authc.AnonymousFilter</a></td>
+<td align="left">匿名拦截器，即不需要登录即可访问；一般用于静态资源过滤；示例<code>/static/**=anon</code></td>
+</tr>
+<tr>
+<td align="left">authc</td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/FormAuthenticationFilter.html">org.apache.shiro.web.filter.authc.FormAuthenticationFilter</a></td>
+<td align="left">基于表单的拦截器；如<code>/**=authc</code>，如果没有登录会跳到相应的登录页面登录</td>
+</tr>
+<tr>
+<td align="left">authcBasic</td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.html">org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter</a></td>
+<td align="left">Basic HTTP身份验证拦截器</td>
+</tr>
+<tr>
+<td align="left">logout</td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/LogoutFilter.html">org.apache.shiro.web.filter.authc.LogoutFilter</a></td>
+<td align="left">退出拦截器，主要属性：redirectUrl：退出成功后重定向的地址（/），示例<code>/logout=logout</code></td>
+</tr>
+<tr>
+<td align="left">noSessionCreation</td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/session/NoSessionCreationFilter.html">org.apache.shiro.web.filter.session.NoSessionCreationFilter</a></td>
+<td align="left">不创建会话拦截器，调用<code>subject.getSession(false)</code>不会有什么问题，但是如果<code>subject.getSession(true)</code>将抛出<code>DisabledSessionException</code>异常</td>
+</tr>
+<tr>
+<td align="left">perms</td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authz/PermissionsAuthorizationFilter.html">org.apache.shiro.web.filter.authz.PermissionsAuthorizationFilter</a></td>
+<td align="left">权限授权拦截器，验证用户是否拥有所有权限；属性和roles一样；示例<code>/user/**=perms[&quot;user:create&quot;]</code></td>
+</tr>
+<tr>
+<td align="left">port</td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authz/PortFilter.html">org.apache.shiro.web.filter.authz.PortFilter</a></td>
+<td align="left">端口拦截器，主要属性<code>port(80)</code>：可以通过的端口；示例<code>/test= port[80]</code>，如果用户访问该页面是非80，将自动将请求端口改为80并重定向到该80端口，其他路径/参数等都一样</td>
+</tr>
+<tr>
+<td align="left">rest</td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authz/HttpMethodPermissionFilter.html">org.apache.shiro.web.filter.authz.HttpMethodPermissionFilter</a></td>
+<td align="left">rest风格拦截器，自动根据请求方法构建权限字符串；示例<code>/users=rest[user]</code>，会自动拼出user:read,user:create,user:update,user:delete权限字符串进行权限匹配（所有都得匹配，isPermittedAll）</td>
+</tr>
+<tr>
+<td align="left">roles</td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authz/RolesAuthorizationFilter.html">org.apache.shiro.web.filter.authz.RolesAuthorizationFilter</a></td>
+<td align="left">角色授权拦截器，验证用户是否拥有所有角色；示例<code>/admin/**=roles[admin]</code></td>
+</tr>
+<tr>
+<td align="left">ssl</td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authz/SslFilter.html">org.apache.shiro.web.filter.authz.SslFilter</a></td>
+<td align="left">SSL拦截器，只有请求协议是https才能通过；否则自动跳转会https端口443；其他和port拦截器一样；</td>
+</tr>
+<tr>
+<td align="left"><strong>user</strong></td>
+<td align="left"><a target="_blank" rel="noopener" href="http://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/UserFilter.html">org.apache.shiro.web.filter.authc.UserFilter</a></td>
+<td align="left">用户拦截器，用户已经身份验证/记住我登录的都可；示例<code>/**=user</code></td>
+</tr>
+</tbody></table>
+<h4 id="ShiroRealm-自己实现"><a href="#ShiroRealm-自己实现" class="headerlink" title="ShiroRealm 自己实现"></a>ShiroRealm 自己实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShiroRealm</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AuthorizingRealm</span> </span>&#123;<br><br>	<span class="hljs-meta">@Autowired</span><br>	<span class="hljs-keyword">private</span> UserMapper userMapper;<br><br>	<span class="hljs-comment">/**</span><br><span class="hljs-comment">	 * 获取用户角色和权限</span><br><span class="hljs-comment">	 */</span><br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">protected</span> AuthorizationInfo <span class="hljs-title">doGetAuthorizationInfo</span><span class="hljs-params">(PrincipalCollection principal)</span> </span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>	&#125;<br><br>	<span class="hljs-comment">/**</span><br><span class="hljs-comment">	 * 登录认证</span><br><span class="hljs-comment">	 */</span><br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">protected</span> AuthenticationInfo <span class="hljs-title">doGetAuthenticationInfo</span><span class="hljs-params">(AuthenticationToken token)</span> <span class="hljs-keyword">throws</span> AuthenticationException </span>&#123;<br>		String userName = (String) token.getPrincipal();<br>		String password = <span class="hljs-keyword">new</span> String((<span class="hljs-keyword">char</span>[]) token.getCredentials());<br><br>		System.out.println(<span class="hljs-string">&quot;用户&quot;</span> + userName + <span class="hljs-string">&quot;认证-----ShiroRealm.doGetAuthenticationInfo&quot;</span>);<br>		User user = userMapper.findByUserName(userName);<br><br>		<span class="hljs-comment">//shiro自定义了异常类</span><br>		<span class="hljs-keyword">if</span> (user == <span class="hljs-keyword">null</span>) &#123;<br>			<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UnknownAccountException(<span class="hljs-string">&quot;用户名或密码错误！&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">if</span> (!password.equals(user.getPassword())) &#123;<br>			<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IncorrectCredentialsException(<span class="hljs-string">&quot;用户名或密码错误！&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">if</span> (user.getStatus().equals(<span class="hljs-string">&quot;0&quot;</span>)) &#123;<br>			<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> LockedAccountException(<span class="hljs-string">&quot;账号已被锁定,请联系管理员！&quot;</span>);<br>		&#125;<br>		SimpleAuthenticationInfo info = <span class="hljs-keyword">new</span> SimpleAuthenticationInfo(user, password, getName());<br>		<span class="hljs-keyword">return</span> info;<br>	&#125;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>继承AuthorizingRealm，实现两个方法，一个方法用于认证，一个方法用于授权</p>
+</li>
+<li><p>入参AuthenticationToken对象的两个方法，可以获取用户名和密码，但需要进行<strong>类型转换</strong></p>
+<blockquote>
+<p>getPrincipal（）底层返回的是String</p>
+<p>getCredentials（）底层返回的是char[]</p>
+</blockquote>
+</li>
+<li><p>最后将SimpleAuthenticationInfo返回即可</p>
+</li>
+</ul>
+<h4 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginController</span> </span>&#123;<br><br>	<span class="hljs-meta">@GetMapping(&quot;/login&quot;)</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">login</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;login&quot;</span>;<br>	&#125;<br><br>	<span class="hljs-meta">@PostMapping(&quot;/login&quot;)</span><br>	<span class="hljs-meta">@ResponseBody</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> ResponseBo <span class="hljs-title">login</span><span class="hljs-params">(String username, String password)</span> </span>&#123;<br>		password = MD5Utils.encrypt(username, password);<br>		UsernamePasswordToken token = <span class="hljs-keyword">new</span> UsernamePasswordToken(username, password);<br>		Subject subject = SecurityUtils.getSubject();<br>		<span class="hljs-keyword">try</span> &#123;<br>			subject.login(token);<br>			<span class="hljs-keyword">return</span> ResponseBo.ok();<br>		&#125; <span class="hljs-keyword">catch</span> (UnknownAccountException e) &#123;<br>			<span class="hljs-keyword">return</span> ResponseBo.error(e.getMessage());<br>		&#125; <span class="hljs-keyword">catch</span> (IncorrectCredentialsException e) &#123;<br>			<span class="hljs-keyword">return</span> ResponseBo.error(e.getMessage());<br>		&#125; <span class="hljs-keyword">catch</span> (LockedAccountException e) &#123;<br>			<span class="hljs-keyword">return</span> ResponseBo.error(e.getMessage());<br>		&#125; <span class="hljs-keyword">catch</span> (AuthenticationException e) &#123;<br>			<span class="hljs-keyword">return</span> ResponseBo.error(<span class="hljs-string">&quot;认证失败！&quot;</span>);<br>		&#125;<br>	&#125;<br><br>	<span class="hljs-meta">@RequestMapping(&quot;/&quot;)</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">redirectIndex</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index&quot;</span>;<br>	&#125;<br><br>	<span class="hljs-meta">@RequestMapping(&quot;/index&quot;)</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index</span><span class="hljs-params">(Model model)</span> </span>&#123;<br>		User user = (User) SecurityUtils.getSubject().getPrincipal();<br>		model.addAttribute(<span class="hljs-string">&quot;user&quot;</span>, user);<br>		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;index&quot;</span>;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>UsernamePasswordToken:根据username和password生成token，根据token进行登录。</p>
+<h3 id="记住我"><a href="#记住我" class="headerlink" title="记住我"></a>记住我</h3><h4 id="配置类-1"><a href="#配置类-1" class="headerlink" title="配置类"></a>配置类</h4><p>在SecurityManage中上设置CookieRememberMeManager</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span>  <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> SecurityManager <span class="hljs-title">securityManager</span><span class="hljs-params">()</span></span>&#123;  <br>       DefaultWebSecurityManager securityManager =  <span class="hljs-keyword">new</span> DefaultWebSecurityManager();<br>       securityManager.setRealm(shiroRealm());<br>       securityManager.setRememberMeManager(rememberMeManager());<br>       <span class="hljs-keyword">return</span> securityManager;  <br>    &#125;  <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> SimpleCookie <span class="hljs-title">rememberMeCookie</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-comment">// 设置cookie名称，对应login.html页面的&lt;input type=&quot;checkbox&quot; name=&quot;rememberMe&quot;/&gt;</span><br>		SimpleCookie cookie = <span class="hljs-keyword">new</span> SimpleCookie(<span class="hljs-string">&quot;rememberMe&quot;</span>);<br>		<span class="hljs-comment">// 设置cookie的过期时间，单位为秒，15天</span><br>		cookie.setMaxAge(<span class="hljs-number">60</span>*<span class="hljs-number">60</span>*<span class="hljs-number">14</span>*<span class="hljs-number">15</span>);<br>		<span class="hljs-keyword">return</span> cookie;<br>	&#125;<br>	<span class="hljs-comment">/**</span><br><span class="hljs-comment">	 * cookie管理对象</span><br><span class="hljs-comment">	 * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">	 */</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> CookieRememberMeManager <span class="hljs-title">rememberMeManager</span><span class="hljs-params">()</span> </span>&#123;<br>		CookieRememberMeManager cookieRememberMeManager = <span class="hljs-keyword">new</span> CookieRememberMeManager();<br>		cookieRememberMeManager.setCookie(rememberMeCookie());<br>		<span class="hljs-comment">// rememberMe cookie加密的密钥 </span><br>		cookieRememberMeManager.setCipherKey(Base64.decode(<span class="hljs-string">&quot;3AvVhmFLUs0KTA3Kprsdag==&quot;</span>));<br>		<span class="hljs-keyword">return</span> cookieRememberMeManager;<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在ShiroFilterFactoryBean设置</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">filterChainDefinitionMap.<span class="hljs-keyword">put</span>(<span class="hljs-string">&quot;/**&quot;</span>, <span class="hljs-string">&quot;user&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>“user” 就是指定使用的拦截器，该拦截器就可以实现remeberme</p>
+<h4 id="controller层"><a href="#controller层" class="headerlink" title="controller层"></a>controller层</h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">UsernamePasswordToken token = <span class="hljs-keyword">new</span> <span class="hljs-constructor">UsernamePasswordToken(<span class="hljs-params">username</span>, <span class="hljs-params">password</span>, <span class="hljs-params">rememberMe</span>)</span>;<br></code></pre></td></tr></table></figure>
+
+<p>token中需要包含rememberMe</p>
+<h3 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h3><h4 id="RBAC"><a href="#RBAC" class="headerlink" title="RBAC"></a>RBAC</h4><p>使用RBAC（Role-Based Access Control，基于角色的访问控制）模型设计用户，角色和权限间的关系</p>
+<p><img src="/2021/12/26/Shiro/image-20211226212131239.png" srcset="/img/loading.gif" lazyload alt="image-20211226212131239"></p>
+<h4 id="dao层"><a href="#dao层" class="headerlink" title="dao层"></a>dao层</h4><p>创建permission和role实体类和对应的mapper，完成初始化</p>
+<h4 id="ShiroRealm"><a href="#ShiroRealm" class="headerlink" title="ShiroRealm"></a>ShiroRealm</h4><ul>
+<li><p>重写doGetAuthorizationInfo方法：通过shiro提供的SecurityUtils获取到当前的user(需要类型转化)</p>
+</li>
+<li><p>通过user，从数据库中查找到对应的角色集和权限集，并且以set的形式传入到SimpleAuthorizationInfo</p>
+</li>
+<li><p>返回SimpleAuthorizationInfo</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> AuthorizationInfo <span class="hljs-title">doGetAuthorizationInfo</span><span class="hljs-params">(PrincipalCollection principal)</span> </span>&#123;<br>	User user = (User) SecurityUtils.getSubject().getPrincipal();<br>	String userName = user.getUserName();<br><br>	System.out.println(<span class="hljs-string">&quot;用户&quot;</span> + userName + <span class="hljs-string">&quot;获取权限-----ShiroRealm.doGetAuthorizationInfo&quot;</span>);<br>	SimpleAuthorizationInfo simpleAuthorizationInfo = <span class="hljs-keyword">new</span> SimpleAuthorizationInfo();<br><br>	<span class="hljs-comment">// 获取用户角色集</span><br>	List&lt;Role&gt; roleList = userRoleMapper.findByUserName(userName);<br>	Set&lt;String&gt; roleSet = <span class="hljs-keyword">new</span> HashSet&lt;String&gt;();<br>	<span class="hljs-keyword">for</span> (Role r : roleList) &#123;<br>		roleSet.add(r.getName());<br>	&#125;<br>	simpleAuthorizationInfo.setRoles(roleSet);     <span class="hljs-comment">//admin</span><br><br>	<span class="hljs-comment">// 获取用户权限集</span><br>	List&lt;Permission&gt; permissionList = userPermissionMapper.findByUserName(userName);<br>	Set&lt;String&gt; permissionSet = <span class="hljs-keyword">new</span> HashSet&lt;String&gt;();<br>	<span class="hljs-keyword">for</span> (Permission p : permissionList) &#123;<br>		permissionSet.add(p.getName());<br>	&#125;<br>	simpleAuthorizationInfo.setStringPermissions(permissionSet);     <span class="hljs-comment">//add delete user</span><br>	<span class="hljs-keyword">return</span> simpleAuthorizationInfo;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="配置类-2"><a href="#配置类-2" class="headerlink" title="配置类"></a>配置类</h4><p>​    shiro提供一些列注解，可以快速设置哪些接口需要权限。但是需要通过配置进行设置，放入容器。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> AuthorizationAttributeSourceAdvisor <span class="hljs-title">authorizationAttributeSourceAdvisor</span><span class="hljs-params">(SecurityManager securityManager)</span> </span>&#123;<br>    AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = <span class="hljs-keyword">new</span> AuthorizationAttributeSourceAdvisor();<br>    authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);<br>    <span class="hljs-keyword">return</span> authorizationAttributeSourceAdvisor;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-comment">// 表示当前Subject已经通过login进行了身份验证；即Subject.isAuthenticated()返回true。</span><br><span class="hljs-variable">@RequiresAuthentication</span>  <br> <br><span class="hljs-comment">// 表示当前Subject已经身份验证或者通过记住我登录的。</span><br><span class="hljs-variable">@RequiresUser</span>  <br><br><span class="hljs-comment">// 表示当前Subject没有身份验证或通过记住我登录过，即是游客身份。</span><br><span class="hljs-variable">@RequiresGuest</span>  <br><br><span class="hljs-comment">// 表示当前Subject需要角色admin和user。  </span><br><span class="hljs-variable">@RequiresRoles</span>(value=&#123;<span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-string">&quot;user&quot;</span>&#125;, logical= Logical.<span class="hljs-keyword">AND</span>)  <br><br><span class="hljs-comment">// 表示当前Subject需要权限user:a或user:b。</span><br><span class="hljs-variable">@RequiresPermissions</span> (value=&#123;<span class="hljs-string">&quot;user:a&quot;</span>, <span class="hljs-string">&quot;user:b&quot;</span>&#125;, logical= Logical.<span class="hljs-keyword">OR</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="controller层-1"><a href="#controller层-1" class="headerlink" title="controller层"></a>controller层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-meta">@RequestMapping(&quot;/user&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> </span>&#123;<br><br>    <span class="hljs-meta">@RequiresPermissions(&quot;user:user&quot;)</span>   <span class="hljs-comment">//需要的权限</span><br>    <span class="hljs-meta">@RequestMapping(&quot;list&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">userList</span><span class="hljs-params">(Model model)</span> </span>&#123;<br>        model.addAttribute(<span class="hljs-string">&quot;value&quot;</span>, <span class="hljs-string">&quot;获取用户信息&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;user&quot;</span>;<br>    &#125;<br>    <br>    <span class="hljs-meta">@RequiresPermissions(&quot;user:add&quot;)</span><br>    <span class="hljs-meta">@RequestMapping(&quot;add&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">userAdd</span><span class="hljs-params">(Model model)</span> </span>&#123;<br>        model.addAttribute(<span class="hljs-string">&quot;value&quot;</span>, <span class="hljs-string">&quot;新增用户&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;user&quot;</span>;<br>    &#125;<br>    <br>    <span class="hljs-meta">@RequiresPermissions(&quot;user:delete&quot;)</span><br>    <span class="hljs-meta">@RequestMapping(&quot;delete&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">userDelete</span><span class="hljs-params">(Model model)</span> </span>&#123;<br>        model.addAttribute(<span class="hljs-string">&quot;value&quot;</span>, <span class="hljs-string">&quot;删除用户&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;user&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="权限信息放入缓存"><a href="#权限信息放入缓存" class="headerlink" title="权限信息放入缓存"></a>权限信息放入缓存</h3><p>设计开发时，应该尽可能的少访问数据库，尤其是需要反复查询而且不会经常修改的数据。</p>
+<p>把权限信息放入redis,可以提高速度。</p>
+<h4 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h4><p>在配置内中简单配置一下就行了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> RedisManager <span class="hljs-title">redisManager</span><span class="hljs-params">()</span> </span>&#123;<br>    RedisManager redisManager = <span class="hljs-keyword">new</span> RedisManager();<br>    <span class="hljs-keyword">return</span> redisManager;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> RedisCacheManager <span class="hljs-title">cacheManager</span><span class="hljs-params">()</span> </span>&#123;<br>    RedisCacheManager redisCacheManager = <span class="hljs-keyword">new</span> RedisCacheManager();<br>    redisCacheManager.setRedisManager(redisManager());<br>    <span class="hljs-keyword">return</span> redisCacheManager;<br>&#125;<br><span class="hljs-meta">@Bean</span>  <br><span class="hljs-function"><span class="hljs-keyword">public</span> SecurityManager <span class="hljs-title">securityManager</span><span class="hljs-params">()</span></span>&#123;  <br>    DefaultWebSecurityManager securityManager =  <span class="hljs-keyword">new</span> DefaultWebSecurityManager();<br>    ...<br>    securityManager.setCacheManager(cacheManager());<br>    <span class="hljs-keyword">return</span> securityManager;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="在线会话管理"><a href="#在线会话管理" class="headerlink" title="在线会话管理"></a>在线会话管理</h3><p>可以查看哪些用户上线，也可以让其下线</p>
+<h4 id="配置类-3"><a href="#配置类-3" class="headerlink" title="配置类"></a>配置类</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-meta">@Bean</span><br><span class="hljs-keyword">public</span> RedisSessionDAO <span class="hljs-function"><span class="hljs-title">sessionDAO</span>(<span class="hljs-params"></span>)</span> &#123;<br>    RedisSessionDAO redisSessionDAO = <span class="hljs-keyword">new</span> RedisSessionDAO();<br>    redisSessionDAO.setRedisManager(redisManager());<br>    <span class="hljs-keyword">return</span> redisSessionDAO;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> SessionManager <span class="hljs-title">sessionManager</span><span class="hljs-params">()</span> </span>&#123;<br>    DefaultWebSessionManager sessionManager = <span class="hljs-keyword">new</span> DefaultWebSessionManager();<br>    Collection&lt;SessionListener&gt; listeners = <span class="hljs-keyword">new</span> ArrayList&lt;SessionListener&gt;();<br>    listeners.add(<span class="hljs-keyword">new</span> ShiroSessionListener());<br>    sessionManager.setSessionListeners(listeners);<br>    sessionManager.setSessionDAO(sessionDAO());<br>    <span class="hljs-keyword">return</span> sessionManager;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>SessionManager中的ShiroSessionListener需要自己写</p>
+<h4 id="ShiroSessionListener"><a href="#ShiroSessionListener" class="headerlink" title="ShiroSessionListener"></a>ShiroSessionListener</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShiroSessionListener</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SessionListener</span></span>&#123;<br><br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> AtomicInteger sessionCount = <span class="hljs-keyword">new</span> AtomicInteger(<span class="hljs-number">0</span>);<br>	<br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStart</span><span class="hljs-params">(Session session)</span> </span>&#123;<br>		sessionCount.incrementAndGet();<br>	&#125;<br><br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStop</span><span class="hljs-params">(Session session)</span> </span>&#123;<br>		sessionCount.decrementAndGet();<br>		<br>	&#125;<br><br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onExpiration</span><span class="hljs-params">(Session session)</span> </span>&#123;<br>		sessionCount.decrementAndGet();<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>实现的SessionListener是shiro旗下的</p>
+<p>定义了原子Integer类，是为了防止多线程下，数据不一致的情况</p>
+<h4 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">SessionService</span> </span>&#123;<br>	<br>	<span class="hljs-function">List&lt;UserOnline&gt; <span class="hljs-title">list</span><span class="hljs-params">()</span></span>;<br>	<span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">forceLogout</span><span class="hljs-params">(String sessionId)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">@<span class="hljs-constructor">Service(<span class="hljs-string">&quot;sessionService&quot;</span>)</span><br>public <span class="hljs-keyword">class</span> SessionServiceImpl implements SessionService &#123;<br><br>	@Autowired<br>	<span class="hljs-keyword">private</span> SessionDAO sessionDAO;<br><br>	@Override<br>	public List&lt;UserOnline&gt; <span class="hljs-built_in">list</span><span class="hljs-literal">()</span> &#123;<br>		List&lt;UserOnline&gt; <span class="hljs-built_in">list</span> = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;<span class="hljs-literal">()</span>;<br>		Collection&lt;Session&gt; sessions = sessionDAO.get<span class="hljs-constructor">ActiveSessions()</span>;<br>		<span class="hljs-keyword">for</span> (Session session : sessions) &#123;<br>			UserOnline userOnline = <span class="hljs-keyword">new</span> <span class="hljs-constructor">UserOnline()</span>;<br>			User user = <span class="hljs-keyword">new</span> <span class="hljs-constructor">User()</span>;<br>			SimplePrincipalCollection principalCollection = <span class="hljs-keyword">new</span> <span class="hljs-constructor">SimplePrincipalCollection()</span>;<br>			<span class="hljs-keyword">if</span> (session.get<span class="hljs-constructor">Attribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY)</span><span class="hljs-operator"> == </span>null) &#123;<br>				continue;<br>			&#125; <span class="hljs-keyword">else</span> &#123;<br>				principalCollection = (SimplePrincipalCollection) session<br>						.get<span class="hljs-constructor">Attribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY)</span>;<br>				user = (User) principalCollection.get<span class="hljs-constructor">PrimaryPrincipal()</span>;<br>				userOnline.set<span class="hljs-constructor">Username(<span class="hljs-params">user</span>.<span class="hljs-params">getUserName</span>()</span>);<br>				userOnline.set<span class="hljs-constructor">UserId(<span class="hljs-params">user</span>.<span class="hljs-params">getId</span>()</span>.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>);<br>			&#125;<br>			userOnline.set<span class="hljs-constructor">Id((String)</span> session.get<span class="hljs-constructor">Id()</span>);<br>			userOnline.set<span class="hljs-constructor">Host(<span class="hljs-params">session</span>.<span class="hljs-params">getHost</span>()</span>);<br>			userOnline.set<span class="hljs-constructor">StartTimestamp(<span class="hljs-params">session</span>.<span class="hljs-params">getStartTimestamp</span>()</span>);<br>			userOnline.set<span class="hljs-constructor">LastAccessTime(<span class="hljs-params">session</span>.<span class="hljs-params">getLastAccessTime</span>()</span>);<br>			Long timeout = session.get<span class="hljs-constructor">Timeout()</span>;<br>			<span class="hljs-keyword">if</span> (timeout<span class="hljs-operator"> == </span><span class="hljs-number">0l</span>) &#123;<br>				userOnline.set<span class="hljs-constructor">Status(<span class="hljs-string">&quot;离线&quot;</span>)</span>;<br>			&#125; <span class="hljs-keyword">else</span> &#123;<br>				userOnline.set<span class="hljs-constructor">Status(<span class="hljs-string">&quot;在线&quot;</span>)</span>;<br>			&#125;<br>			userOnline.set<span class="hljs-constructor">Timeout(<span class="hljs-params">timeout</span>)</span>;<br>			<span class="hljs-built_in">list</span>.add(userOnline);<br>		&#125;<br>		return <span class="hljs-built_in">list</span>;<br>	&#125;<br><br>	@Override<br>	public boolean force<span class="hljs-constructor">Logout(String <span class="hljs-params">sessionId</span>)</span> &#123;<br>		Session session = sessionDAO.read<span class="hljs-constructor">Session(<span class="hljs-params">sessionId</span>)</span>;<br>		session.set<span class="hljs-constructor">Timeout(0)</span>;<br>		return <span class="hljs-literal">true</span>;<br>	&#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这个接口可以获取到UsrOnline(自己定义的)包括了ip、状态等等 ，</p>
+<p>具体细节不需要知道</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserOnline</span> <span class="hljs-keyword"><span class="hljs-keyword">implements</span> <span class="hljs-type">Serializable</span></span></span>&#123;<br>	<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> final long serialVersionUID = <span class="hljs-number">3828664348416633856</span>L;<br>	<br>	<span class="hljs-comment">// session id</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> id;<br>    <span class="hljs-comment">// 用户id</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> userId;<br>    <span class="hljs-comment">// 用户名称</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> username;<br>	<span class="hljs-comment">// 用户主机地址</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> host;<br>    <span class="hljs-comment">// 用户登录时系统IP</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> systemHost;<br>    <span class="hljs-comment">// 状态</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> status;<br>    <span class="hljs-comment">// session创建时间</span><br>    <span class="hljs-keyword">private</span> Date startTimestamp;<br>    <span class="hljs-comment">// session最后访问时间</span><br>    <span class="hljs-keyword">private</span> Date lastAccessTime;<br>    <span class="hljs-comment">// 超时时间</span><br>    <span class="hljs-keyword">private</span> Long timeout;<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/">常用框架</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/27/spring%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Spring基础知识总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/25/Febs%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
+                        <span class="hidden-mobile">Febs管理系统项目总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"> <span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
