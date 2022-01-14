@@ -1,0 +1,792 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Java面试总结">
+  <meta name="author" content="Lapuda">
+  <meta name="keywords" content="java">
+  <meta name="description" content="Java面试总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础面试">
+<meta property="og:url" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Lapuda&#39;s Space">
+<meta property="og:description" content="Java面试总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211113133129514.png">
+<meta property="og:image" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211017225824857.png">
+<meta property="og:image" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211017225936809.png">
+<meta property="og:image" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211017231220928.png">
+<meta property="og:image" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211018174207110.png">
+<meta property="og:image" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211018174348780.png">
+<meta property="og:image" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211018183752472.png">
+<meta property="og:image" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211115161139289.png">
+<meta property="og:image" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211018184442674.png">
+<meta property="article:published_time" content="2021-10-17T14:46:24.703Z">
+<meta property="article:modified_time" content="2021-11-15T08:20:15.012Z">
+<meta property="article:author" content="Lapuda">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211113133129514.png">
+  
+  <title>Java基础面试 - Lapuda&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lapuda&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/cover/room.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java基础面试">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-17 22:46" pubdate>
+        2021年10月17日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java基础面试</h1>
+            
+            <div class="markdown-body">
+              <h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><h3 id="⾯向对象和⾯向过程的区别"><a href="#⾯向对象和⾯向过程的区别" class="headerlink" title="⾯向对象和⾯向过程的区别"></a>⾯向对象和⾯向过程的区别</h3><ul>
+<li>⾯向过程 ：<strong>⾯向过程性能⽐⾯向对象⾼</strong>。 因为类调⽤时需要实例化，开销⼤，消耗资源，所以当性能是最重要的考量因素的时候，⽐如单⽚机、嵌⼊式开发、Linux/Unix 等。⼀般采⽤⾯向过程开发。但是，⾯向过程没有⾯向对象易维护、易复⽤、易扩展。</li>
+<li>⾯向对象 ：<strong>⾯向对象易维护、易复⽤、易扩展</strong>。 因为⾯向对象有封装、继承、多态性的特<br>性，所以可以设计出低耦合的系统，使 于维护。但是，⾯向对象性能<br>⽐⾯向过程低。</li>
+</ul>
+<blockquote>
+<p> Java 是半编译语言，最终的执行代码并不是可以直接被 CPU 执⾏的二进制机械码。</p>
+<h3 id="一处编译处处运行"><a href="#一处编译处处运行" class="headerlink" title="一处编译处处运行"></a>一处编译处处运行</h3><p> java从源代码到运行的流程</p>
+<p> <img src="/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211113133129514.png" srcset="/img/loading.gif" lazyload alt="image-20211113133129514"></p>
+</blockquote>
+<ol>
+<li>《编译》通过<code>javac</code>将源文件（<code>.java</code>）编译为<code>.class</code>文件</li>
+<li>《解释》不同的操作系统有不同的虚拟机,通过JVM把<code>.class</code>转化为操作系统的能够读懂的二进制机械码</li>
+</ol>
+<h3 id="Java-语⾔有哪些特点"><a href="#Java-语⾔有哪些特点" class="headerlink" title="Java 语⾔有哪些特点"></a>Java 语⾔有哪些特点</h3><ol>
+<li><p>⾯向对象（封装，继承，多态）；</p>
+</li>
+<li><p>平台⽆关性（ Java 虚拟机实现平台⽆关性）；</p>
+</li>
+<li><p>⽀持多线程（ C++ 语⾔没有内置的多线程机制，因此必须调⽤操作系统的多线程功能来进<br>⾏多线程程序设计，⽽ Java 语⾔却提供了多线程⽀持）；</p>
+</li>
+<li><p>⽀持⽹络编程并且很⽅便（ Java 语⾔诞⽣本身就是为简化⽹络编程设计的，因此 Java 语<br>⾔不仅⽀持⽹络编程⽽且很⽅便）；</p>
+</li>
+<li><p>编译与解释并存：先把源文件编译为class文件，再将class文件解释为机器能够读得懂的二进制机械码</p>
+</li>
+</ol>
+<h3 id="JVM-JDK-和-JRE-最详细通俗的解答"><a href="#JVM-JDK-和-JRE-最详细通俗的解答" class="headerlink" title="JVM JDK 和 JRE 最详细通俗的解答"></a>JVM JDK 和 JRE 最详细通俗的解答</h3><h4 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h4><p><img src="/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211017225824857.png" srcset="/img/loading.gif" lazyload alt="image-20211017225824857"></p>
+<p>Java 虚拟机（JVM）是运⾏ Java 字节码的虚拟机。实现⼀次编译，随处可以运⾏。</p>
+<p><strong>Java</strong> <strong>程序从源代码到运⾏⼀般有下⾯</strong> <strong>3</strong> <strong>步：</strong></p>
+<p><img src="/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211017225936809.png" srcset="/img/loading.gif" lazyload alt="image-20211017225936809"></p>
+<h4 id="JDK-和-JRE"><a href="#JDK-和-JRE" class="headerlink" title="JDK 和 JRE"></a>JDK 和 JRE</h4><ul>
+<li><p>JDK 是 Java Development Kit，它是功能⻬全的 Java SDK。它拥有 JRE 所拥有的⼀切，还有编<br>译器（javac）和⼯具（如 javadoc 和 jdb）。它能够创建和编译程序。</p>
+</li>
+<li><p>JRE 是 Java 运⾏时环境。它能够运⾏已编译 Java 程序，它包括 Java 虚拟机（JVM），Java 类库，java 命令和其他的⼀些基础构件。</p>
+</li>
+</ul>
+<h3 id="Oracle-JDK-和-OpenJDK-的对⽐"><a href="#Oracle-JDK-和-OpenJDK-的对⽐" class="headerlink" title="Oracle JDK 和 OpenJDK 的对⽐"></a><strong>Oracle JDK</strong> <strong>和</strong> <strong>OpenJDK</strong> <strong>的对⽐</strong></h3><ol>
+<li>OpenJDK 是⼀个参考模型并且是完全开源的，⽽ Oracle JDK 是 OpenJDK 的⼀个实现，并不是完全开源的；</li>
+<li>Oracle JDK ⽐ OpenJDK 更稳定。OpenJDK 和 Oracle JDK 的代码⼏乎相同，但 OracleJDK 有更多的类和⼀些错误修复。</li>
+<li>在响应性和 JVM 性能⽅⾯，Oracle JDK 与 OpenJDK 相⽐提供了更好的性能；</li>
+</ol>
+<h3 id="Java-和-C-的区别"><a href="#Java-和-C-的区别" class="headerlink" title="Java 和 C++的区别"></a>Java 和 C++的区别</h3><ul>
+<li><p>都是⾯向对象的语⾔，都⽀持封装、继承和多态</p>
+</li>
+<li><p>Java 不提供指针来直接访问内存，程序内存更加安全</p>
+</li>
+<li><p>Java 的类是单继承的，C++ ⽀持多重继承；虽然 Java 的类不可以多继承，但是接口可以多继承。</p>
+</li>
+<li><p>Java 有⾃动内存管理机制，不需要程序员⼿动释放⽆⽤内存</p>
+</li>
+<li><p>在 C 语⾔中，字符串或字符数组最后都会有⼀个额外的字符‘\0’来表示结束。但是，Java 语<br>⾔中没有结束符这⼀概念。</p>
+</li>
+</ul>
+<h3 id="字符型常量和字符串常量的区别"><a href="#字符型常量和字符串常量的区别" class="headerlink" title="字符型常量和字符串常量的区别"></a>字符型常量和字符串常量的区别</h3><ol>
+<li>形式上: 字符常量是单引号引起的⼀个字符; 字符串常量是双引号引起的若⼲个字符</li>
+<li>含义上: 字符常量相当于⼀个整型值( ASCII 值),可以参加表达式运算; 字符串常量代表⼀个地<br>址值(该字符串在内存中存放位置)</li>
+<li>占内存⼤⼩ 字符常量<strong>只占 2 个字节</strong>; 字符串常量占若⼲个字节。</li>
+</ol>
+<h3 id="构造器-Constructor-是否可被-override"><a href="#构造器-Constructor-是否可被-override" class="headerlink" title="构造器 Constructor 是否可被 override?"></a>构造器 Constructor 是否可被 override?</h3><p>Constructor 不能被 override（重写）,但是可以 overload（重载）,所以你可以看到⼀个类中有多<br>个构造函数的情况。</p>
+<h3 id="重载和重写的区别"><a href="#重载和重写的区别" class="headerlink" title="重载和重写的区别"></a>重载和重写的区别</h3><ul>
+<li><p>重载就是同⼀个类中多个同名⽅法根据不同的传参来执⾏不同的逻辑处理。</p>
+</li>
+<li><p>重写就是⼦类对⽗类⽅法的重新改造，外部样⼦不能改变，内部逻辑可以改变</p>
+</li>
+</ul>
+<p><img src="/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211017231220928.png" srcset="/img/loading.gif" lazyload alt="image-20211017231220928"></p>
+<p>为什么重写是发生在运行期，编译器是无法知道我们到底是调用父类的方法还是子类的方法，相反的，只有在实际运行的时候，我们才知道应该调用哪个方法。</p>
+<h3 id="Java-⾯向对象编程三⼤特性-封装-继承-多态"><a href="#Java-⾯向对象编程三⼤特性-封装-继承-多态" class="headerlink" title="Java ⾯向对象编程三⼤特性: 封装 继承 多态"></a>Java ⾯向对象编程三⼤特性: 封装 继承 多态</h3><h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><p>封装把⼀个对象的属性私有化，同时提供⼀些可以被外界访问的属性的⽅法</p>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>继承是使⽤已存在的类的定义作为基础建⽴新类的技术，新类的定义可以增加新的数据或新的功</p>
+<p>能，也可以⽤⽗类的功能，但不能选择性地继承⽗类。</p>
+<h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><p>即⼀个引⽤变量到底会指向哪个类的实例对象，该引⽤变量发出的⽅法调⽤到底是哪个类中实现的⽅法，必须在由程序运⾏期间才能决定。</p>
+<p>在 Java 中有两种形式可以实现多态：继承（多个⼦类对同⼀⽅法的重写）和接⼝（实现接⼝并覆盖接⼝中同⼀⽅法）。</p>
+<h4 id="对多态的理解"><a href="#对多态的理解" class="headerlink" title="对多态的理解"></a>对多态的理解</h4><p>多态体现为<strong>父类引用变量可以指向子类对象</strong>。</p>
+<p>编译时多态</p>
+<p>运行时多态</p>
+<h3 id="String-StringBuffer-和-StringBuilder-的区别是什么"><a href="#String-StringBuffer-和-StringBuilder-的区别是什么" class="headerlink" title="String StringBuffer 和 StringBuilder 的区别是什么?"></a>String StringBuffer 和 StringBuilder 的区别是什么?</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>String</th>
+<th>StringBuffer</th>
+<th>StringBuilder</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可变性</td>
+<td>不可变（final修饰）</td>
+<td>可变</td>
+<td>可变</td>
+</tr>
+<tr>
+<td>线程安全性</td>
+<td>y    (常量)</td>
+<td>y</td>
+<td>n  (没有同步锁)</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>最低</td>
+<td>中等</td>
+<td>最高</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>对于三者使⽤的总结：</p>
+<ol>
+<li>操作少量的数据: 适⽤ String</li>
+<li>单线程操作字符串缓冲区下操作⼤量数据: 适⽤ StringBuilder</li>
+<li>多线程操作字符串缓冲区下操作⼤量数据: 适⽤ StringBuffer</li>
+</ol>
+<h3 id="⾃动装箱与拆箱"><a href="#⾃动装箱与拆箱" class="headerlink" title="⾃动装箱与拆箱"></a>⾃动装箱与拆箱</h3><ul>
+<li>装箱：将基本类型⽤它们对应的引⽤类型包装起来；</li>
+<li>拆箱：将包装类型转换为基本数据类型；</li>
+</ul>
+<h4 id="为什么要装箱和拆箱"><a href="#为什么要装箱和拆箱" class="headerlink" title="为什么要装箱和拆箱"></a>为什么要装箱和拆箱</h4><p>为了保证通用性和提高系统性能</p>
+<ul>
+<li><p>Java是一种完全面向对象的语言。因此，包括数字、字符、日期、布尔值等等在内的一切，都是对象。</p>
+</li>
+<li><p>对于CPU来说，处理一个完整的对象，需要很多的指令，对于内存来说，又需要很多的内存。</p>
+</li>
+</ul>
+<h3 id="在⼀个静态⽅法内调⽤⼀个⾮静态成员为什么是⾮法的"><a href="#在⼀个静态⽅法内调⽤⼀个⾮静态成员为什么是⾮法的" class="headerlink" title="在⼀个静态⽅法内调⽤⼀个⾮静态成员为什么是⾮法的"></a>在⼀个静态⽅法内调⽤⼀个⾮静态成员为什么是⾮法的</h3><p>静态⽅法可以不通过对象进⾏调⽤，如果如题说是，那么非静态方法也能够直接通过类名调用。</p>
+<h3 id="在-Java-中定义⼀个不做事且没有参数的构造⽅法的作⽤"><a href="#在-Java-中定义⼀个不做事且没有参数的构造⽅法的作⽤" class="headerlink" title="在 Java 中定义⼀个不做事且没有参数的构造⽅法的作⽤"></a>在 Java 中定义⼀个不做事且没有参数的构造⽅法的作⽤</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person3</span></span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> String sex;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person3</span><span class="hljs-params">(String name, String sex, <span class="hljs-keyword">int</span> age )</span></span>&#123;<br>        <span class="hljs-keyword">this</span>.name = name;<br>        <span class="hljs-keyword">this</span>.sex = sex;<br>        <span class="hljs-keyword">this</span>.age = age;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>当使用无参构造法构造实例对象时，如果无参方法被覆盖了，编译不通过。</p>
+<h3 id="接⼝和抽象类的区别是什么？"><a href="#接⼝和抽象类的区别是什么？" class="headerlink" title="接⼝和抽象类的区别是什么？"></a>接⼝和抽象类的区别是什么？</h3><ul>
+<li>在jdk1.8前，接口中的方法都是抽象方法（被abstract修饰），而抽象类有非抽象方法。但是1.8以后，接口可以有默认实现，用default修饰。</li>
+<li>⼀个类可以实现多个接⼝，但只能实现⼀个抽象类。</li>
+<li>接⼝⾃⼰本身可以通过 extends 关键字扩展多个接⼝，但是抽象类只能继承一个抽象类。</li>
+<li>接口中的变量默认是通过public static final进行修饰，而抽象类不一定。</li>
+<li>从设计层⾯来说，抽象是对类的抽象，是⼀种模板设计，⽽接⼝是对⾏为的抽象，是⼀种⾏<br>为的规范。</li>
+</ul>
+<h3 id="成员变量与局部变量的区别有哪些"><a href="#成员变量与局部变量的区别有哪些" class="headerlink" title="成员变量与局部变量的区别有哪些"></a>成员变量与局部变量的区别有哪些</h3><ol>
+<li><p>形式上：成员变量定义在类中，局部变量定义在类的方法中，不能被static修饰</p>
+<p>都是都能够被final修饰</p>
+</li>
+<li><p>内存中的存储方式：如果成员变量是使⽤ static 修饰的，那么这个成员变量是属于类的，如果没有使⽤ static 修饰，这个成员变量是属于实例的。静态变量存储在堆内存，</p>
+</li>
+<li><p>⽣存时间:成员变量是对象的⼀部分，它随着对象的创建⽽存在，⽽局部变量随着⽅法的调⽤⽽⾃动消失。</p>
+</li>
+<li><p>成员变量如果没有被赋初值:则会⾃动以类型的默认值⽽赋值（⼀种情况例外:被 final 修饰</p>
+<p>的成员变量也必须显式地赋值），⽽局部变量则不会⾃动赋值。</p>
+</li>
+</ol>
+<h3 id="创建⼀个对象⽤什么运算符-对象实体与对象引⽤有何不同"><a href="#创建⼀个对象⽤什么运算符-对象实体与对象引⽤有何不同" class="headerlink" title="创建⼀个对象⽤什么运算符?对象实体与对象引⽤有何不同?"></a>创建⼀个对象⽤什么运算符?对象实体与对象引⽤有何不同?</h3><p>new 运算符</p>
+<p>对象引用要么指向对象，要么不指向；对象实例可以有几个引用指向它</p>
+<h3 id="构造方法的作用"><a href="#构造方法的作用" class="headerlink" title="构造方法的作用"></a>构造方法的作用</h3><p>对象的初始化</p>
+<p>一个类没有声明构造方法也能执行，因为会默认有无参构造法</p>
+<h3 id="构造⽅法有哪些特性？"><a href="#构造⽅法有哪些特性？" class="headerlink" title="构造⽅法有哪些特性？"></a>构造⽅法有哪些特性？</h3><ul>
+<li>方法名和类名相同</li>
+<li>没有返回值，但不能用void声明</li>
+<li>生成类的对象时自动执行，不需要调用</li>
+</ul>
+<h3 id="静态⽅法和实例⽅法有何不同"><a href="#静态⽅法和实例⽅法有何不同" class="headerlink" title="静态⽅法和实例⽅法有何不同"></a>静态⽅法和实例⽅法有何不同</h3><ol>
+<li>在外部调⽤静态⽅法时，可以使⽤”类名.⽅法名”的⽅式，也可以使⽤”对象名.⽅法名”的⽅<br> 式。⽽实例⽅法只有后⾯这种⽅式。也就是说，<strong>调⽤静态⽅法可以⽆需创建对象</strong>。</li>
+<li>静态⽅法在访问本类的成员时，只允许访问静态成员（即静态成员变量和静态⽅法），⽽不<br> 允许访问实例成员变量和实例⽅法；实例⽅法则⽆此限制。</li>
+</ol>
+<h3 id="对象的相等不同"><a href="#对象的相等不同" class="headerlink" title="对象的相等不同?"></a>对象的相等不同?</h3><p>对象的相等，⽐的是内存中存放的内容是否相等（equals）。⽽引⽤相等，⽐的是他们指向的内存地址是</p>
+<p>否相等。（==）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">test1</span> </span>&#123;<br> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br> String a = <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;ab&quot;</span>); <span class="hljs-comment">// a 为⼀个引⽤</span><br> String b = <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;ab&quot;</span>); <span class="hljs-comment">// b为另⼀个引⽤,对象的内容⼀样</span><br> String aa = <span class="hljs-string">&quot;ab&quot;</span>; <span class="hljs-comment">// 放在常量池中</span><br> String bb = <span class="hljs-string">&quot;ab&quot;</span>; <span class="hljs-comment">// 从常量池中查找</span><br> <span class="hljs-keyword">if</span> (aa == bb) <span class="hljs-comment">// true</span><br> System.out.println(<span class="hljs-string">&quot;aa==bb&quot;</span>);<br> <span class="hljs-keyword">if</span> (a == b) <span class="hljs-comment">// false，⾮同⼀对象</span><br> System.out.println(<span class="hljs-string">&quot;a==b&quot;</span>);<br> <span class="hljs-keyword">if</span> (a.equals(b)) <span class="hljs-comment">// true</span><br> System.out.println(<span class="hljs-string">&quot;aEQb&quot;</span>);<br> <span class="hljs-keyword">if</span> (<span class="hljs-number">42</span> == <span class="hljs-number">42.0</span>) &#123; <span class="hljs-comment">// true</span><br> System.out.println(<span class="hljs-string">&quot;true&quot;</span>);<br> &#125;<br> &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="hashCode-与-equals"><a href="#hashCode-与-equals" class="headerlink" title="hashCode 与 equals"></a>hashCode 与 equals</h3><blockquote>
+<p>hashCode </p>
+<ul>
+<li>定义在Object 类中，这就意味着 Java 中的任何类都包含有 hashCode() 函数</li>
+<li>hashCode() 的作⽤是获取哈希码，也称为散列码;哈希码的作⽤是确定该对象在哈希表中的索引位置。散列表存储的是键值对(key-value)，它的特点是：能根据“键”快速的检索出对应的“值”。</li>
+<li>Object 的 hashcode ⽅法是本地⽅法，也就是⽤ c 语⾔或 c++ 实现的，该⽅法通常⽤来将对象的 内存地址 转换为整数之后返回。</li>
+</ul>
+</blockquote>
+<h4 id="为什么要有hascode"><a href="#为什么要有hascode" class="headerlink" title="为什么要有hascode"></a>为什么要有hascode</h4><p>每当把对象加入到hashset时，如果直接比较equal()来比较对象，会降低效率。如果先比较hashcode是否相同，再用equals()比较是否真的相同，就可以降低equals的比较，因为哈希表的检索很快！</p>
+<h4 id="为什么重写-equals-时必须重写-hashCode-⽅法？"><a href="#为什么重写-equals-时必须重写-hashCode-⽅法？" class="headerlink" title="为什么重写 equals 时必须重写 hashCode ⽅法？"></a>为什么重写 equals 时必须重写 hashCode ⽅法？</h4><p>如果两个对象相等，则 hashcode ⼀定也是相同的。两个对象相等,对两个对象分别调⽤ equals⽅法都返回 true。</p>
+<p>实现了“两个对象 equals 相等，那么地址也一定相同”的概念！</p>
+<h4 id="为什么两个对象有相同的-hashcode-值，它们也不⼀定是相等的？"><a href="#为什么两个对象有相同的-hashcode-值，它们也不⼀定是相等的？" class="headerlink" title="为什么两个对象有相同的 hashcode 值，它们也不⼀定是相等的？"></a>为什么两个对象有相同的 hashcode 值，它们也不⼀定是相等的？</h4><p>hashCode()算法的问题!</p>
+<p>所以在比较对象相等的时候，不仅要比较hashcode还是要比较equals比较</p>
+<h3 id="String是基本类型数据吗"><a href="#String是基本类型数据吗" class="headerlink" title="String是基本类型数据吗"></a>String是基本类型数据吗</h3><p>不是。为引用，基本的就是byte,short,int,long,float,double,cahr,boolean</p>
+<h3 id="java中有没有goto"><a href="#java中有没有goto" class="headerlink" title="java中有没有goto"></a>java中有没有goto</h3><p>保留字</p>
+<h3 id="amp-和-amp-amp"><a href="#amp-和-amp-amp" class="headerlink" title="&amp;和&amp;&amp;"></a>&amp;和&amp;&amp;</h3><p>&amp;表示与 、和</p>
+<p>都是要求两边为true才为true，但&amp;&amp;可以短路，如果左边为false则直接false，右边的不会进行计算。</p>
+<h3 id="为什么-Java-中只有值传递？"><a href="#为什么-Java-中只有值传递？" class="headerlink" title="为什么 Java 中只有值传递？"></a>为什么 Java 中只有值传递？</h3><p>⽅法得到的是所有参数值的⼀个拷⻉。</p>
+<ul>
+<li><strong>⼀个⽅法不能修改⼀个基本数据类型的参数</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br> <span class="hljs-keyword">int</span> num1 = <span class="hljs-number">10</span>;<br> <span class="hljs-keyword">int</span> num2 = <span class="hljs-number">20</span>;<br> swap(num1, num2);<br> System.out.println(<span class="hljs-string">&quot;num1 = &quot;</span> + num1);<br> System.out.println(<span class="hljs-string">&quot;num2 = &quot;</span> + num2);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span> </span>&#123;<br> <span class="hljs-keyword">int</span> temp = a;<br> a = b;<br> b = temp;<br> System.out.println(<span class="hljs-string">&quot;a = &quot;</span> + a);<br> System.out.println(<span class="hljs-string">&quot;b = &quot;</span> + b);<br>&#125;<br><br>a = <span class="hljs-number">20</span><br>b = <span class="hljs-number">10</span><br>num1 = <span class="hljs-number">10</span><br>num2 = <span class="hljs-number">20</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211018174207110.png" srcset="/img/loading.gif" lazyload alt="image-20211018174207110"></p>
+<ul>
+<li>⼀个⽅法不能修改⼀个基本数据类型的参数，但可以修改对象引⽤作为参数</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br><span class="hljs-keyword">int</span>[] arr = &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> &#125;;<br>System.out.println(arr[<span class="hljs-number">0</span>]);<br>change(arr);<br>System.out.println(arr[<span class="hljs-number">0</span>]);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] array)</span> </span>&#123;<br><span class="hljs-comment">// 将数组的第⼀个元素变为0</span><br>array[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211018174348780.png" srcset="/img/loading.gif" lazyload alt="image-20211018174348780"></p>
+<h3 id="线程、程序、进程的基本概念，及联系"><a href="#线程、程序、进程的基本概念，及联系" class="headerlink" title="线程、程序、进程的基本概念，及联系"></a>线程、程序、进程的基本概念，及联系</h3><p><strong>程序</strong>是含有指令和数据的⽂件，被存储在磁盘或其他的数据存储设备中，也就是说程序是静态的代码。</p>
+<p><strong>进程</strong>是程序的⼀次执⾏过程，是系统运⾏程序的基本单位。</p>
+<p><strong>线程</strong>与进程相似，但线程是⼀个⽐进程更⼩的执⾏单位。</p>
+<h3 id="线程有哪些基本状态"><a href="#线程有哪些基本状态" class="headerlink" title="线程有哪些基本状态"></a>线程有哪些基本状态</h3><p><img src="/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211018183752472.png" srcset="/img/loading.gif" lazyload alt="image-20211018183752472"></p>
+<h3 id="final-关键字"><a href="#final-关键字" class="headerlink" title="final 关键字"></a>final 关键字</h3><p>final 关键字主要⽤在三个地⽅：变量、⽅法、类。</p>
+<ol>
+<li>对于⼀个 final 变量，如果是基本数据类型的变量，则其数值⼀旦在初始化之后便不能更<br>改；如果是引⽤类型的变量，则在对其初始化之后便不能再让其指向另⼀个对象。</li>
+<li>当⽤ final 修饰⼀个类时，表明这个类不能被继承。final 类中的所有成员⽅法都会被隐式地<br>指定为 final ⽅法。</li>
+<li>使⽤ final ⽅法的原因有两个。第⼀个原因是把⽅法锁定，以防任何继承类修改它的含义；<br>第⼆个原因是效率。在早期的 Java 实现版本中，会将 final ⽅法转为内嵌调⽤。但是如果⽅<br>法过于庞⼤，可能看不到内嵌调⽤带来的任何性能提升（现在的 Java 版本已经不需要使⽤<br>final ⽅法进⾏这些优化了）。类中所有的 private ⽅法都隐式地指定为 final。</li>
+</ol>
+<h3 id="Java-序列化中如果有些字段不想进⾏序列化，怎么办？"><a href="#Java-序列化中如果有些字段不想进⾏序列化，怎么办？" class="headerlink" title="Java 序列化中如果有些字段不想进⾏序列化，怎么办？"></a>Java 序列化中如果有些字段不想进⾏序列化，怎么办？</h3><p>对于不想进⾏序列化的变量，使⽤ transient 关键字修饰</p>
+<h3 id="获取⽤键盘输⼊常⽤的两种⽅法"><a href="#获取⽤键盘输⼊常⽤的两种⽅法" class="headerlink" title="获取⽤键盘输⼊常⽤的两种⽅法"></a>获取⽤键盘输⼊常⽤的两种⽅法</h3><ol>
+<li><p>通过 Scanner</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">Scanner input = <span class="hljs-keyword">new</span> Scanner(System.in);<br>String s = input.nextLine();<br>input.close();<br></code></pre></td></tr></table></figure></li>
+<li><p> BufferedReader</p>
+</li>
+</ol>
+   <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs haxe">BufferedReader input = <span class="hljs-keyword">new</span> <span class="hljs-type">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-type">InputStreamReader</span>(System.<span class="hljs-keyword">in</span>));<br><span class="hljs-keyword">String</span> s = input.readLine();<br></code></pre></td></tr></table></figure>
+
+<h3 id="接口中的修饰符"><a href="#接口中的修饰符" class="headerlink" title="接口中的修饰符"></a>接口中的修饰符</h3><ul>
+<li>接口的修饰符：abstract</li>
+<li>接口中字段的修饰：public static final</li>
+<li>接口中的方法分修饰：public abstract</li>
+</ul>
+<h3 id="java中的权限修饰符"><a href="#java中的权限修饰符" class="headerlink" title="java中的权限修饰符"></a>java中的权限修饰符</h3><h4 id="类的修饰符"><a href="#类的修饰符" class="headerlink" title="类的修饰符"></a>类的修饰符</h4><p>类可以被public修饰，表示它是公共的可以访问的</p>
+<p>abstract:表示抽象类，不能够被实例</p>
+<p>final:不能够被继承</p>
+<h4 id="方法的修饰符"><a href="#方法的修饰符" class="headerlink" title="方法的修饰符"></a>方法的修饰符</h4><p>public、protrcted(同类不同包下，可以访问)、private</p>
+<p>abstract：表示为抽象方法，没有方法体和具体实现</p>
+<p>static:表示该方法属于类，可以直接通过类名调用该方法</p>
+<p>final：表示为最终方法，不能够重写或者覆盖。</p>
+<p>native:表示本地方法，非java方法</p>
+<p>synchronize：</p>
+<h4 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h4><h3 id="七大数据类型有哪些"><a href="#七大数据类型有哪些" class="headerlink" title="七大数据类型有哪些"></a>七大数据类型有哪些</h3><p>int byte  short long float double char boolean</p>
+<h3 id="Java-中-IO-流"><a href="#Java-中-IO-流" class="headerlink" title="Java 中 IO 流"></a>Java 中 IO 流</h3><h4 id="Java-中-IO-流分为⼏种"><a href="#Java-中-IO-流分为⼏种" class="headerlink" title="Java 中 IO 流分为⼏种?"></a>Java 中 IO 流分为⼏种?</h4><ul>
+<li><p>按照流的流向分，可以分为输⼊流和输出流；</p>
+</li>
+<li><p>按照操作单元划分，可以划分为字节流和字符流；</p>
+<p><img src="/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211115161139289.png" srcset="/img/loading.gif" lazyload alt="image-20211115161139289"></p>
+</li>
+</ul>
+<h4 id="既然有了字节流-为什么还要有字符流"><a href="#既然有了字节流-为什么还要有字符流" class="headerlink" title="既然有了字节流,为什么还要有字符流?"></a>既然有了字节流,为什么还要有字符流?</h4><p>直接操作字符,提升效率</p>
+<h4 id="BIO-NIO-AIO-有什么区别"><a href="#BIO-NIO-AIO-有什么区别" class="headerlink" title="BIO,NIO,AIO 有什么区别?"></a>BIO,NIO,AIO 有什么区别?</h4><p><strong>BIO (Blocking I/O):</strong> 同步阻塞 I/O 模式，数据的读取写⼊必须阻塞在⼀个线程内等待其完</p>
+<p>成。BIO单线程，简单但效率低。</p>
+<p><strong>NIO (Non-blocking/New I/O):</strong> NIO 是⼀种同步⾮阻塞的 I/O 模型，在 Java 1.4 中引⼊了</p>
+<p>NIO 框架。</p>
+<p>AIO <strong>(Asynchronous I/O)</strong>:异步非阻塞。</p>
+<h3 id="深拷⻉-vs-浅拷⻉"><a href="#深拷⻉-vs-浅拷⻉" class="headerlink" title="深拷⻉ vs 浅拷⻉"></a>深拷⻉ vs 浅拷⻉</h3><ol>
+<li>浅拷⻉：对基本数据类型进⾏值传递，对引⽤数据类型进⾏引⽤传递般的拷⻉，此为浅拷<br> ⻉。</li>
+<li>深拷⻉：对基本数据类型进⾏值传递，对引⽤数据类型，创建⼀个新的对象，并复制其内<br> 容，此为深拷⻉。</li>
+<li></li>
+</ol>
+<h2 id="JAVA集合"><a href="#JAVA集合" class="headerlink" title="JAVA集合"></a>JAVA集合</h2><h3 id="List-Set-Map三者的区别？"><a href="#List-Set-Map三者的区别？" class="headerlink" title="List,Set,Map三者的区别？"></a>List,Set,Map三者的区别？</h3><ul>
+<li><p>List (对付顺序的好帮⼿)： 存储的元素是有序的、可重复的。</p>
+</li>
+<li><p>Set (注重独⼀⽆⼆的性质): 存储的元素是⽆序的、不可重复的。</p>
+</li>
+<li><p>Map (⽤ Key 来搜索的专家): 使⽤键值对（kye-value）存储，Key 是⽆序的、不可重复的，value 是⽆序的、可重复的，每个键最多映射到⼀个值。</p>
+</li>
+</ul>
+<h3 id="Arraylist-与-LinkedList-区别"><a href="#Arraylist-与-LinkedList-区别" class="headerlink" title="Arraylist 与 LinkedList 区别"></a>Arraylist 与 LinkedList 区别</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>Arraylist</th>
+<th>LinkedList</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>线程安全</strong></td>
+<td>不安全</td>
+<td>不安全</td>
+</tr>
+<tr>
+<td>数据结构</td>
+<td><strong>Object</strong> <strong>数组</strong></td>
+<td>双向链表</td>
+</tr>
+<tr>
+<td><strong>快速随机访问</strong></td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>内存占用空间</td>
+<td>list表预留一定的容量空间</td>
+<td>每一个元素都比ArrayList消耗的空间多</td>
+</tr>
+</tbody></table>
+<h3 id="ArrayList-与-Vector-区别呢"><a href="#ArrayList-与-Vector-区别呢" class="headerlink" title="ArrayList 与 Vector 区别呢"></a>ArrayList 与 Vector 区别呢</h3><ul>
+<li>ArrayList 是 List 的主要实现类，底层使⽤ Object[ ] 存储，适⽤于频繁的查找⼯作，线程不安全 ；</li>
+<li>Vector 是 List 的古⽼实现类，底层使⽤ Object[ ] 存储，线程安全的</li>
+</ul>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h4 id><a href="#" class="headerlink" title></a><img src="/2021/10/17/java%E5%9F%BA%E7%A1%80/image-20211018184442674.png" srcset="/img/loading.gif" lazyload alt="image-20211018184442674"></h4><h4 id="Throwable-类常⽤⽅法"><a href="#Throwable-类常⽤⽅法" class="headerlink" title="Throwable 类常⽤⽅法"></a>Throwable 类常⽤⽅法</h4><ul>
+<li><p><strong>public string getMessage()</strong> :返回异常发⽣时的简要描述</p>
+</li>
+<li><p><strong>public string toString()</strong> :返回异常发⽣时的详细信息</p>
+</li>
+<li><p><strong>public string getLocalizedMessage()</strong> :返回异常对象的本地化信息。使⽤ Throwable 的⼦类覆盖这个⽅法，可以⽣成本地化信息。如果⼦类没有覆盖该⽅法，则该⽅法返回的信息与</p>
+</li>
+<li><p>getMessage 返回的结果相同</p>
+</li>
+<li><p><strong>public void printStackTrace()</strong> :在控制台上打印 Throwable 对象封装的异常信息</p>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/18/%E8%A6%81%E6%80%8E%E6%A0%B7%E5%8A%AA%E5%8A%9B%E6%89%8D%E8%83%BD%E6%88%90%E4%B8%BA%E5%BE%88%E5%8E%89%E5%AE%B3%E5%BE%88%E5%8E%89%E5%AE%B3%E7%9A%84%E4%BA%BA/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">成为很厉害很厉害的人</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/14/Linux/">
+                        <span class="hidden-mobile">Linux</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"> <span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

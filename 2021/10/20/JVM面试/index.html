@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="JVM基础知识">
+  <meta name="author" content="Lapuda">
+  <meta name="keywords" content="java">
+  <meta name="description" content="JVM基础知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM">
+<meta property="og:url" content="http://example.com/2021/10/20/JVM%E9%9D%A2%E8%AF%95/index.html">
+<meta property="og:site_name" content="Lapuda&#39;s Space">
+<meta property="og:description" content="JVM基础知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-20T06:17:44.967Z">
+<meta property="article:modified_time" content="2021-10-25T12:20:12.033Z">
+<meta property="article:author" content="Lapuda">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>JVM - Lapuda&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lapuda&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/cover/cyber.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JVM">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-20 14:17" pubdate>
+        2021年10月20日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JVM</h1>
+            
+            <div class="markdown-body">
+              <h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><h3 id="java中会存在内存泄漏吗-请简单描述。"><a href="#java中会存在内存泄漏吗-请简单描述。" class="headerlink" title="java中会存在内存泄漏吗,请简单描述。"></a>java中会存在内存泄漏吗,请简单描述。</h3><blockquote>
+<p>内存泄漏是指不再被使用的对象或者变量一直被占据在内存中。</p>
+</blockquote>
+<p>长生命周期的对象持有短生命周期对象的引用就很可能发生内存泄露。</p>
+<p>发生的场景</p>
+<ul>
+<li><p>全局集合</p>
+<p>大型应用程序中存在各种各样的全局数据仓库是很普遍的，必须有某种机制从储存库中移除不再需要的数据。</p>
+</li>
+<li><p>缓存</p>
+<p>如果缓存设置不正确而大量使用缓存的话则会出现内存溢出的后果，因此需要将所使用的内存容量与检索数据的速度加以平衡。</p>
+</li>
+<li><p>递归</p>
+</li>
+</ul>
+<h3 id="64位M中-int的长度是多数"><a href="#64位M中-int的长度是多数" class="headerlink" title="64位M中,int的长度是多数?"></a>64位M中,int的长度是多数?</h3><p>无论是64位，还是32位，int的长度都是32位或64位</p>
+<h3 id="Serial与-Paralllel-gc之间的不同之处"><a href="#Serial与-Paralllel-gc之间的不同之处" class="headerlink" title="Serial与 Paralllel gc之间的不同之处?"></a>Serial与 Paralllel gc之间的不同之处?</h3><p>Serial与 Paralle在GC执行的时候都会引起stop-the-wod。</p>
+<p>它们之间主要不同 Serial收集器是默认的复制收集器,执行GC的时候只有一个线程,而<br>parallel收集器使用多个GC线程来执行。</p>
+<h3 id="Java中-WeakReference与-SoftReference的区别"><a href="#Java中-WeakReference与-SoftReference的区别" class="headerlink" title="Java中 WeakReference与 SoftReference的区别?"></a>Java中 WeakReference与 SoftReference的区别?</h3><ul>
+<li> WeakReference与 SoftReference都有利于提高GC和内存的效率,</li>
+<li>但是 WeakReference,一旦失去最后一个强引用,就会被Gc回收,而软引用虽然不能阻止被回收,但是可以延迟到JVM内存不足的时候</li>
+</ul>
+<h3 id="XX-UseCompressedOops有什么作用"><a href="#XX-UseCompressedOops有什么作用" class="headerlink" title="-XX:+ UseCompressedOops有什么作用?"></a><code>-XX:+ UseCompressedOops</code>有什么作用?</h3><p>j当32位的JVM迁移到64位的JVM时,由于对象的指针从32位增加到了64位,因此堆内存会突然增加。这也会对减低CPU缓存。通过<code>-XX:+ UseCompressedOops</code>可以压缩内存。</p>
+<h3 id="32位JVM和64位JVM的最大堆内存分别是多少"><a href="#32位JVM和64位JVM的最大堆内存分别是多少" class="headerlink" title="32位JVM和64位JVM的最大堆内存分别是多少?"></a>32位JVM和64位JVM的最大堆内存分别是多少?</h3><ul>
+<li>32位，理论4GB，实际更小</li>
+<li>64位，理论16GB，可以指定到100GB</li>
+</ul>
+<h3 id="JRE、JDK、JVM及JIT之间有什么不同"><a href="#JRE、JDK、JVM及JIT之间有什么不同" class="headerlink" title="JRE、JDK、JVM及JIT之间有什么不同?"></a>JRE、JDK、JVM及JIT之间有什么不同?</h3><p>JRE运行时环境，JDK运行时环境以及所需工具，JVM，java虚拟机用于将编译字节码文件。</p>
+<p>JIT热点代码会转换为本地代码。</p>
+<h3 id="介绍下-Java-内存区域"><a href="#介绍下-Java-内存区域" class="headerlink" title="介绍下 Java 内存区域"></a>介绍下 Java 内存区域</h3><p>程序计数器<br>虚拟机栈<br>本地⽅法栈<br>堆<br>⽅法区<br>直接内存 (⾮运⾏时数据区的⼀部分)</p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>每个线程都有一个程序计数器，程序计数器的值决定执行那一条指令</p>
+<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><p>虚拟机栈也是java的内存区域，作用：每当函数的调用都会以栈帧的形式进入虚拟机栈，每当有返回就出栈。栈帧都拥有：局部变量表，操作数栈，动态链接和方法出口信息。</p>
+<h4 id="本地⽅法栈"><a href="#本地⽅法栈" class="headerlink" title="本地⽅法栈"></a><strong>本地⽅法栈</strong></h4><p>用于本地方法的栈和虚拟机栈差不多。</p>
+<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>作用：存放对象实例和数组</p>
+<p>可以分为新时代和老年代，新生代又包含伊甸园 FromSurvivor ToSurvivor</p>
+<h4 id="⽅法区（元空间）"><a href="#⽅法区（元空间）" class="headerlink" title="⽅法区（元空间）"></a><strong>⽅法区</strong>（元空间）</h4><p>用于保存虚拟机已经加载出来的类信息，静态变量等信息。</p>
+<h3 id="Java-虚拟机栈会出现两种错误"><a href="#Java-虚拟机栈会出现两种错误" class="headerlink" title="Java 虚拟机栈会出现两种错误"></a><strong>Java</strong> <strong>虚拟机栈会出现两种错误</strong></h3><ul>
+<li><p><strong>StackOverFlowError</strong> <strong>：</strong> 若 Java 虚拟机栈的内存⼤⼩不允许动态扩展，那么当线程请求栈的深度超过当前 Java 虚拟机栈的最⼤深度的时候，就抛出 StackOverFlowError 错误。</p>
+</li>
+<li><p><strong>OutOfMemoryError</strong> <strong>：</strong> 若 Java 虚拟机堆中没有空闲内存，并且垃圾回收器也⽆法提供更多内存的话。就会抛出 OutOfMemoryError 错误。</p>
+</li>
+</ul>
+<h3 id="如何进入老年区的"><a href="#如何进入老年区的" class="headerlink" title="如何进入老年区的"></a>如何进入老年区的</h3><p>当完成垃圾回收后，伊甸园区的对象进入s1或s2区，并且年龄加1,当年龄到达了指定的年龄阈值后，就进入了老年区。</p>
+<h3 id="为什么要将永久代-PermGen-替换为元空间-MetaSpace-呢？"><a href="#为什么要将永久代-PermGen-替换为元空间-MetaSpace-呢？" class="headerlink" title="为什么要将永久代 (PermGen) 替换为元空间 (MetaSpace) 呢？"></a><strong>为什么要将永久代</strong> <strong>(PermGen)</strong> <strong>替换为元空间</strong> <strong>(MetaSpace)</strong> 呢？</h3><p>永久代的内存固定无法调整，元空间则是使用的直接内存，受本机内存的限制。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%9F%BA%E7%A1%80/">基础</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/21/nginx/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Nginx面试</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/18/JVM/">
+                        <span class="hidden-mobile">JVM</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"> <span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,907 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于谷粒商城项目的总结及感悟">
+  <meta name="author" content="Lapuda">
+  <meta name="keywords" content="java">
+  <meta name="description" content="关于谷粒商城项目的总结及感悟">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谷粒商城笔记">
+<meta property="og:url" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/index.html">
+<meta property="og:site_name" content="Lapuda&#39;s Space">
+<meta property="og:description" content="关于谷粒商城项目的总结及感悟">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013112356272.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013112453364.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013112550461.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013112622306.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013113902232.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013152103016.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013152212026.png">
+<meta property="og:image" content="http://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3156348951/p139016.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211006151644885.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211008171512867.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013172412830.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013172333231.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013173654281.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013174457335.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013191141610.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013191506993.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013192853475.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013193156656.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013193206892.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013193428276.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013194257798.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013195631342.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013195843293.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013201127044.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211014102358872.png">
+<meta property="og:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211014102434112.png">
+<meta property="article:published_time" content="2021-10-05T02:42:32.057Z">
+<meta property="article:modified_time" content="2021-10-23T16:04:37.610Z">
+<meta property="article:author" content="Lapuda">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013112356272.png">
+  
+  <title>谷粒商城笔记 - Lapuda&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lapuda&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/cover/cyber.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="谷粒商城笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-05 10:42" pubdate>
+        2021年10月5日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      40k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      123 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">谷粒商城笔记</h1>
+            
+            <div class="markdown-body">
+              <h2 id="P2"><a href="#P2" class="headerlink" title="P2"></a>P2</h2><p>谷粒商城是一个 B2C 模式的电商平台，销售自营商品给客户。</p>
+<h2 id="P3-6-分布式"><a href="#P3-6-分布式" class="headerlink" title="P3-6 分布式"></a>P3-6 分布式</h2><h3 id="分布式基础"><a href="#分布式基础" class="headerlink" title="分布式基础"></a>分布式基础</h3><h4 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a><strong>微服务</strong></h4><p>微服务架构风格，就像是把一个<strong>单独的应用程序</strong>开发为<strong>一套小服务</strong>，每个<strong>小服务</strong>运行在<strong>自</strong> </p>
+<p><strong>己</strong>的<strong>进程</strong>中，并使用轻量级机制通信，通常是 HTTP API。</p>
+<h4 id="集群-amp-分布式-amp-节点"><a href="#集群-amp-分布式-amp-节点" class="headerlink" title="集群&amp;分布式&amp;节点"></a>集群&amp;分布式&amp;节点</h4><p>TODO</p>
+<h4 id="远程调用"><a href="#远程调用" class="headerlink" title="远程调用"></a>远程调用</h4><p>各个服务可能处于不同主机，但是服务之间不可避免的需要互相调用</p>
+<p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013112356272.png" srcset="/img/loading.gif" lazyload alt="image-20211013112356272"></p>
+<h4 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h4><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013112453364.png" srcset="/img/loading.gif" lazyload alt="image-20211013112453364"></p>
+<p><strong>常见的负载均衡算法：</strong> </p>
+<p><strong>轮询：</strong>为第一个请求选择健康池中的第一个后端服务器，然后按顺序往后依次选择，直 </p>
+<p>到最后一个，然后循环。 </p>
+<p><strong>最小连接：</strong>优先选择连接数最少，也就是压力最小的后端服务器，在会话较长的情况下 </p>
+<p>可以考虑采取这种方式。 </p>
+<p><strong>散列：</strong>根据请求源的 IP 的散列（hash）来选择要转发的服务器。这种方式可以一定程 </p>
+<p>度上保证特定用户能连接到相同的服务器。如果你的应用需要处理状态而要求用户能连接到和之前相同的服务器，可以考虑采取这种方式。</p>
+<h4 id="服务注册-发现-amp-注册中心"><a href="#服务注册-发现-amp-注册中心" class="headerlink" title="服务注册/发现&amp;注册中心"></a>服务注册/发现&amp;注册中心</h4><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013112550461.png" srcset="/img/loading.gif" lazyload alt="image-20211013112550461"></p>
+<h4 id="配置中心"><a href="#配置中心" class="headerlink" title="配置中心"></a>配置中心</h4><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013112622306.png" srcset="/img/loading.gif" lazyload alt="image-20211013112622306"></p>
+<h4 id="服务熔断-amp-服务降级"><a href="#服务熔断-amp-服务降级" class="headerlink" title="服务熔断&amp;服务降级"></a>服务熔断&amp;服务降级</h4><p>在微服务架构中，微服务之间通过网络进行通信，存在相互依赖，当其中一个服务不可用时,有可能会造成雪崩效应。要防止这样的情况，必须要有容错机制来保护服务。</p>
+<ul>
+<li>服务熔断 </li>
+</ul>
+<p>设置服务的超时，当被调用的服务经常失败到达某个阈值，我们可以开 </p>
+<p>启断路保护机制，后来的请求不再去调用这个服务。本地直接返回默认 </p>
+<p>的数据 </p>
+<ul>
+<li>服务降级 </li>
+</ul>
+<p>在运维期间，当系统处于高峰期，系统资源紧张，我们可以让非核心业 </p>
+<p>务降级运行。降级：某些服务不处理，或者简单处理【抛异常、返回 NULL、 </p>
+<p>调用 Mock 数据、调用 Fallback 处理逻辑】。</p>
+<h4 id="API-网关"><a href="#API-网关" class="headerlink" title="API 网关"></a>API 网关</h4><p>在微服务架构中，API Gateway 作为整体架构的重要组件，它<strong>抽象了微服务中都需要的公共</strong> </p>
+<p><strong>功能</strong>，同时提供了客户端<strong>负载均衡</strong>，<strong>服务自动熔断</strong>，<strong>灰度发布</strong>，<strong>统一认证</strong>，<strong>限流流控</strong>，<strong>日</strong> </p>
+<p><strong>志统计</strong>等丰富的功能，帮助我们解决很多 API 管理难题。</p>
+<p>管关也可以做负载均衡！</p>
+<h3 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg" srcset="/img/loading.gif" lazyload alt="谷粒商城-微服务架构图"></p>
+<h3 id="微服务划分"><a href="#微服务划分" class="headerlink" title="微服务划分"></a>微服务划分</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013113902232.png" srcset="/img/loading.gif" lazyload alt="image-20211013113902232"></p>
+<h2 id="P6-19环境搭建"><a href="#P6-19环境搭建" class="headerlink" title="P6-19环境搭建"></a>P6-19环境搭建</h2><p>Linux虚拟机 Centos7</p>
+<p>docker 安装 mysql、redis</p>
+<p>开发工具 IDEA Maven Vscode</p>
+<p>代码管理 Git</p>
+<p>数据库初始化</p>
+<p>逆向工程为数据库中的表生成代码</p>
+<h2 id="P20-27SpringCloud"><a href="#P20-27SpringCloud" class="headerlink" title="P20-27SpringCloud"></a>P20-27SpringCloud</h2><h3 id="分布式系统基本环境SpringCloud"><a href="#分布式系统基本环境SpringCloud" class="headerlink" title="分布式系统基本环境SpringCloud"></a>分布式系统基本环境SpringCloud</h3><ul>
+<li><p>SpringCloud Alibaba - Nacos：注册中心（服务发现/注册） </p>
+</li>
+<li><p>SpringCloud Alibaba - Nacos：配置中心（动态配置管理） </p>
+</li>
+<li><p>SpringCloud - Ribbon：负载均衡 SpringCloud - Feign：声明式 HTTP 客户端（调用远程服务） </p>
+</li>
+<li><p>SpringCloud Alibaba - Sentinel：服务容错（限流、降级、熔断） </p>
+</li>
+<li><p>SpringCloud - Gateway：API 网关（webflux 编程模式） SpringCloud - Sleuth：调用链监控 </p>
+</li>
+<li><p>SpringCloud Alibaba - Seata：原 Fescar，即分布式事务解决方案</p>
+</li>
+</ul>
+<p>SpringCloud版本要和SpringBoot对应</p>
+<h3 id="注册中心"><a href="#注册中心" class="headerlink" title="注册中心"></a>注册中心</h3><ol>
+<li><p>pom文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br> 			 <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>              <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>              <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-alibaba-dependencies<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>              <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.0.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>              <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span><br>              <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>          <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>YML</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">9001</span><br><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">nacos-payment-provider</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">nacos:</span><br>      <span class="hljs-attr">discovery:</span><br>        <span class="hljs-attr">server-addr:</span> <span class="hljs-string">localhost:8848</span> <span class="hljs-comment">#配置Nacos地址</span><br><br><span class="hljs-attr">management:</span><br>  <span class="hljs-attr">endpoints:</span><br>    <span class="hljs-attr">web:</span><br>      <span class="hljs-attr">exposure:</span><br>        <span class="hljs-attr">include:</span> <span class="hljs-string">&#x27;*&#x27;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>主启动类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@EnableDiscoveryClient</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PaymentMain9001</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>            SpringApplication.run(PaymentMain9001.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="远程调用OpenFeign"><a href="#远程调用OpenFeign" class="headerlink" title="远程调用OpenFeign"></a>远程调用OpenFeign</h3></li>
+<li><p>pom</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>主启动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-meta">@EnableFeignClients</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderFeignMain80</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span><br><span class="hljs-function">    </span>&#123;<br>        SpringApplication.run(OrderFeignMain80.class,args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>业务类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@FeignClient(value = &quot;CLOUD-PAYMENT-SERVICE&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">PaymentFeignService</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-meta">@GetMapping(value = &quot;/payment/get/&#123;id&#125;&quot;)</span><br>    <span class="hljs-function">CommonResult&lt;Payment&gt; <span class="hljs-title">getPaymentById</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderFeignController</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> PaymentFeignService paymentFeignService;<br><br>    <span class="hljs-meta">@GetMapping(value = &quot;/consumer/payment/get/&#123;id&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;Payment&gt; <span class="hljs-title">getPaymentById</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> paymentFeignService.getPaymentById(id);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Feign自带负载均衡配置项</p>
+</li>
+</ol>
+<h3 id="配置中心-1"><a href="#配置中心-1" class="headerlink" title="配置中心"></a>配置中心</h3><ol>
+<li><p>pom</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>       <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>bootstrap</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-comment"># nacos配置</span><br><span class="hljs-meta">spring.cloud.nacos.config.server-addr</span>=<span class="hljs-string">127.0.0.1:8848</span><br><span class="hljs-meta">spring.cloud.nacos.config.namespace</span>=<span class="hljs-string">3b599d65-bf90-47a1-8e49-24065b23a226</span><br><span class="hljs-meta">spring.application.name</span>=<span class="hljs-string">guli-product</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>bootstrap优先级高于application</strong></p>
+</li>
+<li><p>@RefreshScope</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RefreshScope</span> <span class="hljs-comment">//在控制器类加入@RefreshScope注解使当前类下的配置支持Nacos的动态刷新功能。</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConfigClientController</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-meta">@Value(&quot;$&#123;config.info&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> String configInfo;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/config/info&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getConfigInfo</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> configInfo;<br>    &#125;<br>&#125;<br> <br></code></pre></td></tr></table></figure></li>
+<li><p>Nacos配置中心的操作</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lasso">命名空间内可以创建配置的分类<br>将命名空间在bootstrap中关联，则就会被该命名空间管理<br>项目中每一个服务就创建一个命名空间<br><br>命名空间下的配置列表中，可见将配置分组<br>可以分为生产环境的配置 测试环境的配置 <span class="hljs-params">...</span><span class="hljs-params">...</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="网关GateWay"><a href="#网关GateWay" class="headerlink" title="网关GateWay"></a>网关GateWay</h3><ol>
+<li><p>创建一个网关的微服务</p>
+</li>
+<li><p>完成服务注册与发现</p>
+</li>
+<li><p>在配置中编写路由</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">gateway:</span><br>      <span class="hljs-attr">routes:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">member_route</span><br>          <span class="hljs-attr">uri:</span> <span class="hljs-string">lb://gulimall-member</span><br>          <span class="hljs-attr">predicates:</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-string">Path=/api/member/**</span><br>          <span class="hljs-attr">filters:</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-string">RewritePath=/api/(?&lt;segment&gt;.*),/$\&#123;segment&#125;</span><br><br>        <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">product_route</span><br>          <span class="hljs-attr">uri:</span> <span class="hljs-string">lb://guli-product</span><br>          <span class="hljs-attr">predicates:</span><br>              <span class="hljs-bullet">-</span> <span class="hljs-string">Path=/api/product/**</span><br>          <span class="hljs-attr">filters:</span><br>              <span class="hljs-bullet">-</span> <span class="hljs-string">RewritePath=/api/(?&lt;segment&gt;.*),/$\&#123;segment&#125;</span><br><br><span class="hljs-comment">#        - id: test_route</span><br><span class="hljs-comment">#          uri: https://www.baidu.com</span><br><span class="hljs-comment">#          predicates:</span><br><span class="hljs-comment">#            - Query=url,baidu</span><br><br>        <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">third_route</span><br>          <span class="hljs-attr">uri:</span> <span class="hljs-string">lb://gulimall-third-party</span><br>          <span class="hljs-attr">predicates:</span><br>              <span class="hljs-bullet">-</span> <span class="hljs-string">Path=/api/thirdparty/**</span><br>          <span class="hljs-attr">filters:</span><br>              <span class="hljs-bullet">-</span> <span class="hljs-string">RewritePath=/api/thirdparty/(?&lt;segment&gt;.*),/$\&#123;segment&#125;</span><br><br><br>        <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">admin_route</span><br>          <span class="hljs-attr">uri:</span> <span class="hljs-string">lb://renren</span><br>          <span class="hljs-attr">predicates:</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-string">Path=/api/**</span><br>          <span class="hljs-attr">filters:</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-string">RewritePath=/api/(?&lt;segment&gt;.*),/renren-fast/$\&#123;segment&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>tip：网关可以负载均衡<code>lb:</code></p>
+<p>​        网关中的路由有先后顺序 最后的路由最后匹配</p>
+<p>​        项目开发的时候，一般都要路径重写<code>- RewritePath=</code></p>
+</li>
+</ol>
+<h2 id="P27-44vUE"><a href="#P27-44vUE" class="headerlink" title="P27-44vUE"></a>P27-44vUE</h2><h2 id="P45-101接口与前端页面的开发"><a href="#P45-101接口与前端页面的开发" class="headerlink" title="P45-101接口与前端页面的开发"></a>P45-101接口与前端页面的开发</h2><h3 id="P47跨域"><a href="#P47跨域" class="headerlink" title="P47跨域"></a>P47跨域</h3><ul>
+<li><p>跨域：指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是 浏览器对javascript施加的安全限制。 </p>
+</li>
+<li><p>同源策略：是指协议，域名，端口都要相同，其中有一个不同都会产生跨域；</p>
+</li>
+</ul>
+<h4 id="跨域流程"><a href="#跨域流程" class="headerlink" title="跨域流程"></a>跨域流程</h4><p>简单请求直接发送请求</p>
+<p>非简单请求，需要发送预检请求</p>
+<p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013152103016.png" srcset="/img/loading.gif" lazyload alt="image-20211013152103016"></p>
+<h4 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h4><h5 id="使用nginx部署为同一域"><a href="#使用nginx部署为同一域" class="headerlink" title="使用nginx部署为同一域"></a>使用nginx部署为同一域</h5><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013152212026.png" srcset="/img/loading.gif" lazyload alt="image-20211013152212026"></p>
+<h5 id="配置当次请求允许跨域"><a href="#配置当次请求允许跨域" class="headerlink" title="配置当次请求允许跨域"></a>配置当次请求允许跨域</h5><h6 id="如何做"><a href="#如何做" class="headerlink" title="如何做"></a>如何做</h6><p>添加响应头 </p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs mathematica">• <span class="hljs-variable">Access</span><span class="hljs-operator">-</span><span class="hljs-built_in">Control</span><span class="hljs-operator">-</span><span class="hljs-variable">Allow</span><span class="hljs-operator">-</span><span class="hljs-variable">Origin</span>：支持哪些来源的请求跨域 <br><br>• <span class="hljs-variable">Access</span><span class="hljs-operator">-</span><span class="hljs-built_in">Control</span><span class="hljs-operator">-</span><span class="hljs-variable">Allow</span><span class="hljs-operator">-</span><span class="hljs-variable">Methods</span>：支持哪些方法跨域 <br><br>• <span class="hljs-variable">Access</span><span class="hljs-operator">-</span><span class="hljs-built_in">Control</span><span class="hljs-operator">-</span><span class="hljs-variable">Allow</span><span class="hljs-operator">-</span><span class="hljs-variable">Credentials</span>：跨域请求默认不包含<span class="hljs-variable">cookie</span>，设置为<span class="hljs-variable">true</span>可以包含 <br><br><span class="hljs-variable">cookie</span> <br><br>• <span class="hljs-variable">Access</span><span class="hljs-operator">-</span><span class="hljs-built_in">Control</span><span class="hljs-operator">-</span><span class="hljs-variable">Expose</span><span class="hljs-operator">-</span><span class="hljs-variable">Headers</span>：跨域请求暴露的字段 <br><br>• <span class="hljs-variable">CORS</span>请求时，<span class="hljs-variable">XMLHttpRequest</span>对象的<span class="hljs-variable">getResponseHeader</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>方法只能拿到<span class="hljs-number">6</span>个基本字段： <br><br><span class="hljs-variable">Cache</span><span class="hljs-operator">-</span><span class="hljs-built_in">Control</span>、<span class="hljs-variable">Content</span><span class="hljs-operator">-</span><span class="hljs-built_in">Language</span>、<span class="hljs-variable">Content</span><span class="hljs-operator">-</span><span class="hljs-variable">Type</span>、<span class="hljs-variable">Expires</span>、<span class="hljs-built_in">Last</span><span class="hljs-operator">-</span><span class="hljs-variable">Modified</span>、<span class="hljs-variable">Pragma</span>。如 <br><br>果想拿到其他字段，就必须在<span class="hljs-variable">Access</span><span class="hljs-operator">-</span><span class="hljs-built_in">Control</span><span class="hljs-operator">-</span><span class="hljs-variable">Expose</span><span class="hljs-operator">-</span><span class="hljs-variable">Headers</span>里面指定。 <br><br>• <span class="hljs-variable">Access</span><span class="hljs-operator">-</span><span class="hljs-built_in">Control</span><span class="hljs-operator">-</span><span class="hljs-built_in">Max</span><span class="hljs-operator">-</span><span class="hljs-variable">Age</span>：表明该响应的有效时间为多少秒。在有效时间内，浏览器无 <br><br>须为同一请求再次发起预检请求。请注意，浏览器自身维护了一个最大有效时间，如果 <br><br>该首部字段的值超过了最大有效时间，将不会生效<br></code></pre></td></tr></table></figure>
+
+<h6 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h6><p>缺点：每一个请求都要</p>
+<h6 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h6><p>利用filter,在前求接口之前，统一添加响应头</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GulimallCorsConfiguration</span> </span>&#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> CorsWebFilter <span class="hljs-title">corsWebFilter</span><span class="hljs-params">()</span></span>&#123;<br>        UrlBasedCorsConfigurationSource source = <span class="hljs-keyword">new</span> UrlBasedCorsConfigurationSource();<br><br>        CorsConfiguration corsConfiguration = <span class="hljs-keyword">new</span> CorsConfiguration();<br><br>        <span class="hljs-comment">//1、配置跨域</span><br>        corsConfiguration.addAllowedHeader(<span class="hljs-string">&quot;*&quot;</span>);<br>        corsConfiguration.addAllowedMethod(<span class="hljs-string">&quot;*&quot;</span>);<br>        corsConfiguration.addAllowedOrigin(<span class="hljs-string">&quot;*&quot;</span>);<br>        corsConfiguration.setAllowCredentials(<span class="hljs-keyword">true</span>);<br><br>        source.registerCorsConfiguration(<span class="hljs-string">&quot;/**&quot;</span>,corsConfiguration);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CorsWebFilter(source);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Oss对象储存"><a href="#Oss对象储存" class="headerlink" title="Oss对象储存"></a>Oss对象储存</h3><h4 id="服务端签名后直传"><a href="#服务端签名后直传" class="headerlink" title="服务端签名后直传"></a>服务端签名后直传</h4><p>优点：采用JavaScript客户端直接签名（参见<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/31925.htm?spm=a2c4g.11186623.0.0.169c5d3fQhtHY6#concept-frd-4gy-5db">JavaScript客户端签名直传</a>）时，AccessKey ID和AcessKey Secret会暴露在前端页面，因此存在严重的安全隐患。因此，OSS提供了服务端签名后直传的方案。</p>
+<p><img src="http://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3156348951/p139016.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/91868.htm?spm=a2c4g.11186623.0.0.169c5d3fQhtHY6#concept-ahk-rfz-2fb">官网实例</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs javascript">protected <span class="hljs-keyword">void</span> doGet(HttpServletRequest request, HttpServletResponse response)<br>            throws ServletException, IOException &#123;<br><br>        <span class="hljs-built_in">String</span> accessId = <span class="hljs-string">&quot;&lt;yourAccessKeyId&gt;&quot;</span>; <span class="hljs-comment">// 请填写您的AccessKeyId。</span><br>        <span class="hljs-built_in">String</span> accessKey = <span class="hljs-string">&quot;&lt;yourAccessKeySecret&gt;&quot;</span>; <span class="hljs-comment">// 请填写您的AccessKeySecret。</span><br>        <span class="hljs-built_in">String</span> endpoint = <span class="hljs-string">&quot;oss-cn-hangzhou.aliyuncs.com&quot;</span>; <span class="hljs-comment">// 请填写您的 endpoint。</span><br>        <span class="hljs-built_in">String</span> bucket = <span class="hljs-string">&quot;bucket-name&quot;</span>; <span class="hljs-comment">// 请填写您的 bucketname 。</span><br>        <span class="hljs-built_in">String</span> host = <span class="hljs-string">&quot;https://&quot;</span> + bucket + <span class="hljs-string">&quot;.&quot;</span> + endpoint; <span class="hljs-comment">// host的格式为 bucketname.endpoint</span><br>        <span class="hljs-comment">// callbackUrl为上传回调服务器的URL，请将下面的IP和Port配置为您自己的真实信息。</span><br>        <span class="hljs-built_in">String</span> callbackUrl = <span class="hljs-string">&quot;http://88.88.88.88:8888&quot;</span>;<br>        <span class="hljs-built_in">String</span> dir = <span class="hljs-string">&quot;user-dir-prefix/&quot;</span>; <span class="hljs-comment">// 用户上传文件时指定的前缀。</span><br><br>        <span class="hljs-comment">// 创建OSSClient实例。</span><br>        OSS ossClient = <span class="hljs-keyword">new</span> OSSClientBuilder().build(endpoint, accessId, accessKey);<br>        <span class="hljs-keyword">try</span> &#123;<br>            long expireTime = <span class="hljs-number">30</span>;<br>            long expireEndTime = System.currentTimeMillis() + expireTime * <span class="hljs-number">1000</span>;<br>            <span class="hljs-built_in">Date</span> expiration = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(expireEndTime);<br>            <span class="hljs-comment">// PostObject请求最大可支持的文件大小为5 GB，即CONTENT_LENGTH_RANGE为5*1024*1024*1024。</span><br>            PolicyConditions policyConds = <span class="hljs-keyword">new</span> PolicyConditions();<br>            policyConds.addConditionItem(PolicyConditions.COND_CONTENT_LENGTH_RANGE, <span class="hljs-number">0</span>, <span class="hljs-number">1048576000</span>);<br>            policyConds.addConditionItem(MatchMode.StartWith, PolicyConditions.COND_KEY, dir);<br><br>            <span class="hljs-built_in">String</span> postPolicy = ossClient.generatePostPolicy(expiration, policyConds);<br>            byte[] binaryData = postPolicy.getBytes(<span class="hljs-string">&quot;utf-8&quot;</span>);<br>            <span class="hljs-built_in">String</span> encodedPolicy = BinaryUtil.toBase64String(binaryData);<br>            <span class="hljs-built_in">String</span> postSignature = ossClient.calculatePostSignature(postPolicy);<br><br>            <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; respMap = <span class="hljs-keyword">new</span> LinkedHashMap&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt;();<br>            respMap.put(<span class="hljs-string">&quot;accessid&quot;</span>, accessId);<br>            respMap.put(<span class="hljs-string">&quot;policy&quot;</span>, encodedPolicy);<br>            respMap.put(<span class="hljs-string">&quot;signature&quot;</span>, postSignature);<br>            respMap.put(<span class="hljs-string">&quot;dir&quot;</span>, dir);<br>            respMap.put(<span class="hljs-string">&quot;host&quot;</span>, host);<br>            respMap.put(<span class="hljs-string">&quot;expire&quot;</span>, <span class="hljs-built_in">String</span>.valueOf(expireEndTime / <span class="hljs-number">1000</span>));<br>            <span class="hljs-comment">// respMap.put(&quot;expire&quot;, formatISO8601Date(expiration));</span><br><br>            JSONObject jasonCallback = <span class="hljs-keyword">new</span> JSONObject();<br>            jasonCallback.put(<span class="hljs-string">&quot;callbackUrl&quot;</span>, callbackUrl);<br>            jasonCallback.put(<span class="hljs-string">&quot;callbackBody&quot;</span>,<br>                    <span class="hljs-string">&quot;filename=$&#123;object&#125;&amp;size=$&#123;size&#125;&amp;mimeType=$&#123;mimeType&#125;&amp;height=$&#123;imageInfo.height&#125;&amp;width=$&#123;imageInfo.width&#125;&quot;</span>);<br>            jasonCallback.put(<span class="hljs-string">&quot;callbackBodyType&quot;</span>, <span class="hljs-string">&quot;application/x-www-form-urlencoded&quot;</span>);<br>            <span class="hljs-built_in">String</span> base64CallbackBody = BinaryUtil.toBase64String(jasonCallback.toString().getBytes());<br>            respMap.put(<span class="hljs-string">&quot;callback&quot;</span>, base64CallbackBody);<br><br>            JSONObject ja1 = JSONObject.fromObject(respMap);<br>            <span class="hljs-comment">// System.out.println(ja1.toString());</span><br>            response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>);<br>            response.setHeader(<span class="hljs-string">&quot;Access-Control-Allow-Methods&quot;</span>, <span class="hljs-string">&quot;GET, POST&quot;</span>);<br>            response(request, response, ja1.toString());<br><br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-comment">// Assert.fail(e.getMessage());</span><br>            System.out.println(e.getMessage());<br>        &#125; <span class="hljs-keyword">finally</span> &#123; <br>            ossClient.shutdown();<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>这一系列操作就是在服务器端，通过一系列运算，回传给客户端accessid、policy、signature、host等信息，客户端拿到该信息就可以直接将文件上传。</strong></p>
+<h4 id="配置oss，bucket的注意事项"><a href="#配置oss，bucket的注意事项" class="headerlink" title="配置oss，bucket的注意事项"></a>配置oss，bucket的注意事项</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">nacos:</span><br>      <span class="hljs-attr">discovery:</span><br>        <span class="hljs-attr">server-addr:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><span class="hljs-string">:8848</span><br>    <span class="hljs-attr">alicloud:</span><br>      <span class="hljs-attr">access-key:</span> <span class="hljs-string">LTAI5tP1PoxWnCtW119aEpnx</span><br>      <span class="hljs-attr">secret-key:</span> <span class="hljs-string">qUTmqUFbac8WdY848QJb8Lh0oXInm7</span><br>      <span class="hljs-attr">oss:</span><br>        <span class="hljs-attr">endpoint:</span> <span class="hljs-string">oss-cn-beijing.aliyuncs.com</span><br>        <span class="hljs-attr">bucket:</span> <span class="hljs-string">guli-lapuda</span><br></code></pre></td></tr></table></figure>
+
+<p>bucket是没有在ConfigurationProperties里的，但是可以手动添加，方便@Value()注入。</p>
+<p>因为access-key和secret-key，就包含了bucket列表，但是也要配置正确，因为传给客户端的host就包含了bucket。如果bucket错误，虽然可以上传文件成功，但是做一些其他操作会失败。（例如调用上传的图片时，地址发生错误）</p>
+<h3 id="JSR303"><a href="#JSR303" class="headerlink" title="JSR303"></a>JSR303</h3><h4 id="单组校验："><a href="#单组校验：" class="headerlink" title="单组校验："></a>单组校验：</h4><ol>
+<li><p>在entity对象的属性中添加校验注解（在javax.validation.constraints包下）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@NotBlank(message = &quot;品牌名必须提交&quot;)</span>		<span class="hljs-comment">//自定义message消息</span><br>   <span class="hljs-keyword">private</span> String name;<br>   <br><span class="hljs-meta">@Pattern(regexp=&quot;^[a-zA-Z]$&quot;,message = &quot;检索首字母必须是一个字母&quot;)</span>		<span class="hljs-comment">//支持正则</span><br>   <span class="hljs-keyword">private</span> String firstLetter;<br>   <br><span class="hljs-meta">@URL</span><br><span class="hljs-keyword">private</span> String EMail;<br></code></pre></td></tr></table></figure></li>
+<li><p>在请求的controller方法中添加@Valid注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/save&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> R <span class="hljs-title">save</span><span class="hljs-params">(<span class="hljs-meta">@Valid</span> <span class="hljs-meta">@RequestBody</span> BrandEntity brand)</span></span>&#123;<br>		brandService.save(brand);<br><br>        <span class="hljs-keyword">return</span> R.ok();<br>    &#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>给校验的Bean后，紧跟一个BindResult，就可以获取到校验的结果。拿到校验的结果，就可以自定义的封装。(但会造成代码冗余)，可以采取统一异常处理。（见04）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/save&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> R <span class="hljs-title">save</span><span class="hljs-params">(<span class="hljs-meta">@Valid</span> <span class="hljs-meta">@RequestBody</span> BrandEntity brand, BindingResult result)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>( result.hasErrors())&#123;<br>            Map&lt;String,String&gt; map=<span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>            <span class="hljs-comment">//1.获取错误的校验结果</span><br>            result.getFieldErrors().forEach((item)-&gt;&#123;<br>                <span class="hljs-comment">//获取发生错误时的message</span><br>                String message = item.getDefaultMessage();<br>                <span class="hljs-comment">//获取发生错误的字段</span><br>                String field = item.getField();<br>                map.put(field,message);<br>            &#125;);<br>            <span class="hljs-keyword">return</span> R.error(<span class="hljs-number">400</span>,<span class="hljs-string">&quot;提交的数据不合法&quot;</span>).put(<span class="hljs-string">&quot;data&quot;</span>,map);<br>        &#125;<span class="hljs-keyword">else</span> &#123;<br><br>        &#125;<br>		brandService.save(brand);<br><br>        <span class="hljs-keyword">return</span> R.ok();<br>    &#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>统一异常处理</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java">统一异常处理过程：<br><br><span class="hljs-number">1.</span> 创建异常处理类（专门创建一个exception的包）<br><span class="hljs-number">2.</span> 添加<span class="hljs-meta">@ControllerAdvice</span>注解<br><span class="hljs-number">3.</span> 在类写具体处理的类，需添加<span class="hljs-meta">@ExceptionHandler(value=xxxExcepion.class)</span>指明需要处理的异常类型。<br><br>- <span class="hljs-meta">@RestControllerAdvice</span>=<span class="hljs-meta">@ResponseBody</span>+<span class="hljs-meta">@Controller</span>+<span class="hljs-meta">@Advice</span>（basePackge=）可以指定处理哪里的异常<br>- 打印日志：先引入<span class="hljs-meta">@Slf4j</span>注解，再使用log.erro()等就可以打印日志了<br>    <br>    <br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@RestControllerAdvice(basePackages = &quot;com.atguigu.gulimall.product&quot;)</span>   <span class="hljs-comment">//指定检验的包</span><br><span class="hljs-comment">//@RestControllerAdvice=@ResponseBody+@Controller+@Advice</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GulimallExceptionControllerAdvice</span> </span>&#123;<br>    <span class="hljs-meta">@ExceptionHandler(value = MethodArgumentNotValidException.class)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> R <span class="hljs-title">handleValidException</span><span class="hljs-params">(MethodArgumentNotValidException e)</span> </span>&#123;<br>        log.error(<span class="hljs-string">&quot;数据校验出错：&#123;&#125;，异常类型：&#123;&#125;&quot;</span>, e.getMessage(), e.getClass());<br>        BindingResult bindingResult = e.getBindingResult();<br>        Map&lt;String,String&gt; errorMap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>        bindingResult.getFieldErrors().forEach((fieldError)-&gt;&#123;<br>            errorMap.put(fieldError.getField(),fieldError.getDefaultMessage());<br>        &#125;);<br>        <span class="hljs-keyword">return</span> R.error(BizCodeEnume.VAILD_EXCEPTION.getCode(),BizCodeEnume.VAILD_EXCEPTION.getMsg())<br>            .put(<span class="hljs-string">&quot;data&quot;</span>,errorMap);<br>    &#125;<br><br>    <span class="hljs-meta">@ExceptionHandler(value = Throwable.class)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> R <span class="hljs-title">handlerException</span><span class="hljs-params">(Throwable throwable)</span></span>&#123;<br>        log.error(<span class="hljs-string">&quot;error:&quot;</span>,throwable);<br>        <span class="hljs-keyword">return</span> R.error(BizCodeEnume.UNKNOW_EXCEPTION.getCode(),BizCodeEnume.UNKNOW_EXCEPTION.getMsg());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​    可以通过创建枚举类,统一定义返回的状态码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">enum</span>  <span class="hljs-title">BizCodeEnume</span> </span>&#123;<br>    UNKNOW_EXCEPTION(<span class="hljs-number">10000</span>,<span class="hljs-string">&quot;系统未知异常&quot;</span>),<br>    VAILD_EXCEPTION(<span class="hljs-number">10001</span>,<span class="hljs-string">&quot;参数格式校验失败&quot;</span>);<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> code;<br>    <span class="hljs-keyword">private</span> String msg;<br>    BizCodeEnume(<span class="hljs-keyword">int</span> code,String msg)&#123;<br>        <span class="hljs-keyword">this</span>.code = code;<br>        <span class="hljs-keyword">this</span>.msg = msg;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getCode</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> code;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getMsg</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> msg;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="分组校验"><a href="#分组校验" class="headerlink" title="分组校验"></a>分组校验</h4><p>Bean对象的属性检验在不同的业务情况下，检验的是不同的。如：在创建Bean时，id属性应该为空；在更新Bean时，id属性不为空。</p>
+<ol>
+<li><p>在Entity类上的校验注解上添加group属性，属性中是一个<strong>接口类</strong>(一个空接口，自己创建)。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-variable">@NotNull</span>(message = <span class="hljs-string">&quot;修改必须指定品牌id&quot;</span>,groups = &#123;UpdateGroup.class&#125;)<br>  <span class="hljs-variable">@Null</span>(message = <span class="hljs-string">&quot;新增不能指定id&quot;</span>,groups = &#123;AddGroup.class&#125;)<br>  <span class="hljs-variable">@TableId</span><br>  private Long brandId;<br></code></pre></td></tr></table></figure></li>
+<li><p>在请求的controller方法中添加**@Valided**注解,并添加需要的分组的接口类。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-variable">@RequestMapping</span>(<span class="hljs-string">&quot;/save&quot;</span>)<br>public R save(<span class="hljs-variable">@Validated</span>(&#123;AddGroup.class&#125;) <span class="hljs-variable">@RequestBody</span> BrandEntity brand) &#123;<br>    <span class="hljs-selector-tag">brandService</span><span class="hljs-selector-class">.save</span>(brand);<br>    <span class="hljs-selector-tag">return</span> <span class="hljs-selector-tag">R</span><span class="hljs-selector-class">.ok</span>();<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="手写一个检验注解"><a href="#手写一个检验注解" class="headerlink" title="手写一个检验注解"></a>手写一个检验注解</h4><ol>
+<li><p>创建一个注解的接口（一般参照其他注解接口，直接复制）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//以ListValue自定义注解为例</span><br><span class="hljs-meta">@ListValue(vals=&#123;0,1&#125;,groups = &#123;AddGroup.class, UpdateStatusGroup.class&#125;)</span><br><span class="hljs-keyword">private</span> Integer showStatus;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Documented</span><br><span class="hljs-meta">@Constraint(validatedBy = &#123; ListValueConstraintValidator.class &#125;)</span><br><span class="hljs-meta">@Target(&#123;ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE&#125;)</span><br><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> ListValue &#123;<br>    <span class="hljs-function">String <span class="hljs-title">message</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> &quot;</span>&#123;com.atguigu.common.valid.ListValue.message&#125;<span class="hljs-string">&quot;;</span><br><span class="hljs-string"></span><br><span class="hljs-string">    Class&lt;?&gt;[] groups() default &#123; &#125;;</span><br><span class="hljs-string"></span><br><span class="hljs-string">    Class&lt;? extends Payload&gt;[] payload() default &#123; &#125;;</span><br><span class="hljs-string"></span><br><span class="hljs-string">    int[] vals() default &#123; &#125;;</span><br><span class="hljs-string">&#125;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>创建ValidationMessages.properties，添加messages属性</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">com<span class="hljs-selector-class">.atguigu</span><span class="hljs-selector-class">.common</span><span class="hljs-selector-class">.valid</span><span class="hljs-selector-class">.ListValue</span>.message=必须提交指定的值<br></code></pre></td></tr></table></figure></li>
+<li><p>创建校验器类，实现ConstraintValidator类，并编写校验规则</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java">																		<span class="hljs-comment">//注解名   检验的数据类型</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ListValueConstraintValidator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ConstraintValidator</span>&lt;<span class="hljs-title">ListValue</span>,<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Set&lt;Integer&gt; set = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();<br>    <span class="hljs-comment">//初始化方法</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initialize</span><span class="hljs-params">(ListValue constraintAnnotation)</span> </span>&#123;<br><br>        <span class="hljs-keyword">int</span>[] vals = constraintAnnotation.vals();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> val : vals) &#123;<br>            set.add(val);<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-comment">//判断是否校验成功</span><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> value 需要校验的值</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> context</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isValid</span><span class="hljs-params">(Integer value, ConstraintValidatorContext context)</span> </span>&#123;<br><br>        <span class="hljs-keyword">return</span> set.contains(value);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="P75"><a href="#P75" class="headerlink" title="P75"></a>P75</h3><h4 id="引入分页插件"><a href="#引入分页插件" class="headerlink" title="引入分页插件"></a>引入分页插件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Spring boot方式</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@MapperScan(&quot;com.baomidou.cloud.service.*.mapper*&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MybatisPlusConfig</span> </span>&#123;<br><br>    <span class="hljs-comment">// 旧版</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> PaginationInterceptor <span class="hljs-title">paginationInterceptor</span><span class="hljs-params">()</span> </span>&#123;<br>        PaginationInterceptor paginationInterceptor = <span class="hljs-keyword">new</span> PaginationInterceptor();<br>        <span class="hljs-comment">// 设置请求的页面大于最大页后操作， true调回到首页，false 继续请求  默认false</span><br>        <span class="hljs-comment">// paginationInterceptor.setOverflow(false);</span><br>        <span class="hljs-comment">// 设置最大单页限制数量，默认 500 条，-1 不受限制</span><br>        <span class="hljs-comment">// paginationInterceptor.setLimit(500);</span><br>        <span class="hljs-comment">// 开启 count 的 join 优化,只针对部分 left join</span><br>        paginationInterceptor.setCountSqlParser(<span class="hljs-keyword">new</span> JsqlParserCountOptimize(<span class="hljs-keyword">true</span>));<br>        <span class="hljs-keyword">return</span> paginationInterceptor;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 最新版</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> MybatisPlusInterceptor <span class="hljs-title">mybatisPlusInterceptor</span><span class="hljs-params">()</span> </span>&#123;<br>        MybatisPlusInterceptor interceptor = <span class="hljs-keyword">new</span> MybatisPlusInterceptor();<br>        interceptor.addInnerInterceptor(<span class="hljs-keyword">new</span> PaginationInnerInterceptor(DbType.H2));<br>        <span class="hljs-keyword">return</span> interceptor;<br>    &#125;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h4><p>修改queryPage</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> PageUtils <span class="hljs-title">queryPage</span><span class="hljs-params">(Map&lt;String, Object&gt; params)</span> </span>&#123;<br>    QueryWrapper&lt;BrandEntity&gt; wrapper = <span class="hljs-keyword">new</span> QueryWrapper&lt;&gt;();<br>    String key = (String) params.get(<span class="hljs-string">&quot;key&quot;</span>);<br>    <span class="hljs-keyword">if</span>(!StringUtils.isEmpty(key))&#123;<br>        wrapper.like(<span class="hljs-string">&quot;name&quot;</span>,key);<br>    &#125;<br>    IPage&lt;BrandEntity&gt; page = <span class="hljs-keyword">this</span>.page(<span class="hljs-keyword">new</span> Query&lt;BrandEntity&gt;().getPage(params), wrapper);<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> PageUtils(page);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>该项目对MyBatisPLlus提供的Page对象进行了再次封装</p>
+<p>也创建了自己的Query类，可以通过<code>getPage()</code>对<code>Map&lt;String, Object&gt;</code>进行了解析</p>
+<p><code>Map&lt;String, Object&gt;</code>封装了分页需要的参数</p>
+<h4 id="关联分类"><a href="#关联分类" class="headerlink" title="关联分类"></a>关联分类</h4><p>多对多，需传建一个表,并保留一些冗余字段，以减少查询提高性能。</p>
+<p>但是但数据更新的时候，也要保持冗余数据的一致</p>
+<h3 id="P76"><a href="#P76" class="headerlink" title="P76"></a>P76</h3><h4 id="Object-划分"><a href="#Object-划分" class="headerlink" title="Object 划分"></a>Object <strong>划分</strong></h4><ul>
+<li><strong>1.PO(persistant object)</strong> <strong>持久对象</strong> </li>
+</ul>
+<p>PO 就是对应数据库中某个表中的一条记录，多个记录可以用 PO 的集合。 PO 中应该不包 </p>
+<p>含任何对数据库的操作。 </p>
+<ul>
+<li><strong>2.DO<strong><strong>（</strong></strong>Domain Object****）领域对象</strong> </li>
+</ul>
+<p>就是从现实世界中抽象出来的有形或无形的业务实体。 </p>
+<ul>
+<li><strong>3.TO(Transfer Object)</strong> <strong>，数据传输对象</strong> </li>
+</ul>
+<p>不同的应用程序之间传输的对象 </p>
+<ul>
+<li><strong>4.DTO<strong><strong>（</strong></strong>Data Transfer Object****）数据传输对象</strong> </li>
+</ul>
+<p>这个概念来源于 J2EE 的设计模式，原来的目的是为了 EJB 的分布式应用提供粗粒度的 </p>
+<p>数据实体，以减少分布式调用的次数，从而提高分布式调用的性能和降低网络负载，但在这 </p>
+<p>里，泛指用于展示层与服务层之间的数据传输对象。 </p>
+<ul>
+<li><strong>5.VO(value object)</strong> <strong>值对象</strong> </li>
+</ul>
+<p>通常用于业务层之间的数据传递，和 PO 一样也是仅仅包含数据而已。但应是抽象出 </p>
+<p>的业务对象 , 可以和表对应 , 也可以不 , 这根据业务的需要 。用 new 关键字创建，由 </p>
+<p>GC 回收的。 </p>
+<p>View object：视图对象； </p>
+<p>接受页面传递来的数据，封装对象 </p>
+<p>将业务处理完成的对象，封装成页面要用的数据 </p>
+<ul>
+<li><strong>6.BO(business object)</strong> <strong>业务对象</strong> </li>
+</ul>
+<p>从业务模型的角度看 , 见 UML 元件领域模型中的领域对象。封装业务逻辑的 java 对 </p>
+<p>象 , 通过调用 DAO 方法 , 结合 PO,VO 进行业务操作。business object: 业务对象 主要作 </p>
+<p>用是把业务逻辑封装为一个对象。这个对象可以包括一个或多个其它的对象。 比如一个简 </p>
+<p>历，有教育经历、工作经历、社会关系等等。 我们可以把教育经历对应一个 PO ，工作经 </p>
+<p>历对应一个 PO ，社会关系对应一个 PO 。 建立一个对应简历的 BO 对象处理简历，每 </p>
+<p>个 BO 包含这些 PO 。 这样处理业务逻辑时，我们就可以针对 BO 去处理。</p>
+<h4 id="BeanUtils"><a href="#BeanUtils" class="headerlink" title="BeanUtils"></a>BeanUtils</h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">BeanUtils</span>.</span></span>copy<span class="hljs-constructor">Properties(<span class="hljs-params">attr</span>,<span class="hljs-params">attrEntity</span>)</span>;	<br></code></pre></td></tr></table></figure>
+
+<p>把attr的属性赋值给attrEntity，不要搞错了</p>
+<h3 id="P77"><a href="#P77" class="headerlink" title="P77"></a>P77</h3><p>查询规格参数</p>
+<p>请求路径 /product/attr/base/list/{catelogId}</p>
+<p>请求参数</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">&#123;<br>   page: <span class="hljs-number">1</span>,<span class="hljs-regexp">//</span>当前页码<br>   limit: <span class="hljs-number">10</span>,<span class="hljs-regexp">//</span>每页记录数<br>   sidx: <span class="hljs-string">&#x27;id&#x27;</span>,<span class="hljs-regexp">//</span>排序字段<br>   order: <span class="hljs-string">&#x27;asc/desc&#x27;</span>,<span class="hljs-regexp">//</span>排序方式<br>   key: <span class="hljs-string">&#x27;华为&#x27;</span><span class="hljs-regexp">//</span>检索关键字<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>响应数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>	<span class="hljs-attr">&quot;msg&quot;</span>: <span class="hljs-string">&quot;success&quot;</span>,<br>	<span class="hljs-attr">&quot;code&quot;</span>: <span class="hljs-number">0</span>,<br>	<span class="hljs-attr">&quot;page&quot;</span>: &#123;<br>		<span class="hljs-attr">&quot;totalCount&quot;</span>: <span class="hljs-number">0</span>,<br>		<span class="hljs-attr">&quot;pageSize&quot;</span>: <span class="hljs-number">10</span>,<br>		<span class="hljs-attr">&quot;totalPage&quot;</span>: <span class="hljs-number">0</span>,<br>		<span class="hljs-attr">&quot;currPage&quot;</span>: <span class="hljs-number">1</span>,<br>		<span class="hljs-attr">&quot;list&quot;</span>: [&#123;<br>			<span class="hljs-attr">&quot;attrId&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">//属性id</span><br>			<span class="hljs-attr">&quot;attrName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>, <span class="hljs-comment">//属性名</span><br>			<span class="hljs-attr">&quot;attrType&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">//属性类型，0-销售属性，1-基本属性</span><br>			<span class="hljs-attr">&quot;catelogName&quot;</span>: <span class="hljs-string">&quot;手机/数码/手机&quot;</span>, <span class="hljs-comment">//所属分类名字</span><br>			<span class="hljs-attr">&quot;groupName&quot;</span>: <span class="hljs-string">&quot;主体&quot;</span>, <span class="hljs-comment">//所属分组名字</span><br>			<span class="hljs-attr">&quot;enable&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">//是否启用</span><br>			<span class="hljs-attr">&quot;icon&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>, <span class="hljs-comment">//图标</span><br>			<span class="hljs-attr">&quot;searchType&quot;</span>: <span class="hljs-number">0</span>,<span class="hljs-comment">//是否需要检索[0-不需要，1-需要]</span><br>			<span class="hljs-attr">&quot;showDesc&quot;</span>: <span class="hljs-number">0</span>,<span class="hljs-comment">//是否展示在介绍上；0-否 1-是</span><br>			<span class="hljs-attr">&quot;valueSelect&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,<span class="hljs-comment">//可选值列表[用逗号分隔]</span><br>			<span class="hljs-attr">&quot;valueType&quot;</span>: <span class="hljs-number">0</span><span class="hljs-comment">//值类型[0-为单个值，1-可以选择多个值]</span><br>		&#125;]<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="分析-这相当于要在后端查询三张表（如图）"><a href="#分析-这相当于要在后端查询三张表（如图）" class="headerlink" title="分析:这相当于要在后端查询三张表（如图）"></a>分析:这相当于要在后端查询三张表（如图）</h4><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211006151644885.png" srcset="/img/loading.gif" lazyload alt="image-20211006151644885"></p>
+<p>由于AttrEntityd的属性占响应数据的绝大部分，所以可以查询出Attr表后，在其基础上增加<code>catelogName</code>和<code>groupName</code></p>
+<p>核心代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> PageUtils <span class="hljs-title">getBaseList</span><span class="hljs-params">(Long catelogId, Map&lt;String, Object&gt; params)</span> </span>&#123;<br>        <br>        <span class="hljs-comment">//查询AttrEntity</span><br>        QueryWrapper&lt;AttrEntity&gt; wrapper = <span class="hljs-keyword">new</span> QueryWrapper&lt;&gt;();<br>        String key = (String) params.get(<span class="hljs-string">&quot;key&quot;</span>);<br>        <span class="hljs-keyword">if</span> (!StringUtils.isEmpty(key)) &#123;<br>            wrapper.and((wrapper1) -&gt; &#123;<br>                wrapper1.eq(<span class="hljs-string">&quot;attr_id&quot;</span>, key).or().like(<span class="hljs-string">&quot;attr_name&quot;</span>, key);<br>            &#125;);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (catelogId != <span class="hljs-number">0</span>) &#123;<br>            wrapper.eq(<span class="hljs-string">&quot;catelog_id&quot;</span>, catelogId);<br>        &#125;<br>        IPage&lt;AttrEntity&gt; page = <span class="hljs-keyword">this</span>.page(<br>                <span class="hljs-keyword">new</span> Query&lt;AttrEntity&gt;().getPage(params),<br>                wrapper<br>        );<br>        PageUtils pageUtils = <span class="hljs-keyword">new</span> PageUtils(page);<br>        <br>        <br>        <span class="hljs-comment">//查询</span><br>        <br>        List&lt;AttrRespVo&gt; attrRespVos = page.getRecords().stream().map((attrEntity) -&gt; &#123;<br>            AttrRespVo attrRespVo = <span class="hljs-keyword">new</span> AttrRespVo();<br>            BeanUtils.copyProperties(attrEntity,attrRespVo);<br>            CategoryEntity categoryEntity = categoryDao.selectById(attrEntity.getCatelogId());<br>            <span class="hljs-keyword">if</span>(categoryEntity!=<span class="hljs-keyword">null</span>)&#123;<br>                attrRespVo.setCatelogName(categoryEntity.getName());<br>            &#125;<br>            <span class="hljs-keyword">return</span> attrRespVo;<br>        &#125;).collect(Collectors.toList());<br>        pageUtils.setList(attrRespVos);		<span class="hljs-comment">//查询出Attr表后，在其基础上增加`catelogName`和`groupName`</span><br>        <span class="hljs-keyword">return</span> pageUtils;<br>    &#125;<br><br></code></pre></td></tr></table></figure>
+
+<h4 id="条件构造器and"><a href="#条件构造器and" class="headerlink" title="条件构造器and"></a>条件构造器and</h4><p>有两种形式的条件构造方式，它们之间相差很大!!!</p>
+<p>第一种：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (!StringUtils.isEmpty(key)) &#123;<br>            wrapper.and((wrapper1) -&gt; &#123;<br>                wrapper1.eq(<span class="hljs-string">&quot;attr_id&quot;</span>, key).or().like(<span class="hljs-string">&quot;attr_name&quot;</span>, key);<br>            &#125;);<br>        &#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span>  attr_id,attr_name,search_type,icon,value_select,attr_type,enable,catelog_id,show_desc  <br><span class="hljs-keyword">FROM</span> pms_attr <br><span class="hljs-keyword">WHERE</span> ((attr_id <span class="hljs-operator">=</span> ? <span class="hljs-keyword">OR</span> attr_name <span class="hljs-keyword">LIKE</span> ?))<br></code></pre></td></tr></table></figure>
+
+<p>第二种：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">wrapper.eq(<span class="hljs-string">&quot;attr_id&quot;</span>, key).or().like(<span class="hljs-string">&quot;attr_name&quot;</span>, key);<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span>  attr_id,attr_name,search_type,icon,value_select,attr_type,enable,catelog_id,show_desc  <br><span class="hljs-keyword">FROM</span> pms_attr <br><span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">WHERE</span> (attr_id <span class="hljs-operator">=</span> ? <span class="hljs-keyword">OR</span> attr_name <span class="hljs-keyword">LIKE</span> ?)<br></code></pre></td></tr></table></figure>
+
+<p>虽然这两种方式的条件构造器，最后的sql语句都是一样的，且执行的结果一样，<strong>仅仅只是差了一个括号</strong>，但是当这个wrapper再拼接一个条件是就会发生巨大的变化。例如在原来的wrapper上在拼接一个<code>wrapper.eq(&quot;catelog_id&quot;, catelogId);</code></p>
+<p>那么第一种的结果是:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-number">1</span>)<br> <span class="hljs-keyword">FROM</span> pms_attr<br> <span class="hljs-keyword">WHERE</span> ((attr_id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">OR</span> attr_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;%1%&#x27;</span>) <span class="hljs-keyword">AND</span> catelog_id <span class="hljs-operator">=</span> <span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+
+<p>第二种的结果是：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-number">1</span>)<br> <span class="hljs-keyword">FROM</span> pms_attr<br> <span class="hljs-keyword">WHERE</span> (attr_id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">OR</span> attr_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;%1%&#x27;</span> <span class="hljs-keyword">AND</span> catelog_id <span class="hljs-operator">=</span> <span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h4><p>Stream（流）是一个来自数据源的元素队列并支持聚合操作</p>
+<p><strong>聚合操作</strong> 类似SQL语句一样的操作， 比如filter, map, reduce, find, match, sorted等。</p>
+<h5 id="map"><a href="#map" class="headerlink" title="map"></a>map</h5><p>map 方法用于映射每个元素到对应的结果，以下代码片段使用 map 输出了元素对应的平方数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;Integer&gt; numbers = Arrays.asList(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>);<br><span class="hljs-comment">// 获取对应的平方数</span><br>List&lt;Integer&gt; squaresList = numbers.stream().map( i -&gt; i*i).distinct().collect(Collectors.toList());<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;AttrRespVo&gt; attrRespVos = page.getRecords().stream().map((attrEntity) -&gt; &#123;<br>            AttrRespVo attrRespVo = <span class="hljs-keyword">new</span> AttrRespVo();<br>            BeanUtils.copyProperties(attrEntity,attrRespVo);<br>            CategoryEntity categoryEntity = categoryDao.selectById(attrEntity.getCatelogId());<br>            <span class="hljs-keyword">if</span>(categoryEntity!=<span class="hljs-keyword">null</span>)&#123;<br>                attrRespVo.setCatelogName(categoryEntity.getName());<br>            &#125;<br>            <span class="hljs-keyword">return</span> attrRespVo;<br>        &#125;).collect(Collectors.toList());<br><br><span class="hljs-comment">//attrEntity就相当于是流</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="P78"><a href="#P78" class="headerlink" title="P78"></a>P78</h3><p>当一个增删改查得接口中，要对不得表进行修改的时候，需要加上事务的注解<code>@Transactional</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-meta">@Transactional</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateMore</span><span class="hljs-params">(AttrVo attr)</span> </span>&#123;<br>        AttrEntity attrEntity = <span class="hljs-keyword">new</span> AttrEntity();<br><br>        BeanUtils.copyProperties(attr,attrEntity);<br>        <span class="hljs-keyword">this</span>.updateById(attrEntity);<br><br>        AttrAttrgroupRelationEntity attrAttrgroupRelationEntity = attrAttrgroupRelationService.getOne<br>                (<span class="hljs-keyword">new</span> QueryWrapper&lt;AttrAttrgroupRelationEntity&gt;().eq(<span class="hljs-string">&quot;attr_id&quot;</span>, attr.getAttrId()));<br>        BeanUtils.copyProperties(attr,attrAttrgroupRelationEntity);<br><br>        attrAttrgroupRelationService.updateById(attrAttrgroupRelationEntity);<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="P80"><a href="#P80" class="headerlink" title="P80"></a>P80</h3><h4 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h4><p>在编写接口的时候，接口文档中</p>
+<blockquote>
+<p>[{  “attrGroupId”: 4,   “attrId”: 3 }]</p>
+</blockquote>
+<p>在后端controller层，需要使用一个<strong>对象数组</strong>来接受这个参数！使用的注解为@RequestBody</p>
+<p>使用数组在传值，是因为可以获得steam流</p>
+<h4 id="复习controller层用于接受参数的几个注解"><a href="#复习controller层用于接受参数的几个注解" class="headerlink" title="复习controller层用于接受参数的几个注解"></a>复习controller层用于接受参数的几个注解</h4><p>@RequsetBody</p>
+<p>@PathVaribal</p>
+<p>@RequestParam</p>
+<h4 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h4><p>在需要批量删除的时候，不要分开删除。这样会降低数据库的效能。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Mapper</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">AttrAttrgroupRelationDao</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseMapper</span>&lt;<span class="hljs-title">AttrAttrgroupRelationEntity</span>&gt; </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deleteBatchByAttrAttrGroup</span><span class="hljs-params">(<span class="hljs-meta">@Param(&quot;entities&quot;)</span> List&lt;AttrAttrgroupRelationEntity&gt; attrAttrgroupRelationEntities)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">&lt;</span><span class="hljs-keyword">delete</span> id<span class="hljs-operator">=</span>&quot;deleteBatchByAttrAttrGroup&quot;<span class="hljs-operator">&gt;</span><br>    <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> `pms_attr_attrgroup_relation` <span class="hljs-keyword">WHERE</span><br>    <span class="hljs-operator">&lt;</span>foreach collection<span class="hljs-operator">=</span>&quot;entities&quot; item<span class="hljs-operator">=</span>&quot;item&quot; separator<span class="hljs-operator">=</span>&quot; OR &quot;<span class="hljs-operator">&gt;</span><br>        (attr_id<span class="hljs-operator">=</span>#&#123;item.attrId&#125; <span class="hljs-keyword">AND</span> attr_group_id<span class="hljs-operator">=</span>#&#123;item.attrGroupId&#125;)<br>    <span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>foreach<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span><span class="hljs-keyword">delete</span><span class="hljs-operator">&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="P81"><a href="#P81" class="headerlink" title="P81"></a>P81</h3><h4 id="获取属性分组没有关联的其他属性"><a href="#获取属性分组没有关联的其他属性" class="headerlink" title="获取属性分组没有关联的其他属性"></a>获取属性分组没有关联的其他属性</h4><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211008171512867.png" srcset="/img/loading.gif" lazyload alt="image-20211008171512867"></p>
+<p>总结：</p>
+<p>由于增加了关联表 C 。表A可以通过表C查询到表B。</p>
+<p>但是如果表A中的某个数据被删除了，而表C没有及时更新，那么，当表B通过表C查询表A时，虽然表C有原来关于表A的数据，但是由于表A已经删除了，所以查询到的数据是空！！！ 这回带来一系列问题，比如：</p>
+<ol>
+<li>需要链表查询的时候，如果A中的数据不存在了，如果查询其字段名，直接回报错！！</li>
+<li>需要通过C查询一组A的时候，由于某个值为空，虽然查询出了所有数据（包括空），但前端在处理数据的时候，不许有空,否则前端无页面</li>
+</ol>
+<h3 id="p86新增商品抽取"><a href="#p86新增商品抽取" class="headerlink" title="p86新增商品抽取"></a>p86新增商品抽取</h3><p>当要处理很长得jason数据的时候，网上有很多奖jason转为对象的工具类！</p>
+<p><code>@TableId(type = IdType.INPUT)</code>当实体类的字段需要</p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="获取所有分类以及子分类，并返回json树形结构"><a href="#获取所有分类以及子分类，并返回json树形结构" class="headerlink" title="获取所有分类以及子分类，并返回json树形结构"></a>获取所有分类以及子分类，并返回json树形结构</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;CategoryEntity&gt; <span class="hljs-title">listWithTree</span><span class="hljs-params">()</span> </span>&#123;<br>        List&lt;CategoryEntity&gt; categoryEntities = baseMapper.selectList(<span class="hljs-keyword">null</span>);<br>        List&lt;CategoryEntity&gt; collect =<br>                categoryEntities.stream().<br>                        filter(categoryEntity -&gt; categoryEntity.getParentCid() == <span class="hljs-number">0</span>).<br>                        map(categoryEntity -&gt; &#123;<br>                            categoryEntity.setChildren(<span class="hljs-keyword">this</span>.getchilren(categoryEntity, categoryEntities));<br>                            <span class="hljs-keyword">return</span> categoryEntity;<br>                        &#125;).collect(Collectors.toList());<br>        <span class="hljs-keyword">return</span> collect;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> List&lt;CategoryEntity&gt; <span class="hljs-title">getchilren</span><span class="hljs-params">(CategoryEntity menu, List&lt;CategoryEntity&gt; categoryEntities)</span> </span>&#123;<br>       List&lt;CategoryEntity&gt; collect = categoryEntities.stream().<br>               filter(categoryEntity -&gt; categoryEntity.getParentCid().equals(menu.getCatId()))<br>               .map(categoryEntity -&gt; &#123;<br>                   categoryEntity.setChildren(getchilren(categoryEntity, categoryEntities));<br>                   <span class="hljs-keyword">return</span> categoryEntity;<br>               &#125;)<br>               .collect(Collectors.toList());<br>       <span class="hljs-keyword">return</span> collect;<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用了递归的方法，先将所有的的<code>CategoryEntity</code>查出来，再设置<code>setChildren</code></p>
+<p>tip：<code>CategoryEntity</code>的<code>children</code>属性是后来加的，需要加入<code>@TableFiled(exist = false)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@TableName(&quot;pms_attr_group&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AttrGroupEntity</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>    <span class="hljs-meta">@TableField(exist = false)</span><br>    <span class="hljs-keyword">private</span> Long[] catelogPath;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改分类父子关系以及顺序"><a href="#修改分类父子关系以及顺序" class="headerlink" title="修改分类父子关系以及顺序"></a>修改分类父子关系以及顺序</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013172412830.png" srcset="/img/loading.gif" lazyload alt="image-20211013172412830"></p>
+<p>请求参数 ：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json">[<br>  &#123;<br>    <span class="hljs-attr">&quot;catId&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">//菜单id</span><br>    <span class="hljs-attr">&quot;catLevel&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">//菜单层级</span><br>    <span class="hljs-attr">&quot;parentCid&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">//父菜单id</span><br>    <span class="hljs-attr">&quot;sort&quot;</span>: <span class="hljs-number">0</span> <span class="hljs-comment">//排序</span><br>  &#125;<br>]<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/update/sort&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> R <span class="hljs-title">updateSort</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> CategoryEntity[] category)</span></span>&#123;<br>       categoryService.updateBatchById(Arrays.asList(category));<br>       <span class="hljs-keyword">return</span> R.ok();<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p>请求的JSON是数组，所以用<code>CategoryEntity[]</code>来接收，并使用<code>@RequestBody</code></p>
+<p><code>updateBatchById</code>接收的是List集合，使用<code>Arrays.asList(category)</code>转化成List</p>
+<h3 id="获取分类属性分组"><a href="#获取分类属性分组" class="headerlink" title="获取分类属性分组"></a>获取分类属性分组</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013172333231.png" srcset="/img/loading.gif" lazyload alt="image-20211013172333231"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> PageUtils <span class="hljs-title">listByCatelogId</span><span class="hljs-params">(Map&lt;String, Object&gt; params, Long catelogId)</span> </span>&#123;<br>      String key = (String) params.get(<span class="hljs-string">&quot;key&quot;</span>);<br>      <span class="hljs-comment">//select * from pms_attr_group where catelog_id=? and (attr_group_id=key or attr_group_name like %key%)</span><br>      QueryWrapper&lt;AttrGroupEntity&gt; wrapper = <span class="hljs-keyword">new</span> QueryWrapper&lt;AttrGroupEntity&gt;();<br>      <span class="hljs-keyword">if</span> (!StringUtils.isEmpty(key)) &#123;<br>          wrapper.and((obj) -&gt; &#123;<br>              obj.eq(<span class="hljs-string">&quot;attr_group_id&quot;</span>, key).or().like(<span class="hljs-string">&quot;attr_group_name&quot;</span>, key);<br>          &#125;);<br>      &#125;<br><br>      <span class="hljs-keyword">if</span> (catelogId == <span class="hljs-number">0</span>) &#123;<br>          IPage&lt;AttrGroupEntity&gt; page = <span class="hljs-keyword">this</span>.page(<span class="hljs-keyword">new</span> Query&lt;AttrGroupEntity&gt;().getPage(params),<br>                  wrapper);<br>          <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> PageUtils(page);<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>          wrapper.eq(<span class="hljs-string">&quot;catelog_id&quot;</span>, catelogId);<br>          IPage&lt;AttrGroupEntity&gt; page = <span class="hljs-keyword">this</span>.page(<span class="hljs-keyword">new</span> Query&lt;AttrGroupEntity&gt;().getPage(params),<br>                  wrapper);<br>          <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> PageUtils(page);<br>      &#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>IPage&lt;AttrGroupEntity&gt; page = this.page(new Query&lt;AttrGroupEntity&gt;().getPage(params),wrapper)</code></p>
+<p><code>this.page()</code>MyBatisPlus提供的分页查询的方法，需要传入分页对象，和查询条件<code>wrapper</code></p>
+<p><code>Query&lt;AttrGroupEntity&gt;()</code>是人人开源定义的查询对象，该对象包含了分页对象，和分页信息</p>
+<h3 id="获取属性分组详情"><a href="#获取属性分组详情" class="headerlink" title="获取属性分组详情"></a>获取属性分组详情</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013173654281.png" srcset="/img/loading.gif" lazyload alt="image-20211013173654281"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/info/&#123;attrGroupId&#125;&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> R <span class="hljs-title">info</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;attrGroupId&quot;)</span> Long attrGroupId)</span> </span>&#123;<br>       AttrGroupEntity attrGroup = attrGroupService.getById(attrGroupId);<br>       <span class="hljs-keyword">return</span> R.ok().put(<span class="hljs-string">&quot;attrGroup&quot;</span>, attrGroup);<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>attrGroupService.getById(attrGroupId)</code>MyBatisPlus提供的基本方法</p>
+<h3 id="获取分类规格参数"><a href="#获取分类规格参数" class="headerlink" title="获取分类规格参数"></a>获取分类规格参数</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013174457335.png" srcset="/img/loading.gif" lazyload alt="image-20211013174457335"></p>
+<p>响应数据是聚合了多个实体类的属性</p>
+<p>可以先查出包含响应数据中最多的实体类<code>AttrEntity</code></p>
+<p>在该实体类上增加属性，所以又需要创建一个vo</p>
+<p>这个vo可以继承<code>AttrEntity</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> PageUtils <span class="hljs-title">getBaseList</span><span class="hljs-params">(Long catelogId, Map&lt;String, Object&gt; params)</span> </span>&#123;<br>    <br>    <span class="hljs-comment">//查询了AttrEntity</span><br>    QueryWrapper&lt;AttrEntity&gt; wrapper = <span class="hljs-keyword">new</span> QueryWrapper&lt;&gt;();<br>    String key = (String) params.get(<span class="hljs-string">&quot;key&quot;</span>);<br>    <span class="hljs-keyword">if</span> (!StringUtils.isEmpty(key)) &#123;<br>        wrapper.and((wrapper1) -&gt; &#123;<br>            wrapper1.eq(<span class="hljs-string">&quot;attr_id&quot;</span>, key).or().like(<span class="hljs-string">&quot;attr_name&quot;</span>, key);<br>        &#125;);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (catelogId != <span class="hljs-number">0</span>) &#123;<br>        wrapper.eq(<span class="hljs-string">&quot;catelog_id&quot;</span>, catelogId);<br>    &#125;<br>    IPage&lt;AttrEntity&gt; page = <span class="hljs-keyword">this</span>.page(<br>            <span class="hljs-keyword">new</span> Query&lt;AttrEntity&gt;().getPage(params),<br>            wrapper<br>    );<br>    PageUtils pageUtils = <span class="hljs-keyword">new</span> PageUtils(page);<br>    <br>    <br>    List&lt;AttrRespVo&gt; attrRespVos = page.getRecords().stream().map((attrEntity) -&gt; &#123;<br>        AttrRespVo attrRespVo = <span class="hljs-keyword">new</span> AttrRespVo();<br>        BeanUtils.copyProperties(attrEntity,attrRespVo);<br>        AttrAttrgroupRelationEntity attrAttrgroupRelationEntity = <span class="hljs-keyword">null</span>;<br>        Long attrId = attrEntity.getAttrId();<br><br>        QueryWrapper&lt;AttrAttrgroupRelationEntity&gt; wrapper_1 = <span class="hljs-keyword">new</span> QueryWrapper&lt;&gt;();<br>        wrapper_1.eq(<span class="hljs-string">&quot;attr_id&quot;</span>,attrId);<br>        <span class="hljs-keyword">if</span>(attrAttrgroupRelationService.count(wrapper_1)&gt;<span class="hljs-number">0</span>)&#123;<br>            attrAttrgroupRelationEntity = attrAttrgroupRelationService.getOne(wrapper_1);<br>            AttrGroupEntity attrGroupEntity = attrGroupService.getById(attrAttrgroupRelationEntity.getAttrGroupId());<br>           <span class="hljs-keyword">if</span>(attrGroupEntity!=<span class="hljs-keyword">null</span>)&#123;<br>               attrRespVo.setGroupName(attrGroupEntity.getAttrGroupName());<br>               attrRespVo.setAttrGroupId(attrGroupEntity.getAttrGroupId());<br>           &#125;<br>        &#125;<br><br>        Long catelogIdAttrEntity = attrEntity.getCatelogId();<br>        String cateLogName = categoryService.getById(catelogIdAttrEntity).getName();<br>        Long[] catelogPath = categoryService.getCatelogPath(catelogIdAttrEntity);<br>        attrRespVo.setCatelogName(cateLogName);<br>        attrRespVo.setCatelogPath(catelogPath);<br>        <span class="hljs-keyword">return</span> attrRespVo;<br>    &#125;).collect(Collectors.toList());<br><br>    pageUtils.setList(attrRespVos);<br>    <span class="hljs-keyword">return</span> pageUtils;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>个人分析:这样的代码使得每次使用<code>attrEntity</code>都要查数据库，而且每次要查4次数据库，性能大幅降低!!!</p>
+<h3 id="保存属性【规格参数，销售属性】"><a href="#保存属性【规格参数，销售属性】" class="headerlink" title="保存属性【规格参数，销售属性】"></a>保存属性【规格参数，销售属性】</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013191141610.png" srcset="/img/loading.gif" lazyload alt="image-20211013191141610"></p>
+<p>由于数据库设计的时候，为了提升性能是没有外键的，而是设计了关联表</p>
+<p>所以当需要添加数据时，不仅要添加原来表中的数据，还要添加关联表中的数据</p>
+<p>同理，当需要删除某一项数据的时候，两个表都要删除</p>
+<h3 id="查询属性详情"><a href="#查询属性详情" class="headerlink" title="查询属性详情"></a>查询属性详情</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013191506993.png" srcset="/img/loading.gif" lazyload alt="image-20211013191506993"></p>
+<p>属性查询很简单，但是<code>catelogPath</code>稍微用到了递归，这里提一下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br> <span class="hljs-keyword">public</span> Long[] getCatelogPath(Long catelogId) &#123;<br>     ArrayList&lt;Long&gt; path = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>     List&lt;Long&gt; catelogPath = findCatelogPath(catelogId, path);<br>     Collections.reverse(catelogPath);<br>     <span class="hljs-keyword">return</span> catelogPath.toArray(<span class="hljs-keyword">new</span> Long[catelogPath.size()]);<br> &#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> List&lt;Long&gt; <span class="hljs-title">findCatelogPath</span><span class="hljs-params">(Long catelogId, ArrayList&lt;Long&gt; path)</span> </span>&#123;<br>     CategoryEntity categoryEntity = <span class="hljs-keyword">this</span>.getById(catelogId);<br>     <span class="hljs-keyword">if</span>(categoryEntity==<span class="hljs-keyword">null</span>)&#123;<br>         <span class="hljs-keyword">return</span> path;<br>     &#125;<br>     Long parentCid = categoryEntity.getParentCid();<br>     path.add(catelogId);<br>     <span class="hljs-keyword">if</span>(parentCid!=<span class="hljs-number">0</span>)&#123;<br>         findCatelogPath(parentCid,path);<br>     &#125;<br>     <span class="hljs-keyword">return</span> path;<br> &#125;<br></code></pre></td></tr></table></figure>
+
+<p>这个递归妙在，递归方法中的path</p>
+<p>path相当于接受id的容器，已经创建好了，如果每次在递归中创建一个，则造成内存浪费！</p>
+<p><code>catelogPath.toArray(new Long[catelogPath.size()]);</code>List转化成ArrayList</p>
+<h3 id="修改属性"><a href="#修改属性" class="headerlink" title="修改属性"></a>修改属性</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013192853475.png" srcset="/img/loading.gif" lazyload alt="image-20211013192853475"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Transactional</span><br><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateMore</span><span class="hljs-params">(AttrVo attr)</span> </span>&#123;<br>    AttrEntity attrEntity = <span class="hljs-keyword">new</span> AttrEntity();<br><br>    BeanUtils.copyProperties(attr,attrEntity);<br>    <span class="hljs-keyword">this</span>.updateById(attrEntity);<br><br>    AttrAttrgroupRelationEntity attrAttrgroupRelationEntity = attrAttrgroupRelationService.getOne<br>            (<span class="hljs-keyword">new</span> QueryWrapper&lt;AttrAttrgroupRelationEntity&gt;().eq(<span class="hljs-string">&quot;attr_id&quot;</span>, attr.getAttrId()));<br>    BeanUtils.copyProperties(attr,attrAttrgroupRelationEntity);<br><br>    attrAttrgroupRelationService.updateById(attrAttrgroupRelationEntity);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>当一个方法中，修改了两次数据库中的表时，会产生事务</p>
+<p>需要加上<code>@Transactional</code></p>
+<h3 id="获取分类销售属性"><a href="#获取分类销售属性" class="headerlink" title="获取分类销售属性"></a>获取分类销售属性</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013193156656.png" srcset="/img/loading.gif" lazyload alt="image-20211013193156656"></p>
+<p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013193206892.png" srcset="/img/loading.gif" lazyload alt="image-20211013193206892"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> PageUtils <span class="hljs-title">getSaleList</span><span class="hljs-params">(Long catelogId, Map&lt;String,Object&gt; params)</span> </span>&#123;<br><br>      <span class="hljs-comment">//查询到AttrEntity，并封装成page    AttrEntit储存信息</span><br>      QueryWrapper&lt;AttrEntity&gt; wrapper = <span class="hljs-keyword">new</span> QueryWrapper&lt;&gt;();<br>      String key = (String) params.get(<span class="hljs-string">&quot;key&quot;</span>);<br>      <span class="hljs-keyword">if</span>(catelogId==<span class="hljs-number">0</span>)&#123;<br>          wrapper.and(wrapperTemp-&gt;wrapperTemp.eq(<span class="hljs-string">&quot;attr_type&quot;</span>,<span class="hljs-number">0</span>));<br><br>      &#125;<span class="hljs-keyword">else</span>&#123;<br>          wrapper.and(wrapperTemp-&gt;wrapperTemp.eq(<span class="hljs-string">&quot;catelog_id&quot;</span>,catelogId).eq(<span class="hljs-string">&quot;attr_type&quot;</span>,<span class="hljs-number">0</span>));<br>      &#125;<br>      <span class="hljs-keyword">if</span>(!StringUtils.isEmpty(key))&#123;<br>          wrapper.like(<span class="hljs-string">&quot;attr_name&quot;</span>,key);<br>      &#125;<br>      IPage&lt;AttrEntity&gt; page = <span class="hljs-keyword">this</span>.page(<span class="hljs-keyword">new</span> Query&lt;AttrEntity&gt;().getPage(params), wrapper);<br>      PageUtils pageUtils = <span class="hljs-keyword">new</span> PageUtils(page);<br><br>      <span class="hljs-comment">//在page基础上增加其他属性   AttrSaleListVo作为储存信息的容器</span><br>      List&lt;AttrSaleListVo&gt; attrSaleListVos = page.getRecords().stream().map(attrEntity -&gt; &#123;<br>          AttrSaleListVo attrSaleListVo = <span class="hljs-keyword">new</span> AttrSaleListVo();<br>          AttrAttrgroupRelationEntity attrAttrgroupRelationEntity = attrAttrgroupRelationService.<br>                  getOne(<span class="hljs-keyword">new</span> QueryWrapper&lt;AttrAttrgroupRelationEntity&gt;().eq(<span class="hljs-string">&quot;attr_id&quot;</span>, attrEntity.getAttrId()));<br>          <span class="hljs-keyword">if</span>(attrAttrgroupRelationEntity!=<span class="hljs-keyword">null</span>)&#123;<br>              Long attrGroupId = attrAttrgroupRelationEntity.getAttrGroupId();<br>              AttrGroupEntity attrGroupEntity = attrGroupDao.selectById(attrGroupId);<br>              String attrGroupName=<span class="hljs-string">&quot;&quot;</span>;<br>              <span class="hljs-keyword">if</span>(attrGroupEntity!=<span class="hljs-keyword">null</span>)&#123; attrGroupName = attrGroupEntity.getAttrGroupName();&#125;<br>              String catelofName = categoryDao.selectById(attrEntity.getCatelogId()).getName();<br>              attrSaleListVo.setCatelogName(catelofName);<br>              attrSaleListVo.setGroupName(attrGroupName);<br>          &#125;<br>              BeanUtils.copyProperties(attrEntity,attrSaleListVo);<br>              <span class="hljs-keyword">return</span> attrSaleListVo;<br>      &#125;).collect(Collectors.toList());<br>      pageUtils.setList(attrSaleListVos);<br>      <span class="hljs-keyword">return</span> pageUtils;<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="获取属性分组的关联的所有属性"><a href="#获取属性分组的关联的所有属性" class="headerlink" title="获取属性分组的关联的所有属性"></a>获取属性分组的关联的所有属性</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013193428276.png" srcset="/img/loading.gif" lazyload alt="image-20211013193428276"></p>
+<p>这个查询涉及到多表的查询，简单</p>
+<p>经验总结：</p>
+<p>返回值<code>List&lt;AttrEntity&gt;</code>：</p>
+<p>首先看data的JASON类型是数组，所以用List，其次数组中是对象，所以<code>List&lt;AttrEntity&gt;</code></p>
+<h3 id="添加属性与分组关联关系"><a href="#添加属性与分组关联关系" class="headerlink" title="添加属性与分组关联关系"></a>添加属性与分组关联关系</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013194257798.png" srcset="/img/loading.gif" lazyload alt="image-20211013194257798"></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json">[&#123;<br>  <span class="hljs-attr">&quot;attrGroupId&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">//分组id</span><br>  <span class="hljs-attr">&quot;attrId&quot;</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">//属性id</span><br>&#125;]<br></code></pre></td></tr></table></figure>
+
+<p>请求参数是一个数组，数组里面是对象，所以使用<code>Object[]</code>来接受</p>
+<p>使用数组的请求参数，可以批量操作</p>
+<p>SpringBoot会自动完成映射</p>
+<h3 id="删除属性与分组的关联关系"><a href="#删除属性与分组的关联关系" class="headerlink" title="删除属性与分组的关联关系"></a>删除属性与分组的关联关系</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013195631342.png" srcset="/img/loading.gif" lazyload alt="image-20211013195631342"></p>
+<h3 id="获取属性分组没有关联的其他属性-1"><a href="#获取属性分组没有关联的其他属性-1" class="headerlink" title="获取属性分组没有关联的其他属性"></a>获取属性分组没有关联的其他属性</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013195843293.png" srcset="/img/loading.gif" lazyload alt="image-20211013195843293"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> PageUtils <span class="hljs-title">getNoAttrAndGroup</span><span class="hljs-params">(Long attrgroupId,Map&lt;String,Object&gt; params)</span> </span>&#123;<br>    AttrGroupEntity attrGroupEntity = <span class="hljs-keyword">this</span>.getById(attrgroupId);<br>    Long catelogId = attrGroupEntity.getCatelogId();<br><br>    QueryWrapper&lt;AttrEntity&gt; wrapper = <span class="hljs-keyword">new</span> QueryWrapper&lt;&gt;();<br>    String key = (String) params.get(<span class="hljs-string">&quot;key&quot;</span>);<br><br>    wrapper.and(wrapperTemp-&gt;wrapperTemp.eq(<span class="hljs-string">&quot;catelog_id&quot;</span>,catelogId));<br>    <span class="hljs-keyword">if</span>(!StringUtils.isEmpty(key))&#123;<br>        wrapper.like(<span class="hljs-string">&quot;attr_name&quot;</span>,key);<br>    &#125;<br>    IPage&lt;AttrEntity&gt; page = attrService.page(<span class="hljs-keyword">new</span> Query&lt;AttrEntity&gt;().getPage(params), wrapper);<br>    PageUtils pageUtils = <span class="hljs-keyword">new</span> PageUtils(page);    <span class="hljs-comment">//至此，查询到了所有属性分组对应的所有属性（关联的和未关联）</span><br><br>    <span class="hljs-comment">//剔除关联的</span><br>    List&lt;AttrEntity&gt; Nolist = page.getRecords().stream().map(attrEntity -&gt; &#123;<br>        AttrAttrgroupRelationEntity attrAttrgroupRelationEntity = attrAttrgroupRelationService.<br>                getOne(<span class="hljs-keyword">new</span> QueryWrapper&lt;AttrAttrgroupRelationEntity&gt;().eq(<span class="hljs-string">&quot;attr_id&quot;</span>, attrEntity.getAttrId()));<br>        <span class="hljs-keyword">if</span>(attrAttrgroupRelationEntity==<span class="hljs-keyword">null</span>)&#123;<br>            <span class="hljs-keyword">return</span> attrEntity;<br>        &#125;<span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>        &#125;<br>    &#125;).collect(Collectors.toList());<br>    Nolist.removeAll(Collections.singleton(<span class="hljs-keyword">null</span>));<br>    pageUtils.setList(Nolist);<br>    <span class="hljs-keyword">return</span> pageUtils;<br></code></pre></td></tr></table></figure>
+
+<h3 id="获取分类关联的品牌"><a href="#获取分类关联的品牌" class="headerlink" title="获取分类关联的品牌"></a>获取分类关联的品牌</h3><h3 id="获取品牌关联的分类"><a href="#获取品牌关联的分类" class="headerlink" title="获取品牌关联的分类"></a>获取品牌关联的分类</h3><h3 id="获取品牌关联的分类-1"><a href="#获取品牌关联的分类-1" class="headerlink" title="获取品牌关联的分类"></a>获取品牌关联的分类</h3><p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211013201127044.png" srcset="/img/loading.gif" lazyload alt="image-20211013201127044"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;AttrGroupWithAttrsVo&gt; <span class="hljs-title">getAttrGroupWithAttrsVo</span><span class="hljs-params">(Long catelogId)</span> </span>&#123;<br>       <span class="hljs-comment">//查Grpoup 多个</span><br>       QueryWrapper&lt;AttrGroupEntity&gt; wrapper = <span class="hljs-keyword">new</span> QueryWrapper&lt;&gt;();<br>       wrapper.eq(<span class="hljs-string">&quot;catelog_id&quot;</span>,catelogId);<br>       List&lt;AttrGroupEntity&gt; attrGroupEntities = baseMapper.selectList(wrapper);<br><br>       <span class="hljs-comment">//查attr  一个组有多个</span><br>       List&lt;AttrGroupWithAttrsVo&gt; collect = attrGroupEntities.stream().map((item) -&gt; &#123;<br>           AttrGroupWithAttrsVo attrGroupWithAttrsVo = <span class="hljs-keyword">new</span> AttrGroupWithAttrsVo();<br><br>           <span class="hljs-comment">//查询某一属性分组下的所有attr</span><br>           Long attrGroupId = item.getAttrGroupId();<br>           QueryWrapper&lt;AttrAttrgroupRelationEntity&gt; wrapper_1 = <span class="hljs-keyword">new</span> QueryWrapper&lt;&gt;();<br>           wrapper_1.eq(<span class="hljs-string">&quot;attr_group_id&quot;</span>,attrGroupId);<br><br>           <span class="hljs-comment">//由于新增属性分组的时候，所以没有添加到属性分组表</span><br>           <span class="hljs-keyword">if</span>(attrAttrgroupRelationService.count(wrapper_1)&gt;<span class="hljs-number">0</span>)&#123;<br>               List&lt;AttrAttrgroupRelationEntity&gt; attrgroupRelationEntities = attrAttrgroupRelationService.list(wrapper_1);<br><br>               List&lt;Long&gt; attrIds = attrgroupRelationEntities.stream().map((attrgroupRelationEntity) -&gt; &#123;<br>                   <span class="hljs-keyword">return</span> attrgroupRelationEntity.getAttrId();<br>               &#125;).collect(Collectors.toList());<br><br>               System.out.println(attrIds);<br><br>               List&lt;AttrEntity&gt; attrEntities = attrService.listByIds(attrIds);<br>               attrGroupWithAttrsVo.setAttrs(attrEntities);<br>           &#125;<br>         <br>           BeanUtils.copyProperties(item,attrGroupWithAttrsVo);<br>           <span class="hljs-keyword">return</span> attrGroupWithAttrsVo;<br>       &#125;).collect(Collectors.toList());<br>       <span class="hljs-keyword">return</span> collect;<br>   &#125;<br><br></code></pre></td></tr></table></figure>
+
+<h1 id="高级篇"><a href="#高级篇" class="headerlink" title="高级篇"></a>高级篇</h1><h2 id="P103-127-elasticSearch"><a href="#P103-127-elasticSearch" class="headerlink" title="P103-127 elasticSearch"></a>P103-127 elasticSearch</h2><h3 id="安装ES"><a href="#安装ES" class="headerlink" title="安装ES"></a>安装ES</h3><h4 id="下载镜像文件"><a href="#下载镜像文件" class="headerlink" title="下载镜像文件"></a>下载镜像文件</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> pull elasticsearch:<span class="hljs-number">7</span>.<span class="hljs-number">4</span>.<span class="hljs-number">2</span> 存储和检索数据 <br><span class="hljs-attribute">docker</span> pull kibana:<span class="hljs-number">7</span>.<span class="hljs-number">4</span>.<span class="hljs-number">2</span> 可视化检索数据<br></code></pre></td></tr></table></figure>
+
+<h4 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a>创建实例</h4><h5 id="ElasticSearch"><a href="#ElasticSearch" class="headerlink" title="ElasticSearch"></a>ElasticSearch</h5><ul>
+<li><p>创建了文件夹挂载</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">mkdir -p <span class="hljs-regexp">/mydata/</span>elasticsearch/config <br>mkdir -p <span class="hljs-regexp">/mydata/</span>elasticsearch/data <br>echo <span class="hljs-string">&quot;http.host: 0.0.0.0&quot;</span> &gt;&gt; <span class="hljs-regexp">/mydata/</span>elasticsearch<span class="hljs-regexp">/config/</span>elasticsearch.yml<br></code></pre></td></tr></table></figure></li>
+<li><p>修改权限</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">chmod -R <span class="hljs-number">777</span> <span class="hljs-regexp">/mydata/</span>elasticsearch/ 保证权限<br></code></pre></td></tr></table></figure>
+
+<p>这里是把文件的更改读写权限，如果不更改会出现错误</p>
+<p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211014102358872.png" srcset="/img/loading.gif" lazyload alt="image-20211014102358872"></p>
+<p><img src="/2021/10/05/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B01/image-20211014102434112.png" srcset="/img/loading.gif" lazyload alt="权限未修改导致错误"></p>
+</li>
+<li><p>安装</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker run --name elasticsearch -p <span class="hljs-number">9200</span>:<span class="hljs-number">9200</span> -p <span class="hljs-number">9300</span>:<span class="hljs-number">9300</span> \ -e <span class="hljs-string">&quot;discovery.type=single-node&quot;</span> \<br>-e ES_JAVA_OPTS=<span class="hljs-string">&quot;-Xms64m -Xmx512m&quot;</span> \ <br>-v <span class="hljs-regexp">/mydata/</span>elasticsearch<span class="hljs-regexp">/config/</span>elasticsearch.yml:<span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/elasticsearch/</span>config/elasticsearch.yml \ <br>-v <span class="hljs-regexp">/mydata/</span>elasticsearch<span class="hljs-regexp">/data:/u</span>sr<span class="hljs-regexp">/share/</span>elasticsearch/data \ <br>-v <span class="hljs-regexp">/mydata/</span>elasticsearch<span class="hljs-regexp">/plugins:/u</span>sr<span class="hljs-regexp">/share/</span>elasticsearch/plugins \ <br>-d elasticsearch:<span class="hljs-number">7.4</span>.<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h5><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> run --name kibana -e ELASTICSEARCH_HOSTS=http://<span class="hljs-number">101.34.143.34:9200</span> -p <span class="hljs-number">5601</span>:<span class="hljs-number">5601</span> -d kibana:<span class="hljs-number">7</span>.<span class="hljs-number">4</span>.<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker ps -a<br>docker rm xxxx  <span class="hljs-regexp">//</span>移除容器<br>docker stop  xxx <span class="hljs-regexp">//</span>停止<br>docker exec -it <span class="hljs-number">6</span>d659c133398 <span class="hljs-regexp">/bin/</span>bash    进入到容器中<br>docker restart elasticsearch<br>docker container cp nginx:<span class="hljs-regexp">/etc/</span>nginx .  在含nginx文件夹的目录下拷贝容器中的文件<br><br><br>onzip  xxxx.zip 解压文件夹<br></code></pre></td></tr></table></figure>
+
+<h3 id="P126测试保存"><a href="#P126测试保存" class="headerlink" title="P126测试保存"></a>P126测试保存</h3><ul>
+<li><p>配置RequestOption（单例模式）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> RequestOptions COMMON_OPTIONS;<br>    <span class="hljs-keyword">static</span> &#123;<br>        RequestOptions.Builder builder = RequestOptions.DEFAULT.toBuilder();<br>        <span class="hljs-comment">// builder.addHeader(&quot;Authorization&quot;, &quot;Bearer &quot; + TOKEN);</span><br>        <span class="hljs-comment">// builder.setHttpAsyncResponseConsumerFactory(</span><br>        <span class="hljs-comment">//         new HttpAsyncResponseConsumerFactory</span><br>        <span class="hljs-comment">//                 .HeapBufferedResponseConsumerFactory(30 * 1024 * 1024 * 1024));</span><br>        COMMON_OPTIONS = builder.build();<br>    &#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">indexData</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>        IndexRequest indexRequest = <span class="hljs-keyword">new</span> IndexRequest(<span class="hljs-string">&quot;users&quot;</span>);<br>        indexRequest.id(<span class="hljs-string">&quot;1&quot;</span>);   <span class="hljs-comment">//数据的id</span><br><br>        <span class="hljs-comment">// indexRequest.source(&quot;userName&quot;,&quot;zhangsan&quot;,&quot;age&quot;,18,&quot;gender&quot;,&quot;男&quot;);</span><br><br>        User user = <span class="hljs-keyword">new</span> User();<br>        user.setUserName(<span class="hljs-string">&quot;zhangsan&quot;</span>);<br>        user.setAge(<span class="hljs-number">18</span>);<br>        user.setGender(<span class="hljs-string">&quot;男&quot;</span>);<br><br>        String jsonString = JSON.toJSONString(user);<br>        indexRequest.source(jsonString, XContentType.JSON);  <span class="hljs-comment">//要保存的内容</span><br><br>        <span class="hljs-comment">//执行操作</span><br>        IndexResponse index = client.index(indexRequest, GulimallElasticSearchConfig.COMMON_OPTIONS);<br><br>        <span class="hljs-comment">//提取有用的响应数据</span><br>        System.out.println(index);<br><br>    &#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="p127-复制查询"><a href="#p127-复制查询" class="headerlink" title="p127 复制查询"></a>p127 复制查询</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">searchState</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>      <span class="hljs-comment">//1. 创建检索请求</span><br>      SearchSourceBuilder sourceBuilder = <span class="hljs-keyword">new</span> SearchSourceBuilder();<br>      <span class="hljs-comment">//        sourceBuilder.query(QueryBuilders.termQuery(&quot;city&quot;, &quot;Nicholson&quot;));</span><br>      <span class="hljs-comment">//        sourceBuilder.from(0);</span><br>      <span class="hljs-comment">//        sourceBuilder.size(5);</span><br>      <span class="hljs-comment">//        sourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));</span><br>      QueryBuilder matchQueryBuilder = QueryBuilders.matchQuery(<span class="hljs-string">&quot;state&quot;</span>, <span class="hljs-string">&quot;AK&quot;</span>);<br>      <span class="hljs-comment">//                .fuzziness(Fuzziness.AUTO)</span><br>      <span class="hljs-comment">//                .prefixLength(3)</span><br>      <span class="hljs-comment">//                .maxExpansions(10);</span><br>      sourceBuilder.query(matchQueryBuilder);<br>      SearchRequest searchRequest = <span class="hljs-keyword">new</span> SearchRequest();<br>      searchRequest.indices(<span class="hljs-string">&quot;bank&quot;</span>);<br>      searchRequest.source(sourceBuilder);<br>      <span class="hljs-comment">//2. 执行检索</span><br>      SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);<br>      System.out.println(searchResponse);<br><br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="P128-140商城业务"><a href="#P128-140商城业务" class="headerlink" title="P128-140商城业务"></a>P128-140商城业务</h1><h3 id="上架"><a href="#上架" class="headerlink" title="上架"></a>上架</h3><h4 id="创建SkuEs模型"><a href="#创建SkuEs模型" class="headerlink" title="创建SkuEs模型"></a>创建SkuEs模型</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SkuEsModel</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Long skuId;<br><br>    <span class="hljs-keyword">private</span> Long spuId;<br><br>    <span class="hljs-keyword">private</span> String skuTitle;<br><br>    <span class="hljs-keyword">private</span> BigDecimal skuPrice;<br><br>    <span class="hljs-keyword">private</span> String skuImg;<br><br>    <span class="hljs-keyword">private</span> Long saleCount;<br><br>    <span class="hljs-keyword">private</span> Boolean hasStock;<br><br>    <span class="hljs-keyword">private</span> Long hotScore;<br><br>    <span class="hljs-keyword">private</span> Long brandId;<br><br>    <span class="hljs-keyword">private</span> Long catalogId;<br><br>    <span class="hljs-keyword">private</span> String brandName;<br><br>    <span class="hljs-keyword">private</span> String brandImg;<br><br>    <span class="hljs-keyword">private</span> String catalogName;<br><br>    <span class="hljs-keyword">private</span> List&lt;Attrs&gt; attrs;<br><br>    <span class="hljs-meta">@Data</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Attrs</span> </span>&#123;<br><br>        <span class="hljs-keyword">private</span> Long attrId;<br><br>        <span class="hljs-keyword">private</span> String attrName;<br><br>        <span class="hljs-keyword">private</span> String attrValue;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="创建上架方服务"><a href="#创建上架方服务" class="headerlink" title="创建上架方服务"></a>创建上架方服务</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@PostMapping(value = &quot;/&#123;spuId&#125;/up&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> R <span class="hljs-title">spuUp</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;spuId&quot;)</span> Long spuId)</span> </span>&#123;<br><br>       spuInfoService.up(spuId);<br><br>       <span class="hljs-keyword">return</span> R.ok();<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">up</span><span class="hljs-params">(Long spuId)</span> </span>&#123;<br>        List&lt;SkuInfoEntity&gt; skus = skuInfoService.getSkusBySpuId(spuId);<br><br>        <span class="hljs-comment">//1、查出当前spuId对应的所有sku信息,品牌的名字</span><br>        List&lt;SkuInfoEntity&gt; skuInfoEntities = skuInfoService.getSkusBySpuId(spuId);<br><br>        <span class="hljs-comment">//TODO 4、查出当前sku的所有可以被用来检索的规格属性</span><br>        List&lt;ProductAttrValueEntity&gt; baseAttrs = productAttrValueService.baseAttrListforspu(spuId);<br>        List&lt;Long&gt; attrIds = baseAttrs.stream().map(attr -&gt; &#123;<br>            <span class="hljs-keyword">return</span> attr.getAttrId();<br>        &#125;).collect(Collectors.toList());<br><br>        List&lt;Long&gt; searchAttrIds = attrService.selectSearchAttrs(attrIds);<br>        Set&lt;Long&gt; idSet = searchAttrIds.stream().collect(Collectors.toSet());<br><br>        List&lt;SkuEsModel.Attrs&gt; attrsList = baseAttrs.stream().filter(item -&gt; &#123;<br>            <span class="hljs-keyword">return</span> idSet.contains(item.getAttrId());<br>        &#125;).map(item -&gt; &#123;<br>            SkuEsModel.Attrs attrs = <span class="hljs-keyword">new</span> SkuEsModel.Attrs();<br>            BeanUtils.copyProperties(item, attrs);<br>            <span class="hljs-keyword">return</span> attrs;<br>        &#125;).collect(Collectors.toList());<br><br>        List&lt;Long&gt; skuIdList = skuInfoEntities.stream()<br>                .map(SkuInfoEntity::getSkuId)<br>                .collect(Collectors.toList());<br><br>        <span class="hljs-comment">//TODO 1、发送远程调用，库存系统查询是否有库存</span><br>        Map&lt;Long, Boolean&gt; stockMap = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            R skuHasStock = wareFeignService.getSkuHasStock(skuIdList);<br>            <span class="hljs-comment">//</span><br>            TypeReference&lt;List&lt;SkuHasStockVo&gt;&gt; typeReference = <span class="hljs-keyword">new</span> TypeReference&lt;List&lt;SkuHasStockVo&gt;&gt;() &#123;&#125;;<br>            stockMap = skuHasStock.getData(typeReference).stream()<br>                    .collect(Collectors.toMap(SkuHasStockVo::getSkuId, item -&gt; item.getHasStock()));<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            log.error(<span class="hljs-string">&quot;库存服务查询异常：原因&#123;&#125;&quot;</span>,e);<br>        &#125;<br><br>        <span class="hljs-comment">//2、封装每个sku的信息</span><br>        Map&lt;Long, Boolean&gt; finalStockMap = stockMap;<br>        List&lt;SkuEsModel&gt; collect = skuInfoEntities.stream().map(sku -&gt; &#123;<br>            <span class="hljs-comment">//组装需要的数据</span><br>            SkuEsModel esModel = <span class="hljs-keyword">new</span> SkuEsModel();<br>            esModel.setSkuPrice(sku.getPrice());<br>            esModel.setSkuImg(sku.getSkuDefaultImg());<br><br>            <span class="hljs-comment">//设置库存信息</span><br>            <span class="hljs-keyword">if</span> (finalStockMap == <span class="hljs-keyword">null</span>) &#123;<br>                esModel.setHasStock(<span class="hljs-keyword">true</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                esModel.setHasStock(finalStockMap.get(sku.getSkuId()));<br>            &#125;<br><br>            <span class="hljs-comment">//TODO 2、热度评分。0</span><br>            esModel.setHotScore(<span class="hljs-number">0L</span>);<br><br>            <span class="hljs-comment">//TODO 3、查询品牌和分类的名字信息</span><br>            BrandEntity brandEntity = brandService.getById(sku.getBrandId());<br>            esModel.setBrandName(brandEntity.getName());<br>            esModel.setBrandId(brandEntity.getBrandId());<br>            esModel.setBrandImg(brandEntity.getLogo());<br><br>            CategoryEntity categoryEntity = categoryService.getById(sku.getCatalogId());<br>            esModel.setCatalogId(categoryEntity.getCatId());<br>            esModel.setCatalogName(categoryEntity.getName());<br><br>            <span class="hljs-comment">//设置检索属性</span><br>            esModel.setAttrs(attrsList);<br><br>            BeanUtils.copyProperties(sku,esModel);<br><br>            <span class="hljs-keyword">return</span> esModel;<br>        &#125;).collect(Collectors.toList());<br><br>        <span class="hljs-comment">//TODO 5、将数据发给es进行保存：gulimall-search</span><br>        R r = searchFeignService.productStatusUp(collect);<br><br>        <span class="hljs-keyword">if</span> (r.getCode() == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-comment">//远程调用成功</span><br>            <span class="hljs-comment">//TODO 6、修改当前spu的状态</span><br>            <span class="hljs-keyword">this</span>.baseMapper.updaSpuStatus(spuId, ProductConstant.ProductStatusEnum.SPU_UP.getCode());<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">//远程调用失败</span><br>            <span class="hljs-comment">//TODO 7、重复调用？接口幂等性:重试机制</span><br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="P136"><a href="#P136" class="headerlink" title="P136"></a>P136</h3><h3 id="P142"><a href="#P142" class="headerlink" title="P142"></a>P142</h3><h3 id="P154"><a href="#P154" class="headerlink" title="P154"></a>P154</h3><p>Lettuce在高并发场景下遇见的问题以及解决办法（ io.netty.util.internal.OutOfDirectMemoryError）</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45988496/article/details/115406318?utm_term=lettuce%E5%AF%BC%E8%87%B4%E5%A0%86%E5%A4%96%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-1-115406318&spm=3001.4430">博客地址</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/09/%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">常见错误</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/05/MyBatis%E9%9D%A2%E8%AF%95/">
+                        <span class="hidden-mobile">MyBatis面试</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"> <span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
