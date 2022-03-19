@@ -18,21 +18,23 @@
   <meta name="keywords" content="java">
   <meta name="description" content="SpringSecurity">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringSecurity">
-<meta property="og:url" content="http://example.com/2021/12/21/springsecurity/index.html">
+<meta property="og:title" content="SpringSecuritys">
+<meta property="og:url" content="http://example.com/2022/03/19/springsecurity/index.html">
 <meta property="og:site_name" content="Lapuda&#39;s Space">
 <meta property="og:description" content="SpringSecurity">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/12/21/springsecurity/image-20211227220104802.png">
+<meta property="og:image" content="http://example.com/2022/03/19/springsecurity/image-20211227220104802.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2020051516581693.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqOTAzMTQ=,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2021-12-21T01:54:05.488Z">
-<meta property="article:modified_time" content="2022-01-15T03:16:15.377Z">
+<meta property="og:image" content="http://example.com/2022/03/19/springsecurity/1646183516637.png">
+<meta property="og:image" content="http://example.com/2022/03/19/springsecurity/1646268230314.png">
+<meta property="article:published_time" content="2022-03-19T13:18:23.698Z">
+<meta property="article:modified_time" content="2022-03-03T01:04:00.593Z">
 <meta property="article:author" content="Lapuda">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2021/12/21/springsecurity/image-20211227220104802.png">
+<meta name="twitter:image" content="http://example.com/2022/03/19/springsecurity/image-20211227220104802.png">
   
-  <title>SpringSecurity - Lapuda&#39;s Space</title>
+  <title>SpringSecuritys - Lapuda&#39;s Space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -178,7 +180,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="SpringSecurity">
+            <span class="h2" id="subtitle" title="SpringSecuritys">
               
             </span>
 
@@ -188,8 +190,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-12-21 09:54" pubdate>
-        2021年12月21日 上午
+      <time datetime="2022-03-19 21:18" pubdate>
+        2022年3月19日 晚上
       </time>
     </span>
   
@@ -199,7 +201,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.7k 字
+      7.1k 字
     </span>
   
 
@@ -208,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12 分钟
+      22 分钟
     </span>
   
 
@@ -245,7 +247,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SpringSecurity</h1>
+            <h1 style="display: none">SpringSecuritys</h1>
             
             <div class="markdown-body">
               <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="写过滤器"><a href="#写过滤器" class="headerlink" title="写过滤器"></a>写过滤器</h3><h3 id="写核心配置类"><a href="#写核心配置类" class="headerlink" title="写核心配置类"></a>写核心配置类</h3><h3 id="HttpSecurity的常用方法"><a href="#HttpSecurity的常用方法" class="headerlink" title="HttpSecurity的常用方法"></a>HttpSecurity的常用方法</h3><h4 id="一、匹配路径的方法"><a href="#一、匹配路径的方法" class="headerlink" title="一、匹配路径的方法"></a>一、匹配路径的方法</h4><p>.antMatchers()：表达支持ant风格的路径通配符</p>
@@ -254,8 +256,7 @@
 <p>.permitAll()：允许没有任何限制</p>
 <p>.access(String springEl)：给定的spEl计算为true的话，就允许访问</p>
 <p>.anonymous()：允许匿名用户访问</p>
-<p>.denyAll()：无条件拒绝所有访问</p>
-<p>.fullyAuthenticated()：如果用户是完整认证的话(不是通过remember-me功能认证的)，就允许访问</p>
+<h3 id="denyAll-：无条件拒绝所有访问"><a href="#denyAll-：无条件拒绝所有访问" class="headerlink" title=".denyAll()：无条件拒绝所有访问"></a>.denyAll()：无条件拒绝所有访问</h3><p>.fullyAuthenticated()：如果用户是完整认证的话(不是通过remember-me功能认证的)，就允许访问</p>
 <p>.hasAnyAuthority(String …)：如果用户具备给定权限中一个的话，就允许访问</p>
 <p>.hasAnyRole(String… roles)：如果用户具备给定角色中一个的话，就允许访问</p>
 <p>.hasAuthority(String)：拥有给定权限就允许访问</p>
@@ -285,8 +286,46 @@
 <h3 id="步骤二：配置类"><a href="#步骤二：配置类" class="headerlink" title="步骤二：配置类"></a>步骤二：配置类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>   <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">(HttpSecurity httpSecurity)</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br><br>       httpSecurity.cors(Customizer.withDefaults())<br>               <span class="hljs-comment">// 配置跨域资源共享（ CORS ）</span><br>               .authorizeRequests()<br>           	<span class="hljs-comment">//</span><br>               .antMatchers(<span class="hljs-string">&quot;/**&quot;</span>).permitAll()<br>               <span class="hljs-comment">// 对于登录login 验证码captchaImage 允许匿名访问</span><br>               .antMatchers(<span class="hljs-string">&quot;/user/login&quot;</span>,<span class="hljs-string">&quot;/error&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/user/login&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/organization/**&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/company/getCompanyByTenantId&quot;</span>,<span class="hljs-string">&quot;/getDeptAndRoleInfo&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/department/getDepartmentByTypeAndCompanyOrProjectId/**&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/role/selectByDept/**&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/user/**&quot;</span>).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/user/authorize/**&quot;</span>).permitAll()<br>               .antMatchers(<br>                       HttpMethod.GET,<br>                       <span class="hljs-string">&quot;/*.html&quot;</span>,<br>                       <span class="hljs-string">&quot;/**/*.html&quot;</span>,<br>                       <span class="hljs-string">&quot;/**/*.css&quot;</span>,<br>                       <span class="hljs-string">&quot;/**/*.js&quot;</span><br>               ).permitAll()<br>               .antMatchers(<span class="hljs-string">&quot;/profile/**&quot;</span>).anonymous()<br>               .antMatchers(<span class="hljs-string">&quot;/swagger-ui.html&quot;</span>).anonymous()<br>               .antMatchers(<span class="hljs-string">&quot;/swagger-resources/**&quot;</span>).anonymous()<br>               .antMatchers(<span class="hljs-string">&quot;/webjars/**&quot;</span>).anonymous()<br>               .antMatchers(<span class="hljs-string">&quot;/*/api-docs&quot;</span>).anonymous()<br>               .antMatchers(<span class="hljs-string">&quot;/druid/**&quot;</span>).anonymous()<br>               <span class="hljs-comment">// 除上面外的所有请求全部需要鉴权认证</span><br>               .anyRequest().authenticated()<br>               .and()<br>               <span class="hljs-comment">//登录过滤器</span><br>               .addFilterAt(userTokenLoginFilter, UsernamePasswordAuthenticationFilter.class);<br><br>       httpSecurity.addFilter(<span class="hljs-keyword">new</span> MyAuthenticationTokenFilter(authenticationManager(),jwtService,jedisService));<br><br>       <span class="hljs-comment">// 添加JWT filter</span><br>       <span class="hljs-comment">//httpSecurity.addFilterAfter(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);</span><br>       <span class="hljs-comment">// 认证失败处理类</span><br>       httpSecurity.exceptionHandling()<br>               .authenticationEntryPoint(<span class="hljs-keyword">new</span> AuthenticationEntryPointImplFilter())<br>               <span class="hljs-comment">//自定义授权失败处理器</span><br>               .accessDeniedHandler(<span class="hljs-keyword">new</span> AuthAccessDeniedHandler());<br>       <span class="hljs-comment">// 基于token，所以不需要session</span><br>       httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);<br>       <span class="hljs-comment">//先禁用 csrf</span><br>       httpSecurity.csrf().disable();<br>   &#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="自己继承过滤器"><a href="#自己继承过滤器" class="headerlink" title="自己继承过滤器"></a>自己继承过滤器</h3><p>Security自己实现了过滤器，我们如果想要改进可以继承其。</p>
-<p><img src="/2021/12/21/springsecurity/image-20211227220104802.png" srcset="/img/loading.gif" lazyload alt="image-20211227220104802"></p>
+<p><img src="/2022/03/19/springsecurity/image-20211227220104802.png" srcset="/img/loading.gif" lazyload alt="image-20211227220104802"></p>
 <h4 id="继承UsernamePasswordAuthenticationFilter"><a href="#继承UsernamePasswordAuthenticationFilter" class="headerlink" title="继承UsernamePasswordAuthenticationFilter"></a>继承UsernamePasswordAuthenticationFilter</h4><h3 id="Oauth2-授权码模式"><a href="#Oauth2-授权码模式" class="headerlink" title="Oauth2 授权码模式"></a>Oauth2 授权码模式</h3><p><img src="https://img-blog.csdnimg.cn/2020051516581693.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hqOTAzMTQ=,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="Oauth2.0"></p>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><h3 id="1、SpringBoot创建Filter的方式"><a href="#1、SpringBoot创建Filter的方式" class="headerlink" title="1、SpringBoot创建Filter的方式"></a>1、SpringBoot创建Filter的方式</h3><ul>
+<li><p>加@WebFilter注解</p>
+<p>在过滤器上加上@WebFilter注解（还要加上@Component)，实现Filter接口，并指明拦截的url地址，最后重写dofiter方法</p>
+</li>
+</ul>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.<span class="hljs-keyword">filter</span>.demo.<span class="hljs-keyword">filter</span>;<br> <br><span class="hljs-keyword">import</span> java.io.IOException;<br> <br><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-keyword">Filter</span>;<br><span class="hljs-keyword">import</span> javax.servlet.FilterChain;<br><span class="hljs-keyword">import</span> javax.servlet.FilterConfig;<br><span class="hljs-keyword">import</span> javax.servlet.ServletException;<br><span class="hljs-keyword">import</span> javax.servlet.ServletRequest;<br><span class="hljs-keyword">import</span> javax.servlet.ServletResponse;<br><span class="hljs-keyword">import</span> javax.servlet.annotation.WebFilter;<br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br> <br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br> <br>@WebFilter(urlPatterns=&#123;&quot;/login/dev/*&quot;, &quot;/login/test/*&quot;&#125;, <br>		displayName=&quot;WebFilterDemo&quot;, description=&quot;WebFilter Demo&quot;,<br>		filterName=&quot;WebFilterDemo&quot;)<br>@Component<br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> WebFilterDemo implements <span class="hljs-keyword">Filter</span>&#123;<br> <br>	<span class="hljs-built_in">public</span> <span class="hljs-type">void</span> init(FilterConfig filterConfig) &#123;<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;WebFilterDemo init()&quot;);<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(filterConfig.getFilterName());<br>	&#125;<br>	<br>	@Override<br>	<span class="hljs-built_in">public</span> <span class="hljs-type">void</span> doFilter(ServletRequest arg0, ServletResponse arg1,<br>			FilterChain arg2) throws IOException, ServletException &#123;<br>		HttpServletRequest request = (HttpServletRequest) arg0;<br>		String url = request.getRequestURL().toString();<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;Enter WebFilterDemo &quot; + url);<br>		arg2.doFilter(arg0, arg1);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>@Bean对象注入</p>
+<p>实现Filter接口，通过FilterRegistrationBean注入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.filter.demo.filter;<br> <br><span class="hljs-keyword">import</span> java.io.IOException;<br> <br><span class="hljs-keyword">import</span> javax.servlet.Filter;<br><span class="hljs-keyword">import</span> javax.servlet.FilterChain;<br><span class="hljs-keyword">import</span> javax.servlet.FilterConfig;<br><span class="hljs-keyword">import</span> javax.servlet.ServletException;<br><span class="hljs-keyword">import</span> javax.servlet.ServletRequest;<br><span class="hljs-keyword">import</span> javax.servlet.ServletResponse;<br> <br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestFilter1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Filter</span></span>&#123;<br> <br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(FilterConfig config)</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;TestFilter1 init()&quot;</span>);<br>	&#125;<br>	<br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doFilter</span><span class="hljs-params">(ServletRequest arg0, ServletResponse arg1,</span></span><br><span class="hljs-params"><span class="hljs-function">			FilterChain chain)</span> <span class="hljs-keyword">throws</span> IOException, ServletException </span>&#123;<br>		<br>		System.out.println(<span class="hljs-string">&quot;Enter TestFilter1 ***&quot;</span>);<br>        chain.doFilter(arg0, arg1);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.filter.demo.filter;<br> <br><span class="hljs-keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br> <br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebFilterRegistration</span> </span>&#123;<br> <br>	<span class="hljs-meta">@Bean</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> FilterRegistrationBean&lt;TestFilter1&gt; <span class="hljs-title">registerFilter</span><span class="hljs-params">()</span></span>&#123;<br>		<br>		FilterRegistrationBean&lt;TestFilter1&gt; registration = <span class="hljs-keyword">new</span> FilterRegistrationBean&lt;TestFilter1&gt;();<br>	    registration.setFilter(<span class="hljs-keyword">new</span> TestFilter1());      <br>	    registration.addUrlPatterns(<span class="hljs-string">&quot;/*&quot;</span>);      <br>	    registration.setName(<span class="hljs-string">&quot;ParamFilter&quot;</span>); <br>	    <span class="hljs-comment">// 优先顺序，数字越小，越先执行</span><br>	    registration.setOrder(<span class="hljs-number">1</span>);<br>		<span class="hljs-keyword">return</span> registration;<br>	&#125;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2、Spring-Security原理"><a href="#2、Spring-Security原理" class="headerlink" title="2、Spring Security原理"></a>2、Spring <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Security&spm=1001.2101.3001.7020">Security</a>原理</h3><p>其实是一系列过滤器，也就是说，springsecurity采用了过滤器链的设计模式，通过url地址进行拦截，从而实现认证和授权的功能。最前端的过滤器链分别是UsernamePasswordAuthenticationFilter和BasicAuthenticationFilter。在实际开发中一般直接实现这些过滤器，就可以完成基本的授权和认证。</p>
+<p>UsernamePasswordAuthenticationFilter主要是对登录接口拦截，获取到登录时的用户名和密码，并将这些信息封装成UsernamePasswordAuthenticationToken传递，通过对UserDetailService进行实现，可以完成相应的登录逻辑。</p>
+<p>BasicAuthenticationFilter则是完成对普通请求的过滤，一般是获取请求的请求头拿到token，判断token有效就放行。</p>
+<p><img src="/2022/03/19/springsecurity/1646183516637.png" srcset="/img/loading.gif" lazyload alt="1646183516637"></p>
+<h3 id="什么是安全上下文security-context？"><a href="#什么是安全上下文security-context？" class="headerlink" title="什么是安全上下文security context？"></a>什么是安全上下文security context？</h3><p>Security context实际上就是一个存放授权信息的一个接口，</p>
+<h3 id="什么是JWT-优点"><a href="#什么是JWT-优点" class="headerlink" title="什么是JWT,优点"></a>什么是JWT,优点</h3><ol>
+<li><p>支持跨域访问，Cookie不允许跨域访问(因为cookie包含Domain），但要求是Http协议</p>
+<p><img src="/2022/03/19/springsecurity/1646268230314.png" srcset="/img/loading.gif" lazyload alt="1646268230314"></p>
+</li>
+<li><p>无状态，token不需要在服务端储存session,token包含了所有的用户信息。</p>
+</li>
+<li><p>适合移动端，客户端为ios，Android时，cookie不支持</p>
+</li>
+<li><p>适合CDN（内容分发网络）</p>
+</li>
+<li><p>规避csrf（跨站请求伪造 )</p>
+</li>
+<li><p>性能比session好，和session相比,要考虑到如何在服务端储存，如果是分布式的架构，又要保证每次请求都是同一个服务器或者是需要保证session在其他服务器上保持同步。而token就只需要做一次SHA256计算。</p>
+</li>
+</ol>
+<p>组成：</p>
+<p>第一部分：header包含声明类型和加密算法类型</p>
+<p>第二部分：payload载荷</p>
+<p>第三部分：</p>
 
             </div>
             <hr>
@@ -314,17 +353,11 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/25/Febs%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Febs管理系统项目总结</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/12/java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/">
+                      <a href="/2022/03/19/java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B7/">
                         <span class="hidden-mobile">java核心技术卷笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
