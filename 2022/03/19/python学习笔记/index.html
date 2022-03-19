@@ -1,0 +1,895 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="笔记">
+  <meta name="author" content="Lapuda">
+  <meta name="keywords" content="java">
+  <meta name="description" content="笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础知识笔记">
+<meta property="og:url" content="http://example.com/2022/03/19/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Lapuda&#39;s Space">
+<meta property="og:description" content="笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/03/19/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211208090624967.png">
+<meta property="og:image" content="http://example.com/2022/03/19/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211209092906244.png">
+<meta property="article:published_time" content="2022-03-19T13:18:23.662Z">
+<meta property="article:modified_time" content="2022-01-15T03:19:02.025Z">
+<meta property="article:author" content="Lapuda">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/03/19/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211208090624967.png">
+  
+  <title>python基础知识笔记 - Lapuda&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lapuda&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/cover/congqing.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="python基础知识笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-19 21:18" pubdate>
+        2022年3月19日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      8.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      25 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">python基础知识笔记</h1>
+            
+            <div class="markdown-body">
+              <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><h4 id="单行"><a href="#单行" class="headerlink" title="单行"></a>单行</h4><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vala"><span class="hljs-meta"># xxxx</span><br></code></pre></td></tr></table></figure>
+
+<p>多行</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">&#x27;&#x27;&#x27;<br>XXXX<br>XXX<br>XXX<br>&#x27;&#x27;&#x27;<br></code></pre></td></tr></table></figure>
+
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><img src="/2022/03/19/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211208090624967.png" srcset="/img/loading.gif" lazyload alt="image-20211208090624967"></p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><h4 id="基本输出"><a href="#基本输出" class="headerlink" title="基本输出"></a>基本输出</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&#x27;sss&#x27;</span>)</span></span><br></code></pre></td></tr></table></figure>
+
+<h4 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">age = <span class="hljs-number">10</span><br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&quot;我今年%d岁&quot;</span> % age)</span></span><br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">格式符号</th>
+<th align="center">转换</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%c</td>
+<td align="center">字符</td>
+</tr>
+<tr>
+<td align="center">%s</td>
+<td align="center">字符串</td>
+</tr>
+<tr>
+<td align="center">%d</td>
+<td align="center">有符号十进制整数</td>
+</tr>
+<tr>
+<td align="center">%u</td>
+<td align="center">无符号十进制整数</td>
+</tr>
+<tr>
+<td align="center">%o</td>
+<td align="center">八进制整数</td>
+</tr>
+<tr>
+<td align="center">%x</td>
+<td align="center">十六进制整数（小写字母0x）</td>
+</tr>
+<tr>
+<td align="center">%X</td>
+<td align="center">十六进制整数（大写字母0X）</td>
+</tr>
+<tr>
+<td align="center">%f</td>
+<td align="center">浮点数</td>
+</tr>
+<tr>
+<td align="center">%e</td>
+<td align="center">科学计数法（小写’e’）</td>
+</tr>
+<tr>
+<td align="center">%E</td>
+<td align="center">科学计数法（大写“E”）</td>
+</tr>
+<tr>
+<td align="center">%g</td>
+<td align="center">％f和％e 的简写</td>
+</tr>
+<tr>
+<td align="center">%G</td>
+<td align="center">％f和％E的简写</td>
+</tr>
+</tbody></table>
+<h4 id="换行输出"><a href="#换行输出" class="headerlink" title="换行输出"></a>换行输出</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;ssssss\nskdskd&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">password</span> = input(<span class="hljs-string">&#x27;输入密码&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="center">描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+</td>
+<td align="center">加</td>
+<td>两个对象相加 a + b 输出结果 30</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="center">减</td>
+<td>得到负数或是一个数减去另一个数 a - b 输出结果 -10</td>
+</tr>
+<tr>
+<td align="left">*</td>
+<td align="center">乘</td>
+<td>两个数相乘或是返回一个被重复若干次的字符串 a * b 输出结果 200</td>
+</tr>
+<tr>
+<td align="left">/</td>
+<td align="center">除</td>
+<td>b / a 输出结果 2</td>
+</tr>
+<tr>
+<td align="left">//</td>
+<td align="center">取整除</td>
+<td>返回商的整数部分 9//2 输出结果 4 , 9.0//2.0 输出结果 4.0</td>
+</tr>
+<tr>
+<td align="left">%</td>
+<td align="center">取余</td>
+<td>返回除法的余数 b % a 输出结果 0</td>
+</tr>
+<tr>
+<td align="left">**</td>
+<td align="center">指数</td>
+<td>a**b 为10的20次方， 输出结果 100000000000000000000</td>
+</tr>
+</tbody></table>
+<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="center">描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">=</td>
+<td align="center">赋值运算符</td>
+<td>把 = 号右边的结果 赋给 左边的变量，如 num = 1 + 2 * 3，结果num的值为7</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="center">描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+=</td>
+<td align="center">加法赋值运算符</td>
+<td>c += a 等效于 c = c + a</td>
+</tr>
+<tr>
+<td align="left">-=</td>
+<td align="center">减法赋值运算符</td>
+<td>c -= a 等效于 c = c - a</td>
+</tr>
+<tr>
+<td align="left">*=</td>
+<td align="center">乘法赋值运算符</td>
+<td>c *= a 等效于 c = c * a</td>
+</tr>
+<tr>
+<td align="left">/=</td>
+<td align="center">除法赋值运算符</td>
+<td>c /= a 等效于 c = c / a</td>
+</tr>
+<tr>
+<td align="left">%=</td>
+<td align="center">取模赋值运算符</td>
+<td>c %= a 等效于 c = c % a</td>
+</tr>
+<tr>
+<td align="left">**=</td>
+<td align="center">幂赋值运算符</td>
+<td>c **= a 等效于 c = c ** a</td>
+</tr>
+<tr>
+<td align="left">//=</td>
+<td align="center">取整除赋值运算符</td>
+<td>c //= a 等效于 c = c // a</td>
+</tr>
+</tbody></table>
+<h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">描述</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">==</td>
+<td align="left">检查两个操作数的值是否相等，如果是则条件变为真。</td>
+<td align="left">如a=3,b=3，则（a == b) 为 True</td>
+</tr>
+<tr>
+<td align="left">!=</td>
+<td align="left">检查两个操作数的值是否相等，如果值不相等，则条件变为真。</td>
+<td align="left">如a=1,b=3，则(a != b) 为 True</td>
+</tr>
+<tr>
+<td align="left">&gt;</td>
+<td align="left">检查左操作数的值是否大于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=7,b=3，则(a &gt; b) 为 True</td>
+</tr>
+<tr>
+<td align="left">&lt;</td>
+<td align="left">检查左操作数的值是否小于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=7,b=3，则(a &lt; b) 为 False</td>
+</tr>
+<tr>
+<td align="left">&gt;=</td>
+<td align="left">检查左操作数的值是否大于或等于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=3,b=3，则(a &gt;= b) 为 True</td>
+</tr>
+<tr>
+<td align="left">&lt;=</td>
+<td align="left">检查左操作数的值是否小于或等于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=3,b=3，则(a &lt;= b) 为 True</td>
+</tr>
+</tbody></table>
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">int(x [,base ])</td>
+<td align="center">将x转换为一个整数</td>
+</tr>
+<tr>
+<td align="center">float(x )</td>
+<td align="center">将x转换为一个浮点数</td>
+</tr>
+<tr>
+<td align="center">complex(real [,imag ])</td>
+<td align="center">创建一个复数，real为实部，imag为虚部</td>
+</tr>
+<tr>
+<td align="center">str(x )</td>
+<td align="center">将对象 x 转换为字符串</td>
+</tr>
+<tr>
+<td align="center">repr(x )</td>
+<td align="center">将对象 x 转换为表达式字符串</td>
+</tr>
+<tr>
+<td align="center">eval(str )</td>
+<td align="center">用来计算在字符串中的有效Python表达式,并返回一个对象</td>
+</tr>
+<tr>
+<td align="center">tuple(s )</td>
+<td align="center">将序列 s 转换为一个元组</td>
+</tr>
+<tr>
+<td align="center">list(s )</td>
+<td align="center">将序列 s 转换为一个列表</td>
+</tr>
+<tr>
+<td align="center">chr(x )</td>
+<td align="center">将一个整数转换为一个Unicode字符</td>
+</tr>
+<tr>
+<td align="center">ord(x )</td>
+<td align="center">将一个字符转换为它的ASCII整数值</td>
+</tr>
+<tr>
+<td align="center">hex(x )</td>
+<td align="center">将一个整数转换为一个十六进制字符串</td>
+</tr>
+<tr>
+<td align="center">oct(x )</td>
+<td align="center">将一个整数转换为一个八进制字符串</td>
+</tr>
+<tr>
+<td align="center">bin(x )</td>
+<td align="center">将一个整数转换为一个二进制字符串</td>
+</tr>
+</tbody></table>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">if</span> 要判断的条件:<br>       条件成立时，要做的事情<br></code></pre></td></tr></table></figure>
+
+<h4 id="if-else-语句"><a href="#if-else-语句" class="headerlink" title="if else 语句"></a>if else 语句</h4><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">if</span> 条件:<br>        满足条件时要做的事情<span class="hljs-number">1</span><br>        满足条件时要做的事情<span class="hljs-number">2</span><br>        满足条件时要做的事情<span class="hljs-number">3</span><br>        <span class="hljs-params">...</span>(省略)<span class="hljs-params">...</span><br>    <span class="hljs-keyword">else</span>:<br>        不满足条件时要做的事情<span class="hljs-number">1</span><br>        不满足条件时要做的事情<span class="hljs-number">2</span><br>        不满足条件时要做的事情<span class="hljs-number">3</span><br>        <span class="hljs-params">...</span>(省略)<span class="hljs-params">...</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="if…elif…else…"><a href="#if…elif…else…" class="headerlink" title="if…elif…else…"></a>if…elif…else…</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">if xxx1:</span><br>      <span class="hljs-string">事情1</span><br>  <span class="hljs-attr">elif xxx2:</span><br>      <span class="hljs-string">事情2</span><br>  <span class="hljs-attr">elif xxx3:</span><br>      <span class="hljs-string">事情3</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="if嵌套"><a href="#if嵌套" class="headerlink" title="if嵌套"></a>if嵌套</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">if 条件1:<br><br><span class="hljs-code">       满足条件1 做的事情1</span><br><span class="hljs-code">       满足条件1 做的事情2</span><br><span class="hljs-code"></span><br><span class="hljs-code">       if 条件2:</span><br><span class="hljs-code">           满足条件2 做的事情1</span><br><span class="hljs-code">           满足条件2 做的事情2</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h4><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">while</span> 条件:<br>       条件满足时，做的事情<span class="hljs-number">1</span><br>       条件满足时，做的事情<span class="hljs-number">2</span><br>       条件满足时，做的事情<span class="hljs-number">3</span><br>       <span class="hljs-params">...</span>(省略)<span class="hljs-params">...</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="while嵌套"><a href="#while嵌套" class="headerlink" title="while嵌套"></a>while嵌套</h4><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">while</span> 条件<span class="hljs-number">1</span>:<br><br>    条件<span class="hljs-number">1</span>满足时，做的事情<span class="hljs-number">1</span><br>    条件<span class="hljs-number">1</span>满足时，做的事情<span class="hljs-number">2</span><br>    条件<span class="hljs-number">1</span>满足时，做的事情<span class="hljs-number">3</span><br>    <span class="hljs-params">...</span>(省略)<span class="hljs-params">...</span><br><br>    <span class="hljs-keyword">while</span> 条件<span class="hljs-number">2</span>:<br>        条件<span class="hljs-number">2</span>满足时，做的事情<span class="hljs-number">1</span><br>        条件<span class="hljs-number">2</span>满足时，做的事情<span class="hljs-number">2</span><br>        条件<span class="hljs-number">2</span>满足时，做的事情<span class="hljs-number">3</span><br>        <span class="hljs-params">...</span>(省略)<span class="hljs-params">...</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h4><figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">for</span> 临时变量 <span class="hljs-variable"><span class="hljs-keyword">in</span></span> 列表或者字符串等可迭代对象:<br>    循环满足条件时执行的代码<br>    <br><span class="hljs-variable">name</span> = <span class="hljs-string">&#x27;itheima&#x27;</span><br><span class="hljs-variable">for</span> <span class="hljs-variable">x</span> <span class="hljs-variable"><span class="hljs-keyword">in</span></span> <span class="hljs-variable">name</span>:<br>    <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-variable">x</span>)</span><br>    <br><span class="hljs-variable">for</span> <span class="hljs-variable">i</span> <span class="hljs-variable"><span class="hljs-keyword">in</span></span> <span class="hljs-function"><span class="hljs-title">range</span>(<span class="hljs-number">5</span>):</span><br><span class="hljs-function">    <span class="hljs-title">print</span>(<span class="hljs-variable">i</span>)</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h4><ul>
+<li><p>break的作用：立刻结束break所在的循环</p>
+</li>
+<li><p>continue的作用：用来结束本次循环，紧接着执行下一次的循环</p>
+</li>
+</ul>
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="字符串输出和输入"><a href="#字符串输出和输入" class="headerlink" title="字符串输出和输入"></a>字符串输出和输入</h4><h5 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs routeros">name = <span class="hljs-string">&#x27;峰哥&#x27;</span><br>   position = <span class="hljs-string">&#x27;讲师&#x27;</span><br>  <span class="hljs-built_in"> address </span>= <span class="hljs-string">&#x27;北京市&#x27;</span><br><br>   <span class="hljs-builtin-name">print</span>(<span class="hljs-string">&#x27;--------------------------------------------------&#x27;</span>)<br>   <span class="hljs-builtin-name">print</span>(<span class="hljs-string">&quot;姓名：%s&quot;</span> % name)<br>   <span class="hljs-builtin-name">print</span>(<span class="hljs-string">&quot;职位：%s&quot;</span> % position)<br>   <span class="hljs-builtin-name">print</span>(<span class="hljs-string">&quot;公司地址：%s&quot;</span> % address)<br>   <span class="hljs-builtin-name">print</span>(<span class="hljs-string">&#x27;--------------------------------------------------&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">name = <span class="hljs-string">&#x27;峰哥&#x27;</span><br>age = <span class="hljs-number">33</span><br>format_string1 = <span class="hljs-string">f&#x27;我的名字是 <span class="hljs-subst">&#123;name&#125;</span>, 我的年龄是 <span class="hljs-subst">&#123;age&#125;</span>&#x27;</span><br><span class="hljs-built_in">print</span>(format_string1)<br></code></pre></td></tr></table></figure>
+
+<h5 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h5><figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs hsp">username = <span class="hljs-keyword">input</span>(<span class="hljs-string">&#x27;请输入用户名:&#x27;</span>)<br>    <span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;用户名为：%s&quot;</span> % username)<br></code></pre></td></tr></table></figure>
+
+<h4 id="下标与切片"><a href="#下标与切片" class="headerlink" title="下标与切片"></a>下标与切片</h4><h5 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h5><p>![image-20200929094153410](E:/Python学习/资料-python零基础入门/day03 容器/01-笔记/day03.assets/image-20200929094153410.png)</p>
+<h5 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">my_str[:]  得到和原来一样的字符串<br>my_str[::-<span class="hljs-number">1</span>]  字符串的逆置<br></code></pre></td></tr></table></figure>
+
+<h4 id="查找方法"><a href="#查找方法" class="headerlink" title="查找方法"></a>查找方法</h4><h5 id="find-amp-rfind"><a href="#find-amp-rfind" class="headerlink" title="find() &amp; rfind()"></a>find() &amp; rfind()</h5><p>![image-20200929104051168](E:/Python学习/资料-python零基础入门/day03 容器/01-笔记/day03.assets/image-20200929104051168.png)</p>
+<h5 id="index-amp-rindex"><a href="#index-amp-rindex" class="headerlink" title="index &amp; rindex()"></a>index &amp; rindex()</h5><p>![image-20200929104809098](E:/Python学习/资料-python零基础入门/day03 容器/01-笔记/day03.assets/image-20200929104809098.png)</p>
+<h5 id="count"><a href="#count" class="headerlink" title="count()"></a>count()</h5><p>![image-20200929105103951](E:/Python学习/资料-python零基础入门/day03 容器/01-笔记/day03.assets/image-20200929105103951.png)</p>
+<h4 id="字符串替换方法-replace"><a href="#字符串替换方法-replace" class="headerlink" title="字符串替换方法 replace"></a>字符串替换方法 replace</h4><p>![image-20200929110650386](E:/Python学习/资料-python零基础入门/day03 容器/01-笔记/day03.assets/image-20200929110650386.png)</p>
+<h4 id="字符串分隔-split"><a href="#字符串分隔-split" class="headerlink" title="字符串分隔 split()"></a>字符串分隔 split()</h4><p>![image-20200929111640115](E:/Python学习/资料-python零基础入门/day03 容器/01-笔记/day03.assets/image-20200929111640115.png)</p>
+<h4 id="字符串连接-join"><a href="#字符串连接-join" class="headerlink" title="字符串连接 join()"></a>字符串连接 join()</h4><p>![image-20200929112426212](E:/Python学习/资料-python零基础入门/day03 容器/01-笔记/day03.assets/image-20200929112426212.png)</p>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">my_dict = <span class="hljs-built_in">dict</span>()<br>my_dict2 = &#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h4><h5 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> <span class="hljs-built_in">dict</span>:<br>	<span class="hljs-built_in">print</span>(key,<span class="hljs-built_in">dict</span>[key]);<br></code></pre></td></tr></table></figure>
+
+<h5 id="字典的keys方法"><a href="#字典的keys方法" class="headerlink" title="字典的keys方法"></a>字典的keys方法</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">my_dict = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;isaac&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;gender&#x27;</span>: <span class="hljs-string">&#x27;男&#x27;</span>&#125;<br>keys = my_dict.keys()<br><span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> keys:<br>    <span class="hljs-built_in">print</span>(key)<br></code></pre></td></tr></table></figure>
+
+<p>通过<code>dict.keys()</code>获得key表，类型为<code>&lt;class &#39;dict_keys&#39;&gt;</code></p>
+<h5 id="字典的values方法"><a href="#字典的values方法" class="headerlink" title="字典的values方法"></a>字典的values方法</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">my_dict = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;isaac&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;gender&#x27;</span>: <span class="hljs-string">&#x27;男&#x27;</span>&#125;<br>values = my_dict.values()<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(values))<br><span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> values:<br>    <span class="hljs-built_in">print</span>(value)<br></code></pre></td></tr></table></figure>
+
+<h5 id="字典的items方法"><a href="#字典的items方法" class="headerlink" title="字典的items方法"></a>字典的items方法</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">my_dict = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;isaac&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;gender&#x27;</span>: <span class="hljs-string">&#x27;男&#x27;</span>&#125;<br>result = my_dict.items()<br><span class="hljs-built_in">print</span>(result, <span class="hljs-built_in">type</span>(result))<br><span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> my_dict.items():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(item))<br>    <span class="hljs-built_in">print</span>(item[<span class="hljs-number">0</span>], item[<span class="hljs-number">1</span>])<br></code></pre></td></tr></table></figure>
+
+<p>item的类型是<code>&lt;class &#39;tuple&#39;&gt;</code></p>
+<p>或者：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">my_dict = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;isaac&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;gender&#x27;</span>: <span class="hljs-string">&#x27;男&#x27;</span>&#125;<br><span class="hljs-keyword">for</span> k,V <span class="hljs-keyword">in</span> my_dict.items():<br>    <span class="hljs-built_in">print</span>(k,V)<br></code></pre></td></tr></table></figure>
+
+<h4 id="字典推导式"><a href="#字典推导式" class="headerlink" title="字典推导式"></a>字典推导式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-comment"># 补充: 字典推导式 </span><br><span class="hljs-comment"># 变量 = &#123;生成字典的规则 for 临时变量 in xx&#125;</span><br><span class="hljs-comment"># my_dict = &#123;key: value for i in range(3)&#125;</span><br>my_dict = &#123;<span class="hljs-string">f&quot;name<span class="hljs-subst">&#123;i&#125;</span>&quot;</span>: i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)&#125;<br><span class="hljs-built_in">print</span>(my_dict)<br><br>my_dict = &#123;<span class="hljs-string">f&quot;name<span class="hljs-subst">&#123;i&#125;</span>&quot;</span>: j <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)&#125;<br><span class="hljs-built_in">print</span>(my_dict)  <span class="hljs-comment"># 3</span><br>my_dict = &#123;<span class="hljs-string">f&quot;name<span class="hljs-subst">&#123;i&#125;</span><span class="hljs-subst">&#123;j&#125;</span>&quot;</span>: j <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)&#125;<br><span class="hljs-built_in">print</span>(my_dict)<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">my_list</span> =  []<br><span class="hljs-attr">my_list1</span> = list()<br><span class="hljs-attr">mu_list2</span> = [<span class="hljs-literal">True</span>,<span class="hljs-number">1</span>,<span class="hljs-string">&#x27;hello&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+<h4 id="遍历-1"><a href="#遍历-1" class="headerlink" title="遍历"></a>遍历</h4><h5 id="for"><a href="#for" class="headerlink" title="for"></a>for</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros">my_list2 = [<span class="hljs-literal">True</span>,1,<span class="hljs-string">&#x27;hello&#x27;</span>]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> my_list2:<br>    <span class="hljs-builtin-name">print</span>(i)<br></code></pre></td></tr></table></figure>
+
+<h5 id="while"><a href="#while" class="headerlink" title="while"></a>while</h5><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">j</span> = <span class="hljs-number">0</span><br><span class="hljs-attribute">while</span> j&lt;len(my_list<span class="hljs-number">2</span>):<br>    <span class="hljs-attribute">print</span>(my_list<span class="hljs-number">2</span>[j])<br>    <span class="hljs-attribute">j</span>+=<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="向列表中添加数据"><a href="#向列表中添加数据" class="headerlink" title="向列表中添加数据"></a>向列表中添加数据</h4><h5 id="在最后面"><a href="#在最后面" class="headerlink" title="在最后面"></a>在最后面</h5><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">append</span> = my_list<span class="hljs-number">2</span>.append(<span class="hljs-number">12</span>)<br></code></pre></td></tr></table></figure>
+
+<h5 id="在指定的下标位置"><a href="#在指定的下标位置" class="headerlink" title="在指定的下标位置"></a>在指定的下标位置</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">my_list2</span><span class="hljs-selector-class">.insert</span>(<span class="hljs-number">1</span>,<span class="hljs-string">&#x27;test&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="列表中的数据查询操作"><a href="#列表中的数据查询操作" class="headerlink" title="列表中的数据查询操作"></a>列表中的数据查询操作</h4><h5 id="查询下标"><a href="#查询下标" class="headerlink" title="查询下标"></a>查询下标</h5><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">my_list</span>.index(<span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
+
+<h5 id="查询是否存在"><a href="#查询是否存在" class="headerlink" title="查询是否存在"></a>查询是否存在</h5><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">isExist</span> = <span class="hljs-number">3</span> in my_list  <span class="hljs-comment">#返回的是布尔值</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="查询出现的次数"><a href="#查询出现的次数" class="headerlink" title="查询出现的次数"></a>查询出现的次数</h5><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">count</span> = my_list2.<span class="hljs-keyword">count</span>(<span class="hljs-keyword">True</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h4><h5 id="指定删除某个值"><a href="#指定删除某个值" class="headerlink" title="指定删除某个值"></a>指定删除某个值</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">my_list.<span class="hljs-builtin-name">remove</span>(4)<br></code></pre></td></tr></table></figure>
+
+<h5 id="通过下标删除"><a href="#通过下标删除" class="headerlink" title="通过下标删除"></a>通过下标删除</h5><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs 1c">my_list.pop()   <span class="hljs-meta">#删除最后一个</span><br>my_list.pop(<span class="hljs-number">2</span>)  <span class="hljs-meta">#删除第二个</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="列表排序和逆置"><a href="#列表排序和逆置" class="headerlink" title="列表排序和逆置"></a>列表排序和逆置</h4><h5 id="sort（）方法"><a href="#sort（）方法" class="headerlink" title="sort（）方法"></a>sort（）方法</h5><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">my_list = <span class="hljs-selector-attr">[1,5,6,8,3]</span> <br>my_list<span class="hljs-selector-class">.sort</span>()<br></code></pre></td></tr></table></figure>
+
+<h5 id="sorted"><a href="#sorted" class="headerlink" title="sorted"></a>sorted</h5><p>通过sorted是不会改变原来的list，但会返回一个列表</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">my_list</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">3</span>]<br><span class="hljs-attr">l</span> = sorted(my_list, reverse=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="列表推导式"><a href="#列表推导式" class="headerlink" title="列表推导式"></a>列表推导式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python">my_list = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>)]<br><span class="hljs-built_in">print</span>(my_list)  <span class="hljs-comment"># [0, 1, 2, 3, 4]</span><br><br>my_list1 = [<span class="hljs-string">&#x27;hello&#x27;</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>)]<br><span class="hljs-built_in">print</span>(my_list1)<br><br>my_list2 = [<span class="hljs-string">f&#x27;num:<span class="hljs-subst">&#123;i&#125;</span>&#x27;</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> my_list]<br><span class="hljs-built_in">print</span>(my_list2)<br>my_list3 = [i+i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>)]<br><span class="hljs-built_in">print</span>(my_list3)<br><br><span class="hljs-comment"># 2. 变量 = [生成数据的规则 for 临时变量 in xxx if xxx]</span><br><span class="hljs-comment"># 每循环一次,并且if条件为True,生成一个数据</span><br>my_list = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>]<br><span class="hljs-built_in">print</span>(my_list)  <span class="hljs-comment"># [0, 2, 4]</span><br><br><span class="hljs-comment"># 3. 变量 = [生成数据的规则 for 临时变量 in xxx  for j in xxx]</span><br><span class="hljs-comment"># 第二个for 循环 循环一次,生成一个数据</span><br>my_list4 = [(i,j) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)]<br><span class="hljs-built_in">print</span>(my_list4)<br></code></pre></td></tr></table></figure>
+
+<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">my_tuple</span>=()<br></code></pre></td></tr></table></figure>
+
+<p>和list差不多，只不过元组中的数据不能够修改</p>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">my_set</span> = &#123;xxx,xxx,xxxx,xx&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">my_<span class="hljs-keyword">set</span>.remove<span class="hljs-params">(xxx)</span><br>my_<span class="hljs-keyword">set</span>.pop<span class="hljs-params">()</span><br>my_<span class="hljs-keyword">set</span>.add（xxx）<br>my_<span class="hljs-keyword">set</span>.<span class="hljs-keyword">clear</span><span class="hljs-params">()</span><br>my_list=list<span class="hljs-params">(my_set)</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><h3 id="变量-1"><a href="#变量-1" class="headerlink" title="变量"></a>变量</h3><h4 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h4><h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><ul>
+<li>在函数外部定义的变量就是全局变量</li>
+<li>要想在函数内部修改全局变量，需要加<code>global</code>关键字</li>
+</ul>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><ul>
+<li>可以返回多个值，则是以元组的形式返回</li>
+<li>也可以直接使用<code>return</code>，返回的是<code>None</code>,和不写<code>return</code>效果一样</li>
+</ul>
+<h3 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h3><ul>
+<li>关键字传参和位置传参</li>
+<li>但是不能同时使用，使用不定长参数从除外</li>
+</ul>
+<h3 id="函数形参"><a href="#函数形参" class="headerlink" title="函数形参"></a>函数形参</h3><h4 id="缺省参数"><a href="#缺省参数" class="headerlink" title="缺省参数"></a>缺省参数</h4><p>缺省函数在传参是非必需</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">def <span class="hljs-function"><span class="hljs-title">fun</span><span class="hljs-params">(a,b,c=<span class="hljs-number">0</span>)</span></span><br></code></pre></td></tr></table></figure>
+
+<h4 id="不定长参数"><a href="#不定长参数" class="headerlink" title="不定长参数"></a>不定长参数</h4><p><code>*args</code>接受位置参数，类型为元组</p>
+<p><code>**kwargs</code>接受关键字参数，类型为字典</p>
+<p><img src="/2022/03/19/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20211209092906244.png" srcset="/img/loading.gif" lazyload alt="image-20211209092906244"></p>
+<h3 id="拆包和组包"><a href="#拆包和组包" class="headerlink" title="拆包和组包"></a>拆包和组包</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">a</span> = <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span><br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(a)</span></span><br><br><span class="hljs-selector-tag">b</span>, c, d, e = <span class="hljs-selector-tag">a</span><br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(b, c, d, sep=<span class="hljs-string">&#x27;_&#x27;</span>)</span></span><br><br>my_list = <span class="hljs-selector-attr">[10, 20]</span><br><span class="hljs-selector-tag">a</span>, <span class="hljs-selector-tag">b</span> = my_list<br></code></pre></td></tr></table></figure>
+
+<p>注意在拆包字典的时候，拆的是key值</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs axapta">my_dict = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;isaac&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">18</span>&#125;<br>a, b = my_dict   <span class="hljs-meta"># key值</span><br><span class="hljs-keyword">print</span>(a, b)   <span class="hljs-meta"># name age</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="应用：交换变量"><a href="#应用：交换变量" class="headerlink" title="应用：交换变量"></a>应用：交换变量</h4><p>不会引入中间变量</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-attribute">a</span>=10<br><span class="hljs-attribute">b</span>=20<br>a,<span class="hljs-attribute">b</span>=b,a<br></code></pre></td></tr></table></figure>
+
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>值相同则引用相同</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-attribute">a</span>=10<br><span class="hljs-attribute">b</span>=10<br><br><span class="hljs-builtin-name">print</span>(id(a)==id(b)) #<span class="hljs-literal">True</span><br><span class="hljs-attribute">a</span>=<span class="hljs-string">&#x27;s&#x27;</span><br><span class="hljs-attribute">b</span>=<span class="hljs-string">&#x27;s&#x27;</span><br><br><span class="hljs-builtin-name">print</span>(id(a)==id(b)) #<span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
+
+<p>如果两个列表的引用相同，则一个列表的改变，另外一个列表也会改变</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]  <span class="hljs-comment"># 将列表的引用地址保存到变量my_list 中</span><br>my_list1 = my_list  <span class="hljs-comment"># 将my_list 变量中存储的引用地址给到 my_list1</span><br><span class="hljs-built_in">print</span>(my_list, <span class="hljs-built_in">id</span>(my_list))<br><span class="hljs-built_in">print</span>(my_list1, <span class="hljs-built_in">id</span>(my_list1))<br><br>my_list.append(<span class="hljs-number">4</span>)  <span class="hljs-comment"># 向列表中添加数据4, 将数据4 的引用保存到列表中</span><br><span class="hljs-built_in">print</span>(my_list, <span class="hljs-built_in">id</span>(my_list))<br><span class="hljs-built_in">print</span>(my_list1, <span class="hljs-built_in">id</span>(my_list1))<br></code></pre></td></tr></table></figure>
+
+<h4 id="可变与不可变类型"><a href="#可变与不可变类型" class="headerlink" title="可变与不可变类型"></a>可变与不可变类型</h4><p>对于不可变类型：只要值相等则id值相同</p>
+<p>对于可变类型：即使值相同，但id值不相同</p>
+<h4 id="引⽤做函数参数"><a href="#引⽤做函数参数" class="headerlink" title="引⽤做函数参数"></a><strong>引⽤做函数参数</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 函数传参传递的也是引用</span><br>my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]  <span class="hljs-comment"># 全局变量</span><br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func1</span>(<span class="hljs-params">a</span>):</span><br>    a.append(<span class="hljs-number">4</span>)<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func2</span>():</span><br>    <span class="hljs-comment"># 为啥不加global, 因为没有修改 my_list 中存的引用值</span><br>    my_list.append(<span class="hljs-number">5</span>)<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func3</span>():</span><br>    <span class="hljs-keyword">global</span> my_list<br>    my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]   <span class="hljs-comment"># 修改全局变量的值</span><br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func4</span>(<span class="hljs-params">a</span>):</span><br>    <span class="hljs-comment"># += 对于列表来说,类似列表的extend方法,不会改变变量的引用地址</span><br>    a += a  <span class="hljs-comment"># a = a + a, 修改了a变量a的引用</span><br>    <span class="hljs-comment"># print(a)</span><br><br><br>func1(my_list)    <span class="hljs-comment"># [1, 2, 3, 4]</span><br><span class="hljs-built_in">print</span>(my_list)<br>func2()  <span class="hljs-comment"># [1,2, 3, 4, 5]</span><br><span class="hljs-built_in">print</span>(my_list)<br>func3()  <span class="hljs-comment"># [1, 2, 3]</span><br><span class="hljs-built_in">print</span>(my_list)<br><br>b = <span class="hljs-number">10</span>  <span class="hljs-comment"># 不可变类型</span><br>func4(b)<br><span class="hljs-built_in">print</span>(b)  <span class="hljs-comment">#</span><br><br>func4(my_list)<br><span class="hljs-built_in">print</span>(my_list)  <span class="hljs-comment"># [1, 2, 3, 1, 2, 3]</span><br><br></code></pre></td></tr></table></figure>
+
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#无参有返回值</span><br>f2 = <span class="hljs-keyword">lambda</span>: <span class="hljs-number">1</span> + <span class="hljs-number">2</span><br><span class="hljs-built_in">print</span>(f2())<br><br><span class="hljs-comment">#有参无返回值</span><br>f3 = <span class="hljs-keyword">lambda</span> a : <span class="hljs-built_in">print</span>(a)<br><br><span class="hljs-comment">#有参有返回值</span><br>f3 = <span class="hljs-keyword">lambda</span> *a : a+<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="使用匿名函数列表排序"><a href="#使用匿名函数列表排序" class="headerlink" title="使用匿名函数列表排序"></a>使用匿名函数列表排序</h4><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sas">list1 = [&#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: 19&#125;,<br>         &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: 16&#125;,<br>         &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: 16&#125;,<br>         &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: 20&#125;]<br>         <br>list1.sort(<span class="hljs-meta">key</span>=lambda <span class="hljs-meta">x</span>: <span class="hljs-meta">x</span>[<span class="hljs-string">&#x27;name&#x27;</span>])<br>p<span class="hljs-meta">rint(</span>list1)<br>list1.sort(<span class="hljs-meta">key</span>=lambda <span class="hljs-meta">x</span>: <span class="hljs-meta">x</span>[<span class="hljs-string">&#x27;age&#x27;</span>])<br>p<span class="hljs-meta">rint(</span>list1)<br><br>list2 = [<span class="hljs-string">&#x27;aghdd&#x27;</span>, <span class="hljs-string">&#x27;bc&#x27;</span>, <span class="hljs-string">&#x27;ghlj&#x27;</span>, <span class="hljs-string">&#x27;def&#x27;</span>, <span class="hljs-string">&#x27;ab&#x27;</span>]<br>list2.sort(<span class="hljs-meta">key</span>=lambda <span class="hljs-meta">x</span>: l<span class="hljs-meta">en(</span><span class="hljs-meta">x</span>))<br>p<span class="hljs-meta">rint(</span>list2)<br></code></pre></td></tr></table></figure>
+
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h4 id="私有属性"><a href="#私有属性" class="headerlink" title="私有属性"></a>私有属性</h4><ul>
+<li><p>私有属性不能够被外部调用</p>
+</li>
+<li><p>可以通过<code>xxx.__dict__</code>查看对象对应的属性，包括公用的属性和私有的属性。</p>
+<ul>
+<li>通过该方式查看的私有属性，会默认加一个类名例如 <code>_类名__私有属性</code></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/19/Redis/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Redis</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/19/Nginx%E9%9D%A2%E8%AF%95/">
+                        <span class="hidden-mobile">Nginx面试</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"> <span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
